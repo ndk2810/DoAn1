@@ -1,0 +1,30 @@
+﻿@using HeThongThueXe.Models;
+@{
+    List<LoaiXe> a = ViewBag.listXe;
+}
+<style>
+    img{
+        width: 170px;
+        height: 130px;
+    }
+    *{
+        text-align: center;
+    }
+</style>
+
+<div>
+    <h1>CÁC LOẠI XE CHO THUÊ</h1>
+    <table class="table">
+        <tr>
+            @foreach (var item in a)
+            {
+                <td>
+                    <a href="#">
+                        <img src="@item.linkImgLoaiXe " />
+                        <h4>@item.tenLoaiXe</h4>
+                    </a>
+                </td>
+            }
+        </tr>
+    </table>
+</div>

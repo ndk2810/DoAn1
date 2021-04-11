@@ -1,0 +1,16 @@
+﻿
+.clearfix.item{
+    border-bottom: solid 1px;
+    padding-top:10px;
+}
+.hometitle {
+    border-bottom: 1px solid #ff6a00;
+    overflow: hidden;
+    padding: 7px 0;
+}
+    .hometitle span {
+        background: #e3b83d;
+        padding: 10px;
+        color: #000;
+    }
+

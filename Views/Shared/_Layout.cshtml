@@ -75,37 +75,63 @@
                 <li>@Html.ActionLink("TRANG CHỦ", "Index", "Home")</li>
                 <li>@Html.ActionLink("GIỚI THIỆU", "Index", "GioiThieu")</li>
                 <li class="dropdowns">
-                    @Html.ActionLink("THUÊ XE DU LỊCH", "Index", "ThueXe4Cho");
+                    <a href="#">LOẠI XE</a>
                     <div class="dropdowns__dropdown-content">
                         <ul>
-                            <li>Xe 4 chỗ</li>
-                            <li>Xe 7 chỗ</li>
-                            <li>Xe 16 chỗ</li>
-                            <li>Xe 32 chỗ</li>
+                            <li>
+                                @Html.ActionLink("Xe 4 chỗ", "Index", "ThueXe4Cho");
+                            </li>
+                            <li>
+                                @Html.ActionLink("Xe 7 chỗ", "Index", "ThueXe4Cho");
+                            </li>
+                            <li>
+                                @Html.ActionLink("Xe 16 chỗ", "Index", "ThueXe4Cho");
+                            </li>
+                            <li>
+                                @Html.ActionLink("Xe 29 chỗ", "Index", "ThueXe4Cho");
+                            </li>
                         </ul>
                     </div>
                 </li>
                 <li class="dropdowns">
-                    @Html.ActionLink("LOẠI XE CHO THUÊ", "Index", "LoaiXeChoThue")
+                    <a href="#">HIỆU XE</a>
                     <div class="dropdowns__dropdown-content">
                         <ul>
-                            <li>KIA K3</li>
-                            <li>Honda</li>
-                            <li>Toyota</li>
-                            <li>Lamborghini</li>
-                            <li>Ferrari</li>
+                            <li>
+                                @Html.ActionLink("Kia K3", "Index", "LoaiXeChoThue")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Honda City", "Index", "LoaiXeChoThue")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Mazda", "Index", "LoaiXeChoThue")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Sedona", "Index", "LoaiXeChoThue")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Fortuner", "Index", "LoaiXeChoThue")
+                            </li>
 
                         </ul>
                     </div>
                 </li>
                 <li class="dropdowns">
-                    @Html.ActionLink("BẢNG GIÁ", "Index", "BangGia")
+                    <a href="#">BẢNG GIÁ</a>
                     <div class="dropdowns__dropdown-content">
                         <ul>
-                            <li>Bảng giá Xe 4 chỗ</li>
-                            <li>Bảng giá Xe 7 chỗ</li>
-                            <li>Bảng giá Xe 16 chỗ</li>
-                            <li>Bảng giá Xe 32 chỗ</li>
+                            <li>
+                                @Html.ActionLink("Bảng giá xe 4 chỗ", "Index", "BangGia")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Bảng giá xe 7 chỗ", "Index", "BangGia")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Bảng giá xe 16 chỗ", "Index", "BangGia")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Bảng giá xe 29 chỗ", "Index", "BangGia")
+                            </li>
                         </ul>
                     </div>
                 </li>

@@ -120,8 +120,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BangGiaController.cs" />
+    <Compile Include="Controllers\ChinhSachDoiTraController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LienHeController.cs" />
+    <Compile Include="Controllers\LoaiXeChoThueController.cs" />
+    <Compile Include="Controllers\ThueXe4ChoController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -130,15 +136,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\BangGia.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ChinhSachDoiTra.css" />
+    <Content Include="Content\GioiThieu.css" />
+    <Content Include="Content\Home.css" />
     <Content Include="Content\img\logo-bo-cong-thuong.jpg" />
     <Content Include="Content\img\slide1.jpg" />
     <Content Include="Content\img\slide2.jpg" />
     <Content Include="Content\img\slide3.jpg" />
     <Content Include="Content\img\smallicon.png" />
+    <Content Include="Content\LienHe.css" />
+    <Content Include="Content\ThueXe.css" />
+    <Content Include="Content\TinTuc.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -167,10 +180,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\GioiThieu\Index.cshtml" />
+    <Content Include="Views\Shared\_MenuPartialView.cshtml" />
+    <Content Include="Views\TinTuc\Index.cshtml" />
+    <Content Include="Views\ThueXe4Cho\Index.cshtml" />
+    <Content Include="Views\LoaiXeChoThue\Index.cshtml" />
+    <Content Include="Views\BangGia\Index.cshtml" />
+    <Content Include="Views\LienHe\Index.cshtml" />
+    <Content Include="Views\ChinhSachDoiTra\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

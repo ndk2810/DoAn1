@@ -64,6 +64,7 @@
 
         .dropdowns:hover .dropdowns__dropdown-content {
             display: block;
+            z-index: 2;
         }
     </style>
 </head>
@@ -74,7 +75,7 @@
                 <li>@Html.ActionLink("TRANG CHỦ", "Index", "Home")</li>
                 <li>@Html.ActionLink("GIỚI THIỆU", "Index", "GioiThieu")</li>
                 <li class="dropdowns">
-                    @Html.ActionLink("THUÊ XE DU LỊCH >>", "Index", "Home");
+                    @Html.ActionLink("THUÊ XE DU LỊCH", "Index", "ThueXe4Cho");
                     <div class="dropdowns__dropdown-content">
                         <ul>
                             <li>Xe 4 chỗ</li>
@@ -85,7 +86,7 @@
                     </div>
                 </li>
                 <li class="dropdowns">
-                    @Html.ActionLink("LOẠI XE CHO THUÊ >>", "Index", "Home")
+                    @Html.ActionLink("LOẠI XE CHO THUÊ", "Index", "LoaiXeChoThue")
                     <div class="dropdowns__dropdown-content">
                         <ul>
                             <li>KIA K3</li>
@@ -93,12 +94,12 @@
                             <li>Toyota</li>
                             <li>Lamborghini</li>
                             <li>Ferrari</li>
-                            
+
                         </ul>
                     </div>
                 </li>
                 <li class="dropdowns">
-                    @Html.ActionLink("BẢNG GIÁ >>", "Index", "Home")
+                    @Html.ActionLink("BẢNG GIÁ", "Index", "BangGia")
                     <div class="dropdowns__dropdown-content">
                         <ul>
                             <li>Bảng giá Xe 4 chỗ</li>
@@ -108,93 +109,13 @@
                         </ul>
                     </div>
                 </li>
-                <li>@Html.ActionLink("LIÊN HỆ", "Contact", "Home")</li>
+                <li>@Html.ActionLink("TIN TỨC", "Index", "TinTuc")</li>
+                <li>@Html.ActionLink("LIÊN HỆ", "Index", "LienHe")</li>
             </ul>
         </nav>
     </header>
     <div class="body-content">
-        <div class="row">
-            <div class="col-lg-10">
-                @RenderBody()
-            </div>
-            <div class="col-lg-2 sidebar">
-                <ul class="sidebar__sidebar1">
-                    <li class="sidebar__sidebar1--strong">
-                        <p>
-                            CHO THUÊ XE DU LỊCH
-                        </p>
-                    </li>
-                    <div class="sidebar__sidebar1--list">
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Cho thuê xe 4 chỗ</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Cho thuê xe 7 chỗ</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Cho thuê xe 16 chỗ</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Cho thuê xe 29 chỗ</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Cho thuê xe 45 chỗ</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Cho thuê xe cưới hỏi</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Cho thuê xe theo hợp đồng</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Cho thuê xe theo tháng</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Cho thuê xe đi du lịch</li>
-                        </a>
-                    </div>
-                    <li class="sidebar__sidebar1--strong">
-                        <p>
-                            CÁC LOẠI XE CHO THUÊ
-                        </p>
-                    </li>
-                    <div class="sidebar__sidebar1--list">
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">KIA K3</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Honda City</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Mazda</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Toyota Vios</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Sedona</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Fortuner</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Hyundai</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Thaco</li>
-                        </a>
-                        <a href="#" class="sidebar__sidebar1--list--link">
-                            <li class="sidebar__sidebar1--list--item">Hyundai Country</li>
-                        </a>
-                    </div>
-
-                </ul>
-                <ul class="sidebar__sidebar2">
-
-                </ul>
-
-            </div>
-        </div>
+        @RenderBody()
     </div>
 
     <footer>

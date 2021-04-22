@@ -1,6 +1,4 @@
-﻿@using HeThongThueXe.Models;
-@{ List<LoaiXe> a = ViewBag.listXe; }
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -54,118 +52,22 @@
                 </h3>
                 <ul class="main__content--content---products">
                     <div class="row">
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://oky.vn/wp-content/uploads/2018/10/cho-thue-xe-toyota-vios.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe du lịch 4 chỗ</h4>
-                                        <p>Thuê xe ô tô du lịch 4 chỗ đang là lựa chọn của rất nhiều người hiện nay. Mức giá thuê xe đang dao động thế nào? Công ty nào đang được nhiều người đánh giá cao?</p>
-                                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                        @*LOAD LOẠi XE TỪ CSDL*@
+                        @foreach (var loaiXe in ViewBag.dsLoaiXe)
+                        {
+                            <li class="aProduct col-lg-4">
+                                <div class="aProduct--item">
+                                    <div class="card">
+                                        <img src="data:image;base64,@System.Convert.ToBase64String(loaiXe.HinhAnh)" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h4>Cho thuê xe du lịch @loaiXe.TenLoaiXe</h4>
+                                            <p>@loaiXe.TomTat</p>
+                                            @Html.ActionLink("Xem chi tiết", "Index", "ChiTietThueXe", new {idLoaiXe = loaiXe.IDLoaiXe} , new { @class = "btn btn-primary" })
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://xedulichminhduc.com.vn/wp-content/uploads/2021/03/thue-xe-hai-phong.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe du lịch 7 chỗ</h4>
-                                        <p>Nhu cầu đi lại của người dân tăng cao. Do đó, nhu cầu thuê xe ô tô 7 chỗ cũng ngày càng nhiều. Vậy hiện nay, địa chỉ cho thuê xe 7 chỗ nào đang được nhiều người tin tưởng?</p>
-                                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://i1.wp.com/htxgiakhang.vn/wp-content/uploads/2018/12/thue-xe-7-cho-innova-anh-1.png?fit=600%2C600&ssl=1" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe du lịch 16 chỗ</h4>
-                                        <p>Thuê xe 16 chỗ và việc dùng dịch vụ thuê xe 16 chỗ có người lái là nhu cầu thiết yếu. Thuê xe du lịch 16 chỗ giá rẻ, thuê xe 16 chỗ giá rẻ tphcm, thuê xe 16 chỗ uy tín.</p>
-                                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://sc04.alicdn.com/kf/HTB1HpL5XITxK1Rjy0Fgq6yovpXaZ.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe du lịch 32 chỗ</h4>
-                                        <p>Thuê xe ô tô du lịch 32 chỗ đang là lựa chọn của rất nhiều người hiện nay. Vậy tại TPHCM, mức giá thuê xe đang dao động thế nào? Và công ty nào đang được nhiều người tin tưởng và đánh giá cao?.</p>
-                                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://jetcar.vn/wp-content/uploads/2018/01/hd.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe du lịch 45 chỗ</h4>
-                                        <p>Thuê xe ô tô du lịch 45 chỗ đang là lựa chọn của rất nhiều người hiện nay. Mức giá thuê xe đang dao động thế nào? Công ty nào đang được nhiều người đánh giá cao?</p>
-                                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://oky.vn/wp-content/uploads/2018/10/cho-thue-xe-toyota-vios.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe du lịch hợp đồng</h4>
-                                        <p>Thuê xe ô tô du lịch hợp đồng chỗ đang là lựa chọn của rất nhiều người hiện nay. Mức giá thuê xe đang dao động thế nào? Công ty nào đang được nhiều người đánh giá cao?</p>
-                                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://oky.vn/wp-content/uploads/2018/10/cho-thue-xe-toyota-vios.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe du lịch hợp đồng</h4>
-                                        <p>Thuê xe ô tô du lịch hợp đồng chỗ đang là lựa chọn của rất nhiều người hiện nay. Mức giá thuê xe đang dao động thế nào? Công ty nào đang được nhiều người đánh giá cao?</p>
-                                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://oky.vn/wp-content/uploads/2018/10/cho-thue-xe-toyota-vios.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe du lịch hợp đồng</h4>
-                                        <p>Thuê xe ô tô du lịch hợp đồng chỗ đang là lựa chọn của rất nhiều người hiện nay. Mức giá thuê xe đang dao động thế nào? Công ty nào đang được nhiều người đánh giá cao?</p>
-                                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://oky.vn/wp-content/uploads/2018/10/cho-thue-xe-toyota-vios.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe du lịch hợp đồng</h4>
-                                        <p>Thuê xe ô tô du lịch hợp đồng chỗ đang là lựa chọn của rất nhiều người hiện nay. Mức giá thuê xe đang dao động thế nào? Công ty nào đang được nhiều người đánh giá cao?</p>
-                                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-
+                            </li>
+                        }
                     </div>
 
                 </ul>
@@ -174,73 +76,21 @@
                 </h3>
                 <ul class="main__content--content---products">
                     <div class="row">
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://oky.vn/wp-content/uploads/2018/10/cho-thue-xe-toyota-vios.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe Honda City uy tín giá rẻ nhất TPHCM</h4>
-                                        <p>Nếu các bạn chưa tìm được nơi cho thuê xe Honda City uy tín, giá rẻ nhất thì hãy nhanh tay gọi đến số 0971.100.700 của Trí Tài để được tư vấn miễn phí.    </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        @*LOAD HIỆU XE TỪ CSDL*@
+                        @foreach (var hieuXe in ViewBag.dsHieuXe)
+                        {
                         <li class="aProduct col-lg-4">
                             <div class="aProduct--item">
                                 <div class="card">
                                     <img src="https://xedulichminhduc.com.vn/wp-content/uploads/2021/03/thue-xe-hai-phong.jpg" alt="Card image cap">
                                     <div class="card-body">
-                                        <h4>Cho thuê xe KIA K3 tại TPHCM</h4>
-                                        <p>Trí Tài đơn vị cho thuê xe KIA K3 tại TP. Hồ Chí Minh uy tín nhất hiện nay trên thị trường. Hãy nhanh tay gọi theo số 0971.100.700 để biết thêm thông tin chi tiết.    </p>
+                                        <h4>Cho thuê xe @hieuXe.TenHieuXe tại TPHCM</h4>
+                                        <p>@hieuXe.TomTat</p>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://i1.wp.com/htxgiakhang.vn/wp-content/uploads/2018/12/thue-xe-7-cho-innova-anh-1.png?fit=600%2C600&ssl=1" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe Mazda giá rẻ tại TPHCM</h4>
-                                        <p>Công ty TNHH dịch vụ du lịch Trí Tài là đơn vị cho thuê  Mazda giá rẻ tại TP. Hồ Chí Minh  uy tín nhất, để biết chi tiết hãy gọi ngay 0971.100.700</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://i1.wp.com/htxgiakhang.vn/wp-content/uploads/2018/12/thue-xe-7-cho-innova-anh-1.png?fit=600%2C600&ssl=1" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe Mazda giá rẻ tại TPHCM</h4>
-                                        <p>Công ty TNHH dịch vụ du lịch Trí Tài là đơn vị cho thuê  Mazda giá rẻ tại TP. Hồ Chí Minh  uy tín nhất, để biết chi tiết hãy gọi ngay 0971.100.700</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://i1.wp.com/htxgiakhang.vn/wp-content/uploads/2018/12/thue-xe-7-cho-innova-anh-1.png?fit=600%2C600&ssl=1" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe Mazda giá rẻ tại TPHCM</h4>
-                                        <p>Công ty TNHH dịch vụ du lịch Trí Tài là đơn vị cho thuê  Mazda giá rẻ tại TP. Hồ Chí Minh  uy tín nhất, để biết chi tiết hãy gọi ngay 0971.100.700</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="aProduct col-lg-4">
-                            <div class="aProduct--item">
-                                <div class="card">
-                                    <img src="https://i1.wp.com/htxgiakhang.vn/wp-content/uploads/2018/12/thue-xe-7-cho-innova-anh-1.png?fit=600%2C600&ssl=1" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4>Cho thuê xe Mazda giá rẻ tại TPHCM</h4>
-                                        <p>Công ty TNHH dịch vụ du lịch Trí Tài là đơn vị cho thuê  Mazda giá rẻ tại TP. Hồ Chí Minh  uy tín nhất, để biết chi tiết hãy gọi ngay 0971.100.700</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
+                        }
                     </div>
                 </ul>
 

@@ -230,8 +230,12 @@ C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\System.Web.WebPages.Razor.
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\Newtonsoft.Json.xml
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\Antlr3.Runtime.pdb
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\obj\Debug\HeThongThueXe.csprojAssemblyReference.cache
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\obj\Debug\HeThongThueXe.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\obj\Debug\HeThongThueXe.csproj.CopyComplete
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\obj\Debug\HeThongThueXe.dll
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\obj\Debug\HeThongThueXe.pdb
+C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\EntityFramework.dll
+C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\EntityFramework.xml
+C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\obj\Debug\HeThongThueXe.csprojAssemblyReference.cache

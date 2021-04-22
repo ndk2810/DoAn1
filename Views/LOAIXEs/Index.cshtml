@@ -1,0 +1,46 @@
+﻿@model IEnumerable<HeThongThueXe.Models.LOAIXE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenLoaiXe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TomTat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChiTiet)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLoaiXe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TomTat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChiTiet)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDLoaiXe }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDLoaiXe }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDLoaiXe })
+        </td>
+    </tr>
+}
+
+</table>

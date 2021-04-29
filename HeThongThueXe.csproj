@@ -188,6 +188,7 @@
     <Compile Include="Models\YEUCAUTHUE.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\YeuCauThueCLASS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +267,7 @@
     <Content Include="Views\LOAIXEs\Details.cshtml" />
     <Content Include="Views\LOAIXEs\Edit.cshtml" />
     <Content Include="Views\LOAIXEs\Index.cshtml" />
+    <Content Include="Views\ChiTietThueXe\ThemYeuCau.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

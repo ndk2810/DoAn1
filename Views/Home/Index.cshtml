@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/Content/Home.css" />
-
-
     <title>a</title>
 </head>
 <body>
@@ -60,7 +58,7 @@
                                     <div class="card">
                                         <img src="data:image;base64,@System.Convert.ToBase64String(loaiXe.HinhAnh)" alt="Card image cap">
                                         <div class="card-body">
-                                            <h4>Cho thuê xe du lịch @loaiXe.TenLoaiXe</h4>
+                                            <h4>Cho thuê @loaiXe.TenLoaiXe</h4>
                                             <p>@loaiXe.TomTat</p>
                                             @Html.ActionLink("Xem chi tiết", "Index", "ChiTietThueXe", new {idLoaiXe = loaiXe.IDLoaiXe} , new { @class = "btn btn-primary" })
                                         </div>
@@ -82,10 +80,11 @@
                         <li class="aProduct col-lg-4">
                             <div class="aProduct--item">
                                 <div class="card">
-                                    <img src="https://xedulichminhduc.com.vn/wp-content/uploads/2021/03/thue-xe-hai-phong.jpg" alt="Card image cap">
+                                    <img src="data:image;base64,@System.Convert.ToBase64String(hieuXe.HinhAnh)" alt="Card image cap">
                                     <div class="card-body">
                                         <h4>Cho thuê xe @hieuXe.TenHieuXe tại TPHCM</h4>
                                         <p>@hieuXe.TomTat</p>
+                                        @Html.ActionLink("Xem chi tiết", "Index", "LoaiXeChoThue", new { idHieuXe = hieuXe.IDHieuXe }, new { @class = "btn btn-primary" })
                                     </div>
                                 </div>
                             </div>

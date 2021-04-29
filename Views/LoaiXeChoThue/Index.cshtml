@@ -17,12 +17,12 @@
         <div class="container main__content">
             <div class="main__content--content">
                 <h3 class="main__content--content---title">
-                    <span>Cho thuê xe KIA K3 tại TPHCM</span>
+                    <span>Cho thuê xe @ViewBag.HieuXe.TenHieuXe tại TPHCM</span>
                 </h3>
                 <div class="main__content--content---chitiet">
                     <div class="row">
                         <div class="col-lg-6">
-                            <img src="https://dulichtritai.vn/images/kia-k3-dep.jpg" />
+                            <img src="data:image;base64,@System.Convert.ToBase64String(ViewBag.HieuXe.HinhAnh)" />
                         </div>
                         <div class="col-lg-6">
                             <table class="table-striped">
@@ -34,7 +34,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span>Thuê xe KIA K3 chỗ đang là lựa chọn của rất nhiều người hiện nay. Vậy tại TPHCM, mức giá thuê xe đang dao động thế nào? Và công ty nào đang được nhiều người tin tưởng và đánh giá cao?</span>
+                                            <span>@ViewBag.HieuXe.TomTat</span>
                                         </td>
                                     </tr>
                                     <tr>

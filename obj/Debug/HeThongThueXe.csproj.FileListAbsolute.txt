@@ -238,4 +238,3 @@ C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\EntityFramework.dll
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\EntityFramework.SqlServer.dll
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\EntityFramework.xml
 C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\bin\EntityFramework.SqlServer.xml
-C:\Users\Admin\Desktop\NDKhang\DoAn1\ThueXe\DoAn1\obj\Debug\HeThongThueXe.csprojAssemblyReference.cache

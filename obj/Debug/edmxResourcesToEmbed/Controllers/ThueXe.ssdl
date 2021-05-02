@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="THUEXEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BANGBAOGIA">
+    <Key>
+      <PropertyRef Name="IDBangBG" />
+    </Key>
+    <Property Name="IDBangBG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDXe" Type="int" />
+    <Property Name="GiaTheoGio" Type="money" />
+    <Property Name="GiaTheoNgay" Type="money" />
+  </EntityType>
+  <EntityType Name="HIEUXE">
+    <Key>
+      <PropertyRef Name="IDHieuXe" />
+    </Key>
+    <Property Name="IDHieuXe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenHieuXe" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TomTat" Type="nvarchar(max)" />
+    <Property Name="ChiTiet" Type="nvarchar(max)" />
+    <Property Name="HinhAnh" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="KHACH">
+    <Key>
+      <PropertyRef Name="IDKhach" />
+    </Key>
+    <Property Name="IDKhach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenKhach" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDT" Type="varchar" MaxLength="12" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="CMND" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="LIENHE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOAIXE">
+    <Key>
+      <PropertyRef Name="IDLoai" />
+    </Key>
+    <Property Name="IDLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoCho" Type="int" />
+  </EntityType>
+  <EntityType Name="THONGKE">
+    <Key>
+      <PropertyRef Name="IDThongKe" />
+    </Key>
+    <Property Name="IDThongKe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Thang" Type="int" Nullable="false" />
+    <Property Name="Nam" Type="int" Nullable="false" />
+    <Property Name="TongDoanhThu" Type="money" />
+    <Property Name="TongSoLuotThue" Type="int" />
+  </EntityType>
+  <EntityType Name="THUE">
+    <Key>
+      <PropertyRef Name="IDThue" />
+    </Key>
+    <Property Name="IDThue" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDKhach" Type="int" />
+    <Property Name="IDBangBG" Type="int" />
+    <Property Name="ThoiGianBD" Type="datetime" />
+    <Property Name="ThoiGianTra" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TINTUC">
+    <Key>
+      <PropertyRef Name="IDTinTuc" />
+    </Key>
+    <Property Name="IDTinTuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TomTat" Type="nvarchar(max)" />
+    <Property Name="NoiDung" Type="nvarchar(max)" />
+    <Property Name="NgayDang" Type="date" />
+    <Property Name="SoLuotXem" Type="int" />
+    <Property Name="AnhBia" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="XE">
+    <Key>
+      <PropertyRef Name="IDXe" />
+    </Key>
+    <Property Name="IDXe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDLoai" Type="int" />
+    <Property Name="TenXe" Type="varchar" MaxLength="50" />
+    <Property Name="HinhAnhXe" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="YEUCAUTHUE">
+    <Key>
+      <PropertyRef Name="IDYeuCau" />
+    </Key>
+    <Property Name="IDYeuCau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDKhach" Type="int" />
+    <Property Name="IDHieuXe" Type="int" />
+    <Property Name="IDLoaiXe" Type="int" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="ThoiGianThue" Type="datetime" />
+    <Property Name="ThoiGianTra" Type="datetime" />
+    <Property Name="TongTien" Type="money" />
+    <Property Name="YeuCauKhac" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <Association Name="FK__BANGBAOGIA__IDXe__15502E78">
+    <End Role="XE" Type="Self.XE" Multiplicity="0..1" />
+    <End Role="BANGBAOGIA" Type="Self.BANGBAOGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="IDXe" />
+      </Principal>
+      <Dependent Role="BANGBAOGIA">
+        <PropertyRef Name="IDXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THUE__IDBangBG__1B0907CE">
+    <End Role="BANGBAOGIA" Type="Self.BANGBAOGIA" Multiplicity="0..1" />
+    <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANGBAOGIA">
+        <PropertyRef Name="IDBangBG" />
+      </Principal>
+      <Dependent Role="THUE">
+        <PropertyRef Name="IDBangBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THUE__IDBangBG__30F848ED">
+    <End Role="BANGBAOGIA" Type="Self.BANGBAOGIA" Multiplicity="0..1" />
+    <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANGBAOGIA">
+        <PropertyRef Name="IDBangBG" />
+      </Principal>
+      <Dependent Role="THUE">
+        <PropertyRef Name="IDBangBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THUE__IDKhach__1A14E395">
+    <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+    <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH">
+        <PropertyRef Name="IDKhach" />
+      </Principal>
+      <Dependent Role="THUE">
+        <PropertyRef Name="IDKhach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THUE__IDKhach__31EC6D26">
+    <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+    <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH">
+        <PropertyRef Name="IDKhach" />
+      </Principal>
+      <Dependent Role="THUE">
+        <PropertyRef Name="IDKhach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__XE__IDLoai__1273C1CD">
+    <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
+    <End Role="XE" Type="Self.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="IDLoai" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="IDLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YEUCAUTHU__IDHie__32E0915F">
+    <End Role="HIEUXE" Type="Self.HIEUXE" Multiplicity="0..1" />
+    <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HIEUXE">
+        <PropertyRef Name="IDHieuXe" />
+      </Principal>
+      <Dependent Role="YEUCAUTHUE">
+        <PropertyRef Name="IDHieuXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YEUCAUTHU__IDKha__33D4B598">
+    <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+    <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH">
+        <PropertyRef Name="IDKhach" />
+      </Principal>
+      <Dependent Role="YEUCAUTHUE">
+        <PropertyRef Name="IDKhach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="THUEXEModelStoreContainer">
+    <EntitySet Name="BANGBAOGIA" EntityType="Self.BANGBAOGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HIEUXE" EntityType="Self.HIEUXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACH" EntityType="Self.KHACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LIENHE" EntityType="Self.LIENHE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIXE" EntityType="Self.LOAIXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THONGKE" EntityType="Self.THONGKE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THUE" EntityType="Self.THUE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TINTUC" EntityType="Self.TINTUC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XE" EntityType="Self.XE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YEUCAUTHUE" EntityType="Self.YEUCAUTHUE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BANGBAOGIA__IDXe__15502E78" Association="Self.FK__BANGBAOGIA__IDXe__15502E78">
+      <End Role="XE" EntitySet="XE" />
+      <End Role="BANGBAOGIA" EntitySet="BANGBAOGIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THUE__IDBangBG__1B0907CE" Association="Self.FK__THUE__IDBangBG__1B0907CE">
+      <End Role="BANGBAOGIA" EntitySet="BANGBAOGIA" />
+      <End Role="THUE" EntitySet="THUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THUE__IDBangBG__30F848ED" Association="Self.FK__THUE__IDBangBG__30F848ED">
+      <End Role="BANGBAOGIA" EntitySet="BANGBAOGIA" />
+      <End Role="THUE" EntitySet="THUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THUE__IDKhach__1A14E395" Association="Self.FK__THUE__IDKhach__1A14E395">
+      <End Role="KHACH" EntitySet="KHACH" />
+      <End Role="THUE" EntitySet="THUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THUE__IDKhach__31EC6D26" Association="Self.FK__THUE__IDKhach__31EC6D26">
+      <End Role="KHACH" EntitySet="KHACH" />
+      <End Role="THUE" EntitySet="THUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__XE__IDLoai__1273C1CD" Association="Self.FK__XE__IDLoai__1273C1CD">
+      <End Role="LOAIXE" EntitySet="LOAIXE" />
+      <End Role="XE" EntitySet="XE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YEUCAUTHU__IDHie__32E0915F" Association="Self.FK__YEUCAUTHU__IDHie__32E0915F">
+      <End Role="HIEUXE" EntitySet="HIEUXE" />
+      <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YEUCAUTHU__IDKha__33D4B598" Association="Self.FK__YEUCAUTHU__IDKha__33D4B598">
+      <End Role="KHACH" EntitySet="KHACH" />
+      <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

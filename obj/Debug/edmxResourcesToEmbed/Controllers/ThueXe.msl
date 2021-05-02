@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="THUEXEModelStoreContainer" CdmEntityContainer="THUEXEEntities1">
+    <EntitySetMapping Name="BANGBAOGIAs">
+      <EntityTypeMapping TypeName="THUEXEModel.BANGBAOGIA">
+        <MappingFragment StoreEntitySet="BANGBAOGIA">
+          <ScalarProperty Name="IDBangBG" ColumnName="IDBangBG" />
+          <ScalarProperty Name="IDXe" ColumnName="IDXe" />
+          <ScalarProperty Name="GiaTheoGio" ColumnName="GiaTheoGio" />
+          <ScalarProperty Name="GiaTheoNgay" ColumnName="GiaTheoNgay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HIEUXEs">
+      <EntityTypeMapping TypeName="THUEXEModel.HIEUXE">
+        <MappingFragment StoreEntitySet="HIEUXE">
+          <ScalarProperty Name="IDHieuXe" ColumnName="IDHieuXe" />
+          <ScalarProperty Name="TenHieuXe" ColumnName="TenHieuXe" />
+          <ScalarProperty Name="TomTat" ColumnName="TomTat" />
+          <ScalarProperty Name="ChiTiet" ColumnName="ChiTiet" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHes">
+      <EntityTypeMapping TypeName="THUEXEModel.KHACH">
+        <MappingFragment StoreEntitySet="KHACH">
+          <ScalarProperty Name="IDKhach" ColumnName="IDKhach" />
+          <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LIENHEs">
+      <EntityTypeMapping TypeName="THUEXEModel.LIENHE">
+        <MappingFragment StoreEntitySet="LIENHE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIXEs">
+      <EntityTypeMapping TypeName="THUEXEModel.LOAIXE">
+        <MappingFragment StoreEntitySet="LOAIXE">
+          <ScalarProperty Name="IDLoai" ColumnName="IDLoai" />
+          <ScalarProperty Name="SoCho" ColumnName="SoCho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THONGKEs">
+      <EntityTypeMapping TypeName="THUEXEModel.THONGKE">
+        <MappingFragment StoreEntitySet="THONGKE">
+          <ScalarProperty Name="IDThongKe" ColumnName="IDThongKe" />
+          <ScalarProperty Name="Thang" ColumnName="Thang" />
+          <ScalarProperty Name="Nam" ColumnName="Nam" />
+          <ScalarProperty Name="TongDoanhThu" ColumnName="TongDoanhThu" />
+          <ScalarProperty Name="TongSoLuotThue" ColumnName="TongSoLuotThue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THUEs">
+      <EntityTypeMapping TypeName="THUEXEModel.THUE">
+        <MappingFragment StoreEntitySet="THUE">
+          <ScalarProperty Name="IDThue" ColumnName="IDThue" />
+          <ScalarProperty Name="IDKhach" ColumnName="IDKhach" />
+          <ScalarProperty Name="IDBangBG" ColumnName="IDBangBG" />
+          <ScalarProperty Name="ThoiGianBD" ColumnName="ThoiGianBD" />
+          <ScalarProperty Name="ThoiGianTra" ColumnName="ThoiGianTra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINTUCs">
+      <EntityTypeMapping TypeName="THUEXEModel.TINTUC">
+        <MappingFragment StoreEntitySet="TINTUC">
+          <ScalarProperty Name="IDTinTuc" ColumnName="IDTinTuc" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="TomTat" ColumnName="TomTat" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="SoLuotXem" ColumnName="SoLuotXem" />
+          <ScalarProperty Name="AnhBia" ColumnName="AnhBia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XEs">
+      <EntityTypeMapping TypeName="THUEXEModel.XE">
+        <MappingFragment StoreEntitySet="XE">
+          <ScalarProperty Name="IDXe" ColumnName="IDXe" />
+          <ScalarProperty Name="IDLoai" ColumnName="IDLoai" />
+          <ScalarProperty Name="TenXe" ColumnName="TenXe" />
+          <ScalarProperty Name="HinhAnhXe" ColumnName="HinhAnhXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YEUCAUTHUEs">
+      <EntityTypeMapping TypeName="THUEXEModel.YEUCAUTHUE">
+        <MappingFragment StoreEntitySet="YEUCAUTHUE">
+          <ScalarProperty Name="IDYeuCau" ColumnName="IDYeuCau" />
+          <ScalarProperty Name="IDKhach" ColumnName="IDKhach" />
+          <ScalarProperty Name="IDHieuXe" ColumnName="IDHieuXe" />
+          <ScalarProperty Name="IDLoaiXe" ColumnName="IDLoaiXe" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="ThoiGianThue" ColumnName="ThoiGianThue" />
+          <ScalarProperty Name="ThoiGianTra" ColumnName="ThoiGianTra" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="YeuCauKhac" ColumnName="YeuCauKhac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

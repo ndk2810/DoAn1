@@ -1,0 +1,43 @@
+﻿@model HeThongThueXe.Models.LOAIXE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LOAIXE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoaiXe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoaiXe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TomTat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TomTat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChiTiet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChiTiet)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDLoaiXe }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

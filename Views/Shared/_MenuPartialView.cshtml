@@ -1,0 +1,175 @@
+﻿@model HeThongThueXe.Models.YeuCauThueCLASS
+<div class="sidebar">
+    <ul class="sidebar__sidebar">
+        <li class="sidebar--strong">
+            <p>
+                CHO THUÊ XE DU LỊCH
+            </p>
+        </li>
+        <div class="sidebar--list">
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Cho thuê xe 4 chỗ", "Index", "ChiTietThueXe", new { idLoaiXe = 1 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Cho thuê xe 7 chỗ", "Index", "ChiTietThueXe", new { idLoaiXe = 2 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Cho thuê xe 16 chỗ", "Index", "ChiTietThueXe", new { idLoaiXe = 3 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Cho thuê xe 29 chỗ", "Index", "ChiTietThueXe", new { idLoaiXe = 4 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Cho thuê xe 45 chỗ", "Index", "ChiTietThueXe", new { idLoaiXe = 7 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Cho thuê xe cưới hỏi", "Index", "ChiTietThueXe", new { idLoaiXe = 8 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Cho thuê xe theo hợp đồng", "Index", "ChiTietThueXe", new { idLoaiXe = 9 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Cho thuê xe theo tháng", "Index", "ChiTietThueXe", new { idLoaiXe = 10 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Cho thuê xe đi viếng chùa", "Index", "ChiTietThueXe", new { idLoaiXe = 11 }, null)</li>
+            </a>
+        </div>
+        <li class="sidebar--strong">
+            <p>
+                CÁC LOẠI XE CHO THUÊ
+            </p>
+        </li>
+        <div class="sidebar--list">
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("KIA K3", "Index", "LoaiXeChoThue", new { idHieuXe = 1 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Honda City", "Index", "LoaiXeChoThue", new { idHieuXe = 2 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Mazda", "Index", "LoaiXeChoThue", new { idHieuXe = 3 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Toyota Vios", "Index", "LoaiXeChoThue", new { idHieuXe = 8 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Fortuner", "Index", "LoaiXeChoThue", new { idHieuXe = 4 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Hyundai", "Index", "LoaiXeChoThue", new { idHieuXe = 5 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Samco", "Index", "LoaiXeChoThue", new { idHieuXe = 9 }, null)</li>
+            </a>
+            <a href="#" class="sidebar--list--link">
+                <li class="sidebar--list--item">@Html.ActionLink("Innova", "Index", "LoaiXeChoThue", new { idHieuXe = 6 }, null)</li>
+            </a>
+        </div>
+
+    </ul>
+    <div class="sidebar__datxeInput">
+        <div class="sidebar__datxeInput--head">
+            <p class="sidebar__datxeInput--strong">ĐẶT XE TẠI ĐÂY</p>
+        </div>
+
+        @using (Html.BeginForm("ThemYeuCau", "ChiTietThueXe", FormMethod.Post))
+        {
+            <div class="box--datxe">
+                <table class="table sidebar__datxeInput--table">
+                    <tbody>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Họ tên<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.TenKhach, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Địa chỉ<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.DiaChi, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Điện thoại<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.DienThoai, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Email<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Hãng xe<span>(*)</span></td>
+                            <td>
+                                @Html.DropDownListFor(m => m.IDHieuXe,
+                                new SelectList(
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "Toyota", Value = 1.ToString()},
+                                    new SelectListItem { Text = "Hyundai", Value = 2.ToString()},
+                                    new SelectListItem { Text = "Honda", Value = 3.ToString()},
+                                    new SelectListItem { Text = "Isuzu", Value = 4.ToString()},
+                                    new SelectListItem { Text = "Ford", Value = 5.ToString()},
+                                    new SelectListItem { Text = "Mercedes", Value = 6.ToString()},
+                                }, "Value", "Text"), new { @class = "form-control" })
+
+                                @*<select class="form-control" name="hangxe" id="hangxe">
+                                    <option value="0">Chọn hãng xe</option>
+                                    <option value="1">Toyota</option>
+                                    <option value="2">Huyndai</option>
+                                    <option value="3">Honda</option>
+                                    <option value="4">Isuzu</option>
+                                    <option value="5">Ford</option>
+                                    <option value="6">Mercedes</option>
+                                </select>*@
+                            </td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Loại xe<span>(*)</span></td>
+                            <td>
+                                @Html.DropDownListFor(m => m.IDLoaiXe,
+                                new SelectList(
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "4-5 chỗ", Value = 1.ToString()},
+                                    new SelectListItem { Text = "7-8 chỗ", Value = 2.ToString()},
+                                    new SelectListItem { Text = "16 chỗ", Value = 3.ToString()},
+                                    new SelectListItem { Text = "29 chỗ", Value = 4.ToString()},
+                                    new SelectListItem { Text = "45 chỗ", Value = 7.ToString()},
+                                }, "Value", "Text"), new { @class = "form-control" })
+                                @*<select class="form-control" name="loaixe" id="loaixe">
+                                    <option value="0">Chọn loại xe</option>
+                                    <option value="1">4-5 chỗ</option>
+                                    <option value="2">7-8 chỗ</option>
+                                    <option value="3">15 chỗ</option>
+                                    <option value="4">16 chỗ</option>
+                                    <option value="5">29 chỗ</option>
+                                    <option value="6">45 chỗ</option>
+                                </select>*@
+                            </td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Ngày đi<span>(*)</span></td>
+                            <td><input class="form-control" asp-for="ThoiGianThue" name="thoiGianThue" type="text" placeholder="Ngày đi" /></td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Ngày về<span>(*)</span></td>
+                            <td><input class="form-control" asp-for="ThoiGianTra" name="thoiGianTra" type="text" placeholder="Ngày về" /></td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td colspan="2" class="sidebar__datxeInput--table--row---col1">
+                                <label class="yeucaukhac">Yêu cầu khác</label>
+                                @Html.TextAreaFor(m => m.YeuCauKhac, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                </table>
+                @*<div class="button__submit" style="text-align:center; padding:5px">
+                    <button class="btn btn-danger button__submit--guidi">
+                        <i class="fa fa-envelope"></i>
+                        Gửi ngay
+                    </button>
+                </div>*@
+                <input type="submit" value="Submit" />
+            </div>
+        }
+
+        </div>
+
+</div>
+<img style="width:2515px" />

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "ThemYeuCau";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    <title>Thuê xe 4 chỗ</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container main__content">
+            <div class="main__content--content" style="background-color:white">
+                @ViewBag.YCT.TenKhach
+                <br />
+                @ViewBag.YCT.DiaChi
+                <br />
+                @ViewBag.YCT.Email
+                <br />
+                @ViewBag.YCT.IDHieuXe
+                <br />
+                @ViewBag.YCT.IDLoaiXe
+                <br />
+                @ViewBag.YCT.DienThoai
+                <br />
+                @ViewBag.YCT.NgayTao
+                <br />
+                @ViewBag.YCT.ThoiGianThue
+                <br />
+                @ViewBag.YCT.ThoiGianTra
+                <br />
+                @ViewBag.YCT.YeuCauKhac
+                <br />
+                <h1>GỬI YÊU CẦU THUÊ XE THÀNH CÔNG</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

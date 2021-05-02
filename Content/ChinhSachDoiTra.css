@@ -1,0 +1,48 @@
+﻿.main {
+    margin-top: 10px !important;
+}
+
+.main__content {
+    padding: 10px;
+    background: #fff;
+}
+
+.main__content--content {
+    display: block;
+    float: left;
+    min-height: 1px;
+    padding-left: 0;
+    position: relative;
+    width: 76.5%;
+}
+
+.main__content--content---title {
+    border-bottom: 1px solid #e3b83d;
+    overflow: hidden;
+    padding: 7px 0;
+}
+
+    .main__content--content---title span {
+        background: #e3b83d;
+        padding: 10px;
+        color: #000;
+        font-weight: 750;
+        font-size: 2rem;
+    }
+.main__content--content---date {
+    border-bottom: 1px solid rgba(202,195,195,.35);
+    margin-top: 10px !important;
+}
+
+.main__content--content---date-item {
+    font-size: 1rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+.main__content--content---ul{
+    margin-left:20px;
+
+}
+.main__content--content---ul li{
+    margin:10px 0;
+}

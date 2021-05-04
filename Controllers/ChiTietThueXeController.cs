@@ -11,6 +11,7 @@ namespace HeThongThueXe.Controllers
     public class ChiTietThueXeController : Controller
     {
         private THUEXEEntities db = new THUEXEEntities();
+
         // GET: ThueXe4Cho
         public ActionResult Index(int idLoaiXe)
         {
@@ -23,12 +24,11 @@ namespace HeThongThueXe.Controllers
         public ActionResult ThemYeuCau(YeuCauThueCLASS yeuCauThue)
         {
             YEUCAUTHUE newYeuCauThue = new YEUCAUTHUE();
-            KHACH newKhach = new KHACH();
-            newKhach.TenKhach = yeuCauThue.TenKhach;
-            newKhach.DiaChi = yeuCauThue.DiaChi;
-            newKhach.Email = yeuCauThue.Email;
-            newKhach.SDT = yeuCauThue.DienThoai;
 
+            newYeuCauThue.TenKhach = yeuCauThue.TenKhach;
+            newYeuCauThue.DiaChi = yeuCauThue.DiaChi;
+            newYeuCauThue.Email = yeuCauThue.Email;
+            newYeuCauThue.SDT = yeuCauThue.DienThoai;
             newYeuCauThue.IDHieuXe = yeuCauThue.IDHieuXe;
             newYeuCauThue.IDLoaiXe = yeuCauThue.IDLoaiXe;
             newYeuCauThue.NgayTao = DateTime.Now;
@@ -36,8 +36,8 @@ namespace HeThongThueXe.Controllers
             newYeuCauThue.ThoiGianTra = DateTime.Now;
             newYeuCauThue.YeuCauKhac = yeuCauThue.YeuCauKhac;
 
-            //db.YEUCAUTHUEs.Add(newYeuCauThue);
-            //db.SaveChanges();
+            db.YEUCAUTHUEs.Add(newYeuCauThue);
+            db.SaveChanges();
 
             ViewBag.YCT = yeuCauThue;
 

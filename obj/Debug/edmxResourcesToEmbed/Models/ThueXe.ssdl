@@ -53,16 +53,6 @@
     <Property Name="NoiDung" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DaXuLy" Type="bit" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="THONGKE">
     <Key>
       <PropertyRef Name="IDThongKe" />
@@ -117,16 +107,19 @@
       <PropertyRef Name="IDYeuCau" />
     </Key>
     <Property Name="IDYeuCau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IDKhach" Type="int" />
     <Property Name="IDHieuXe" Type="int" />
     <Property Name="IDLoaiXe" Type="int" />
     <Property Name="NgayTao" Type="date" />
+    <Property Name="TenKhach" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="60" />
+    <Property Name="SDT" Type="char" MaxLength="12" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="ThoiGianThue" Type="datetime" />
     <Property Name="ThoiGianTra" Type="datetime" />
     <Property Name="TongTien" Type="money" />
     <Property Name="YeuCauKhac" Type="nvarchar" MaxLength="128" />
   </EntityType>
-  <Association Name="FK__BANGBAOGI__IDLoa__2C3393D0">
+  <Association Name="FK__BANGBAOGI__IDLoa__35BCFE0A">
     <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
     <End Role="BANGBAOGIA" Type="Self.BANGBAOGIA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -138,7 +131,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHANHOI__IDKhach__3A81B327">
+  <Association Name="FK__PHANHOI__IDKhach__36B12243">
     <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
     <End Role="PHANHOI" Type="Self.PHANHOI" Multiplicity="*" />
     <ReferentialConstraint>
@@ -150,7 +143,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__THUE__IDBangBG__31EC6D26">
+  <Association Name="FK__THUE__IDBangBG__37A5467C">
     <End Role="BANGBAOGIA" Type="Self.BANGBAOGIA" Multiplicity="0..1" />
     <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -162,7 +155,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__THUE__IDKhach__30F848ED">
+  <Association Name="FK__THUE__IDKhach__38996AB5">
     <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
     <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -174,7 +167,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__THUE__IDXe__32E0915F">
+  <Association Name="FK__THUE__IDXe__398D8EEE">
     <End Role="XE" Type="Self.XE" Multiplicity="0..1" />
     <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -186,7 +179,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__XE__IDHieuXe__29572725">
+  <Association Name="FK__XE__IDHieuXe__3A81B327">
     <End Role="HIEUXE" Type="Self.HIEUXE" Multiplicity="0..1" />
     <End Role="XE" Type="Self.XE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -198,7 +191,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__XE__IDLoaiXe__286302EC">
+  <Association Name="FK__XE__IDLoaiXe__3B75D760">
     <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
     <End Role="XE" Type="Self.XE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -210,7 +203,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__YEUCAUTHU__IDHie__36B12243">
+  <Association Name="FK__YEUCAUTHU__IDHie__3C69FB99">
     <End Role="HIEUXE" Type="Self.HIEUXE" Multiplicity="0..1" />
     <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -222,19 +215,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__YEUCAUTHU__IDKha__35BCFE0A">
-    <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
-    <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KHACH">
-        <PropertyRef Name="IDKhach" />
-      </Principal>
-      <Dependent Role="YEUCAUTHUE">
-        <PropertyRef Name="IDKhach" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__YEUCAUTHU__IDLoa__37A5467C">
+  <Association Name="FK__YEUCAUTHU__IDLoa__3D5E1FD2">
     <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
     <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -252,49 +233,44 @@
     <EntitySet Name="KHACH" EntityType="Self.KHACH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LOAIXE" EntityType="Self.LOAIXE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHANHOI" EntityType="Self.PHANHOI" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THONGKE" EntityType="Self.THONGKE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THUE" EntityType="Self.THUE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TINTUC" EntityType="Self.TINTUC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="XE" EntityType="Self.XE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="YEUCAUTHUE" EntityType="Self.YEUCAUTHUE" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__BANGBAOGI__IDLoa__2C3393D0" Association="Self.FK__BANGBAOGI__IDLoa__2C3393D0">
+    <AssociationSet Name="FK__BANGBAOGI__IDLoa__35BCFE0A" Association="Self.FK__BANGBAOGI__IDLoa__35BCFE0A">
       <End Role="LOAIXE" EntitySet="LOAIXE" />
       <End Role="BANGBAOGIA" EntitySet="BANGBAOGIA" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHANHOI__IDKhach__3A81B327" Association="Self.FK__PHANHOI__IDKhach__3A81B327">
+    <AssociationSet Name="FK__PHANHOI__IDKhach__36B12243" Association="Self.FK__PHANHOI__IDKhach__36B12243">
       <End Role="KHACH" EntitySet="KHACH" />
       <End Role="PHANHOI" EntitySet="PHANHOI" />
     </AssociationSet>
-    <AssociationSet Name="FK__THUE__IDBangBG__31EC6D26" Association="Self.FK__THUE__IDBangBG__31EC6D26">
+    <AssociationSet Name="FK__THUE__IDBangBG__37A5467C" Association="Self.FK__THUE__IDBangBG__37A5467C">
       <End Role="BANGBAOGIA" EntitySet="BANGBAOGIA" />
       <End Role="THUE" EntitySet="THUE" />
     </AssociationSet>
-    <AssociationSet Name="FK__THUE__IDKhach__30F848ED" Association="Self.FK__THUE__IDKhach__30F848ED">
+    <AssociationSet Name="FK__THUE__IDKhach__38996AB5" Association="Self.FK__THUE__IDKhach__38996AB5">
       <End Role="KHACH" EntitySet="KHACH" />
       <End Role="THUE" EntitySet="THUE" />
     </AssociationSet>
-    <AssociationSet Name="FK__THUE__IDXe__32E0915F" Association="Self.FK__THUE__IDXe__32E0915F">
+    <AssociationSet Name="FK__THUE__IDXe__398D8EEE" Association="Self.FK__THUE__IDXe__398D8EEE">
       <End Role="XE" EntitySet="XE" />
       <End Role="THUE" EntitySet="THUE" />
     </AssociationSet>
-    <AssociationSet Name="FK__XE__IDHieuXe__29572725" Association="Self.FK__XE__IDHieuXe__29572725">
+    <AssociationSet Name="FK__XE__IDHieuXe__3A81B327" Association="Self.FK__XE__IDHieuXe__3A81B327">
       <End Role="HIEUXE" EntitySet="HIEUXE" />
       <End Role="XE" EntitySet="XE" />
     </AssociationSet>
-    <AssociationSet Name="FK__XE__IDLoaiXe__286302EC" Association="Self.FK__XE__IDLoaiXe__286302EC">
+    <AssociationSet Name="FK__XE__IDLoaiXe__3B75D760" Association="Self.FK__XE__IDLoaiXe__3B75D760">
       <End Role="LOAIXE" EntitySet="LOAIXE" />
       <End Role="XE" EntitySet="XE" />
     </AssociationSet>
-    <AssociationSet Name="FK__YEUCAUTHU__IDHie__36B12243" Association="Self.FK__YEUCAUTHU__IDHie__36B12243">
+    <AssociationSet Name="FK__YEUCAUTHU__IDHie__3C69FB99" Association="Self.FK__YEUCAUTHU__IDHie__3C69FB99">
       <End Role="HIEUXE" EntitySet="HIEUXE" />
       <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUE" />
     </AssociationSet>
-    <AssociationSet Name="FK__YEUCAUTHU__IDKha__35BCFE0A" Association="Self.FK__YEUCAUTHU__IDKha__35BCFE0A">
-      <End Role="KHACH" EntitySet="KHACH" />
-      <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUE" />
-    </AssociationSet>
-    <AssociationSet Name="FK__YEUCAUTHU__IDLoa__37A5467C" Association="Self.FK__YEUCAUTHU__IDLoa__37A5467C">
+    <AssociationSet Name="FK__YEUCAUTHU__IDLoa__3D5E1FD2" Association="Self.FK__YEUCAUTHU__IDLoa__3D5E1FD2">
       <End Role="LOAIXE" EntitySet="LOAIXE" />
       <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUE" />
     </AssociationSet>

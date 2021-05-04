@@ -11,8 +11,8 @@
     <Property Name="KhuyenMai" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="TenBangBG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="LOAIXE" Relationship="Self.FK__BANGBAOGI__IDLoa__2C3393D0" FromRole="BANGBAOGIA" ToRole="LOAIXE" />
-    <NavigationProperty Name="THUEs" Relationship="Self.FK__THUE__IDBangBG__31EC6D26" FromRole="BANGBAOGIA" ToRole="THUE" />
+    <NavigationProperty Name="LOAIXE" Relationship="Self.FK__BANGBAOGI__IDLoa__35BCFE0A" FromRole="BANGBAOGIA" ToRole="LOAIXE" />
+    <NavigationProperty Name="THUEs" Relationship="Self.FK__THUE__IDBangBG__37A5467C" FromRole="BANGBAOGIA" ToRole="THUE" />
   </EntityType>
   <EntityType Name="HIEUXE">
     <Key>
@@ -22,9 +22,9 @@
     <Property Name="TenHieuXe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TomTat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="XEs" Relationship="Self.FK__XE__IDHieuXe__29572725" FromRole="HIEUXE" ToRole="XE" />
-    <NavigationProperty Name="YEUCAUTHUEs" Relationship="Self.FK__YEUCAUTHU__IDHie__36B12243" FromRole="HIEUXE" ToRole="YEUCAUTHUE" />
     <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="XEs" Relationship="Self.FK__XE__IDHieuXe__3A81B327" FromRole="HIEUXE" ToRole="XE" />
+    <NavigationProperty Name="YEUCAUTHUEs" Relationship="Self.FK__YEUCAUTHU__IDHie__3C69FB99" FromRole="HIEUXE" ToRole="YEUCAUTHUE" />
   </EntityType>
   <EntityType Name="KHACH">
     <Key>
@@ -36,9 +36,8 @@
     <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CMND" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="PHANHOIs" Relationship="Self.FK__PHANHOI__IDKhach__3A81B327" FromRole="KHACH" ToRole="PHANHOI" />
-    <NavigationProperty Name="THUEs" Relationship="Self.FK__THUE__IDKhach__30F848ED" FromRole="KHACH" ToRole="THUE" />
-    <NavigationProperty Name="YEUCAUTHUEs" Relationship="Self.FK__YEUCAUTHU__IDKha__35BCFE0A" FromRole="KHACH" ToRole="YEUCAUTHUE" />
+    <NavigationProperty Name="PHANHOIs" Relationship="Self.FK__PHANHOI__IDKhach__36B12243" FromRole="KHACH" ToRole="PHANHOI" />
+    <NavigationProperty Name="THUEs" Relationship="Self.FK__THUE__IDKhach__38996AB5" FromRole="KHACH" ToRole="THUE" />
   </EntityType>
   <EntityType Name="LOAIXE">
     <Key>
@@ -48,10 +47,10 @@
     <Property Name="TenLoaiXe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TomTat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="BANGBAOGIAs" Relationship="Self.FK__BANGBAOGI__IDLoa__2C3393D0" FromRole="LOAIXE" ToRole="BANGBAOGIA" />
-    <NavigationProperty Name="XEs" Relationship="Self.FK__XE__IDLoaiXe__286302EC" FromRole="LOAIXE" ToRole="XE" />
-    <NavigationProperty Name="YEUCAUTHUEs" Relationship="Self.FK__YEUCAUTHU__IDLoa__37A5467C" FromRole="LOAIXE" ToRole="YEUCAUTHUE" />
     <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="BANGBAOGIAs" Relationship="Self.FK__BANGBAOGI__IDLoa__35BCFE0A" FromRole="LOAIXE" ToRole="BANGBAOGIA" />
+    <NavigationProperty Name="XEs" Relationship="Self.FK__XE__IDLoaiXe__3B75D760" FromRole="LOAIXE" ToRole="XE" />
+    <NavigationProperty Name="YEUCAUTHUEs" Relationship="Self.FK__YEUCAUTHU__IDLoa__3D5E1FD2" FromRole="LOAIXE" ToRole="YEUCAUTHUE" />
   </EntityType>
   <EntityType Name="PHANHOI">
     <Key>
@@ -62,17 +61,7 @@
     <Property Name="TieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DaXuLy" Type="Boolean" />
-    <NavigationProperty Name="KHACH" Relationship="Self.FK__PHANHOI__IDKhach__3A81B327" FromRole="PHANHOI" ToRole="KHACH" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="KHACH" Relationship="Self.FK__PHANHOI__IDKhach__36B12243" FromRole="PHANHOI" ToRole="KHACH" />
   </EntityType>
   <EntityType Name="THONGKE">
     <Key>
@@ -99,9 +88,9 @@
     <Property Name="TienDatCoc" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="TienConLai" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="GhiChu" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="BANGBAOGIA" Relationship="Self.FK__THUE__IDBangBG__31EC6D26" FromRole="THUE" ToRole="BANGBAOGIA" />
-    <NavigationProperty Name="KHACH" Relationship="Self.FK__THUE__IDKhach__30F848ED" FromRole="THUE" ToRole="KHACH" />
-    <NavigationProperty Name="XE" Relationship="Self.FK__THUE__IDXe__32E0915F" FromRole="THUE" ToRole="XE" />
+    <NavigationProperty Name="BANGBAOGIA" Relationship="Self.FK__THUE__IDBangBG__37A5467C" FromRole="THUE" ToRole="BANGBAOGIA" />
+    <NavigationProperty Name="KHACH" Relationship="Self.FK__THUE__IDKhach__38996AB5" FromRole="THUE" ToRole="KHACH" />
+    <NavigationProperty Name="XE" Relationship="Self.FK__THUE__IDXe__398D8EEE" FromRole="THUE" ToRole="XE" />
   </EntityType>
   <EntityType Name="TINTUC">
     <Key>
@@ -125,28 +114,30 @@
     <Property Name="TenXe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="BienSoXe" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
     <Property Name="SoLuotThue" Type="Int32" />
-    <NavigationProperty Name="HIEUXE" Relationship="Self.FK__XE__IDHieuXe__29572725" FromRole="XE" ToRole="HIEUXE" />
-    <NavigationProperty Name="LOAIXE" Relationship="Self.FK__XE__IDLoaiXe__286302EC" FromRole="XE" ToRole="LOAIXE" />
-    <NavigationProperty Name="THUEs" Relationship="Self.FK__THUE__IDXe__32E0915F" FromRole="XE" ToRole="THUE" />
+    <NavigationProperty Name="HIEUXE" Relationship="Self.FK__XE__IDHieuXe__3A81B327" FromRole="XE" ToRole="HIEUXE" />
+    <NavigationProperty Name="LOAIXE" Relationship="Self.FK__XE__IDLoaiXe__3B75D760" FromRole="XE" ToRole="LOAIXE" />
+    <NavigationProperty Name="THUEs" Relationship="Self.FK__THUE__IDXe__398D8EEE" FromRole="XE" ToRole="THUE" />
   </EntityType>
   <EntityType Name="YEUCAUTHUE">
     <Key>
       <PropertyRef Name="IDYeuCau" />
     </Key>
     <Property Name="IDYeuCau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IDKhach" Type="Int32" />
     <Property Name="IDHieuXe" Type="Int32" />
     <Property Name="IDLoaiXe" Type="Int32" />
     <Property Name="NgayTao" Type="DateTime" Precision="0" />
+    <Property Name="TenKhach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ThoiGianThue" Type="DateTime" Precision="3" />
     <Property Name="ThoiGianTra" Type="DateTime" Precision="3" />
     <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="YeuCauKhac" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="HIEUXE" Relationship="Self.FK__YEUCAUTHU__IDHie__36B12243" FromRole="YEUCAUTHUE" ToRole="HIEUXE" />
-    <NavigationProperty Name="KHACH" Relationship="Self.FK__YEUCAUTHU__IDKha__35BCFE0A" FromRole="YEUCAUTHUE" ToRole="KHACH" />
-    <NavigationProperty Name="LOAIXE" Relationship="Self.FK__YEUCAUTHU__IDLoa__37A5467C" FromRole="YEUCAUTHUE" ToRole="LOAIXE" />
+    <NavigationProperty Name="HIEUXE" Relationship="Self.FK__YEUCAUTHU__IDHie__3C69FB99" FromRole="YEUCAUTHUE" ToRole="HIEUXE" />
+    <NavigationProperty Name="LOAIXE" Relationship="Self.FK__YEUCAUTHU__IDLoa__3D5E1FD2" FromRole="YEUCAUTHUE" ToRole="LOAIXE" />
   </EntityType>
-  <Association Name="FK__BANGBAOGI__IDLoa__2C3393D0">
+  <Association Name="FK__BANGBAOGI__IDLoa__35BCFE0A">
     <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
     <End Role="BANGBAOGIA" Type="Self.BANGBAOGIA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -158,7 +149,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__THUE__IDBangBG__31EC6D26">
+  <Association Name="FK__THUE__IDBangBG__37A5467C">
     <End Role="BANGBAOGIA" Type="Self.BANGBAOGIA" Multiplicity="0..1" />
     <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -170,7 +161,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__XE__IDHieuXe__29572725">
+  <Association Name="FK__XE__IDHieuXe__3A81B327">
     <End Role="HIEUXE" Type="Self.HIEUXE" Multiplicity="0..1" />
     <End Role="XE" Type="Self.XE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -182,7 +173,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__YEUCAUTHU__IDHie__36B12243">
+  <Association Name="FK__YEUCAUTHU__IDHie__3C69FB99">
     <End Role="HIEUXE" Type="Self.HIEUXE" Multiplicity="0..1" />
     <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -194,7 +185,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHANHOI__IDKhach__3A81B327">
+  <Association Name="FK__PHANHOI__IDKhach__36B12243">
     <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
     <End Role="PHANHOI" Type="Self.PHANHOI" Multiplicity="*" />
     <ReferentialConstraint>
@@ -206,7 +197,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__THUE__IDKhach__30F848ED">
+  <Association Name="FK__THUE__IDKhach__38996AB5">
     <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
     <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -218,19 +209,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__YEUCAUTHU__IDKha__35BCFE0A">
-    <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
-    <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KHACH">
-        <PropertyRef Name="IDKhach" />
-      </Principal>
-      <Dependent Role="YEUCAUTHUE">
-        <PropertyRef Name="IDKhach" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__XE__IDLoaiXe__286302EC">
+  <Association Name="FK__XE__IDLoaiXe__3B75D760">
     <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
     <End Role="XE" Type="Self.XE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -242,7 +221,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__YEUCAUTHU__IDLoa__37A5467C">
+  <Association Name="FK__YEUCAUTHU__IDLoa__3D5E1FD2">
     <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
     <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -254,7 +233,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__THUE__IDXe__32E0915F">
+  <Association Name="FK__THUE__IDXe__398D8EEE">
     <End Role="XE" Type="Self.XE" Multiplicity="0..1" />
     <End Role="THUE" Type="Self.THUE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -272,49 +251,44 @@
     <EntitySet Name="KHACHes" EntityType="Self.KHACH" />
     <EntitySet Name="LOAIXEs" EntityType="Self.LOAIXE" />
     <EntitySet Name="PHANHOIs" EntityType="Self.PHANHOI" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="THONGKEs" EntityType="Self.THONGKE" />
     <EntitySet Name="THUEs" EntityType="Self.THUE" />
     <EntitySet Name="TINTUCs" EntityType="Self.TINTUC" />
     <EntitySet Name="XEs" EntityType="Self.XE" />
     <EntitySet Name="YEUCAUTHUEs" EntityType="Self.YEUCAUTHUE" />
-    <AssociationSet Name="FK__BANGBAOGI__IDLoa__2C3393D0" Association="Self.FK__BANGBAOGI__IDLoa__2C3393D0">
+    <AssociationSet Name="FK__BANGBAOGI__IDLoa__35BCFE0A" Association="Self.FK__BANGBAOGI__IDLoa__35BCFE0A">
       <End Role="LOAIXE" EntitySet="LOAIXEs" />
       <End Role="BANGBAOGIA" EntitySet="BANGBAOGIAs" />
     </AssociationSet>
-    <AssociationSet Name="FK__THUE__IDBangBG__31EC6D26" Association="Self.FK__THUE__IDBangBG__31EC6D26">
+    <AssociationSet Name="FK__THUE__IDBangBG__37A5467C" Association="Self.FK__THUE__IDBangBG__37A5467C">
       <End Role="BANGBAOGIA" EntitySet="BANGBAOGIAs" />
       <End Role="THUE" EntitySet="THUEs" />
     </AssociationSet>
-    <AssociationSet Name="FK__XE__IDHieuXe__29572725" Association="Self.FK__XE__IDHieuXe__29572725">
+    <AssociationSet Name="FK__XE__IDHieuXe__3A81B327" Association="Self.FK__XE__IDHieuXe__3A81B327">
       <End Role="HIEUXE" EntitySet="HIEUXEs" />
       <End Role="XE" EntitySet="XEs" />
     </AssociationSet>
-    <AssociationSet Name="FK__YEUCAUTHU__IDHie__36B12243" Association="Self.FK__YEUCAUTHU__IDHie__36B12243">
+    <AssociationSet Name="FK__YEUCAUTHU__IDHie__3C69FB99" Association="Self.FK__YEUCAUTHU__IDHie__3C69FB99">
       <End Role="HIEUXE" EntitySet="HIEUXEs" />
       <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUEs" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHANHOI__IDKhach__3A81B327" Association="Self.FK__PHANHOI__IDKhach__3A81B327">
+    <AssociationSet Name="FK__PHANHOI__IDKhach__36B12243" Association="Self.FK__PHANHOI__IDKhach__36B12243">
       <End Role="KHACH" EntitySet="KHACHes" />
       <End Role="PHANHOI" EntitySet="PHANHOIs" />
     </AssociationSet>
-    <AssociationSet Name="FK__THUE__IDKhach__30F848ED" Association="Self.FK__THUE__IDKhach__30F848ED">
+    <AssociationSet Name="FK__THUE__IDKhach__38996AB5" Association="Self.FK__THUE__IDKhach__38996AB5">
       <End Role="KHACH" EntitySet="KHACHes" />
       <End Role="THUE" EntitySet="THUEs" />
     </AssociationSet>
-    <AssociationSet Name="FK__YEUCAUTHU__IDKha__35BCFE0A" Association="Self.FK__YEUCAUTHU__IDKha__35BCFE0A">
-      <End Role="KHACH" EntitySet="KHACHes" />
-      <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUEs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__XE__IDLoaiXe__286302EC" Association="Self.FK__XE__IDLoaiXe__286302EC">
+    <AssociationSet Name="FK__XE__IDLoaiXe__3B75D760" Association="Self.FK__XE__IDLoaiXe__3B75D760">
       <End Role="LOAIXE" EntitySet="LOAIXEs" />
       <End Role="XE" EntitySet="XEs" />
     </AssociationSet>
-    <AssociationSet Name="FK__YEUCAUTHU__IDLoa__37A5467C" Association="Self.FK__YEUCAUTHU__IDLoa__37A5467C">
+    <AssociationSet Name="FK__YEUCAUTHU__IDLoa__3D5E1FD2" Association="Self.FK__YEUCAUTHU__IDLoa__3D5E1FD2">
       <End Role="LOAIXE" EntitySet="LOAIXEs" />
       <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUEs" />
     </AssociationSet>
-    <AssociationSet Name="FK__THUE__IDXe__32E0915F" Association="Self.FK__THUE__IDXe__32E0915F">
+    <AssociationSet Name="FK__THUE__IDXe__398D8EEE" Association="Self.FK__THUE__IDXe__398D8EEE">
       <End Role="XE" EntitySet="XEs" />
       <End Role="THUE" EntitySet="THUEs" />
     </AssociationSet>

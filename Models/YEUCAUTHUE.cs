@@ -15,17 +15,19 @@ namespace HeThongThueXe.Models
     public partial class YEUCAUTHUE
     {
         public int IDYeuCau { get; set; }
-        public Nullable<int> IDKhach { get; set; }
         public Nullable<int> IDHieuXe { get; set; }
         public Nullable<int> IDLoaiXe { get; set; }
         public Nullable<System.DateTime> NgayTao { get; set; }
+        public string TenKhach { get; set; }
+        public string DiaChi { get; set; }
+        public string SDT { get; set; }
+        public string Email { get; set; }
         public Nullable<System.DateTime> ThoiGianThue { get; set; }
         public Nullable<System.DateTime> ThoiGianTra { get; set; }
         public Nullable<decimal> TongTien { get; set; }
         public string YeuCauKhac { get; set; }
     
         public virtual HIEUXE HIEUXE { get; set; }
-        public virtual KHACH KHACH { get; set; }
         public virtual LOAIXE LOAIXE { get; set; }
     }
 }

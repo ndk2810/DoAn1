@@ -30,7 +30,6 @@ namespace HeThongThueXe.Models
         public virtual DbSet<KHACH> KHACHes { get; set; }
         public virtual DbSet<LOAIXE> LOAIXEs { get; set; }
         public virtual DbSet<PHANHOI> PHANHOIs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THONGKE> THONGKEs { get; set; }
         public virtual DbSet<THUE> THUEs { get; set; }
         public virtual DbSet<TINTUC> TINTUCs { get; set; }

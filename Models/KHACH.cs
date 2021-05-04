@@ -19,7 +19,6 @@ namespace HeThongThueXe.Models
         {
             this.PHANHOIs = new HashSet<PHANHOI>();
             this.THUEs = new HashSet<THUE>();
-            this.YEUCAUTHUEs = new HashSet<YEUCAUTHUE>();
         }
     
         public int IDKhach { get; set; }
@@ -33,7 +32,5 @@ namespace HeThongThueXe.Models
         public virtual ICollection<PHANHOI> PHANHOIs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THUE> THUEs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<YEUCAUTHUE> YEUCAUTHUEs { get; set; }
     }
 }

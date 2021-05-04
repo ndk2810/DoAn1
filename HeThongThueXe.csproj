@@ -155,9 +155,6 @@
     <Compile Include="Models\PHANHOI.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>ThueXe.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\THONGKE.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
@@ -214,8 +211,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\ThueXe.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ThueXe.Context.cs</LastGenOutput>
       <DependentUpon>ThueXe.edmx</DependentUpon>
+      <LastGenOutput>ThueXe.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\ThueXe.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

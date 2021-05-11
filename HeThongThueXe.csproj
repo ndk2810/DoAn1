@@ -140,10 +140,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BANGBAOGIA.cs">
+    <Compile Include="Models\HIEUXE.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HIEUXE.cs">
+    <Compile Include="Models\HOADON.cs">
+      <DependentUpon>ThueXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOADONCT.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KHACH.cs">
@@ -155,10 +158,16 @@
     <Compile Include="Models\PHANHOI.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SOTHUEXE.cs">
+      <DependentUpon>ThueXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAIKHOAN.cs">
+      <DependentUpon>ThueXe.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\THONGKE.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\THUE.cs">
+    <Compile Include="Models\THUECT.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThueXe.Context.cs">
@@ -175,9 +184,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ThueXe.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TINTUC.cs">
-      <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\XE.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
@@ -265,6 +271,7 @@
     <Content Include="Views\LOAIXEs\Edit.cshtml" />
     <Content Include="Views\LOAIXEs\Index.cshtml" />
     <Content Include="Views\ChiTietThueXe\ThemYeuCau.cshtml" />
+    <Content Include="Views\LienHe\ThemLienHe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

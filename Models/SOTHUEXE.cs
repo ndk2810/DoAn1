@@ -12,22 +12,29 @@ namespace HeThongThueXe.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class THUE
+    public partial class SOTHUEXE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SOTHUEXE()
+        {
+            this.HOADONs = new HashSet<HOADON>();
+            this.THUECTs = new HashSet<THUECT>();
+        }
+    
         public int IDThue { get; set; }
         public Nullable<int> IDKhach { get; set; }
-        public Nullable<int> IDBangBG { get; set; }
-        public Nullable<int> IDXe { get; set; }
         public Nullable<System.DateTime> NgayTao { get; set; }
         public Nullable<System.DateTime> ThoiGianThue { get; set; }
         public Nullable<System.DateTime> ThoiGianTra { get; set; }
         public Nullable<decimal> TongTien { get; set; }
-        public Nullable<decimal> TienDatCoc { get; set; }
-        public Nullable<decimal> TienConLai { get; set; }
+        public Nullable<decimal> TongGiam { get; set; }
         public string GhiChu { get; set; }
+        public string TinhTrangThue { get; set; }
     
-        public virtual BANGBAOGIA BANGBAOGIA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual KHACH KHACH { get; set; }
-        public virtual XE XE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THUECT> THUECTs { get; set; }
     }
 }

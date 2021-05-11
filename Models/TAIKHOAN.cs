@@ -12,14 +12,11 @@ namespace HeThongThueXe.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TINTUC
+    public partial class TAIKHOAN
     {
-        public int IDTinTuc { get; set; }
-        public string TieuDe { get; set; }
-        public string TomTat { get; set; }
-        public string NoiDung { get; set; }
-        public Nullable<System.DateTime> NgayDang { get; set; }
-        public Nullable<int> SoLuotXem { get; set; }
-        public byte[] AnhBia { get; set; }
+        public int IDTaiKhoan { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public Nullable<System.DateTime> ThoiGianDangNhap { get; set; }
     }
 }

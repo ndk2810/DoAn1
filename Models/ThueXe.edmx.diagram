@@ -4,26 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="30aacb709ed24ab0bad96185ed27d692" Name="Diagram1">
-        <EntityTypeShape EntityType="THUEXEModel.BANGBAOGIA" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="THUEXEModel.HIEUXE" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="THUEXEModel.KHACH" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="THUEXEModel.LOAIXE" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="THUEXEModel.PHANHOI" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="THUEXEModel.THONGKE" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="THUEXEModel.THUE" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="THUEXEModel.TINTUC" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="THUEXEModel.XE" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="THUEXEModel.YEUCAUTHUE" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
-        <AssociationConnector Association="THUEXEModel.FK__BANGBAOGI__IDLoa__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="THUEXEModel.FK__THUE__IDBangBG__37A5467C" ManuallyRouted="false" />
-        <AssociationConnector Association="THUEXEModel.FK__XE__IDHieuXe__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="THUEXEModel.FK__YEUCAUTHU__IDHie__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="THUEXEModel.FK__PHANHOI__IDKhach__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="THUEXEModel.FK__THUE__IDKhach__38996AB5" ManuallyRouted="false" />
-        <AssociationConnector Association="THUEXEModel.FK__XE__IDLoaiXe__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="THUEXEModel.FK__YEUCAUTHU__IDLoa__3D5E1FD2" ManuallyRouted="false" />
-        <AssociationConnector Association="THUEXEModel.FK__THUE__IDXe__398D8EEE" ManuallyRouted="false" />
+      <Diagram DiagramId="9838f2318faa43d6b8e13343ddc08c1f" Name="Diagram1">
+        <EntityTypeShape EntityType="THUEXEModel.HIEUXE" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.HOADON" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.HOADONCT" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.KHACH" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.LOAIXE" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.PHANHOI" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.SOTHUEXE" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.TAIKHOAN" Width="1.5" PointX="2.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.THONGKE" Width="1.5" PointX="8.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.THUECT" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.XE" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.YEUCAUTHUE" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="THUEXEModel.FK__XE__IDHieuXe__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__YEUCAUTHU__IDHie__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__HOADON__IDKhach__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__HOADON__IDThue__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__HOADONCT__IDHoaD__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__HOADONCT__IDXe__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__SOTHUEXE__IDKhac__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__XE__IDLoaiXe__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__YEUCAUTHU__IDLoa__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__THUECT__IDThue__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__THUECT__IDXe__31EC6D26" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

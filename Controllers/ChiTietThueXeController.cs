@@ -32,9 +32,10 @@ namespace HeThongThueXe.Controllers
             newYeuCauThue.IDHieuXe = yeuCauThue.IDHieuXe;
             newYeuCauThue.IDLoaiXe = yeuCauThue.IDLoaiXe;
             newYeuCauThue.NgayTao = DateTime.Now;
-            newYeuCauThue.ThoiGianThue = DateTime.Now;
-            newYeuCauThue.ThoiGianTra = DateTime.Now;
+            newYeuCauThue.ThoiGianThue = yeuCauThue.ThoiGianThue;
+            newYeuCauThue.ThoiGianTra = yeuCauThue.ThoiGianTra;
             newYeuCauThue.YeuCauKhac = yeuCauThue.YeuCauKhac;
+            newYeuCauThue.TrangThai = false;
 
             db.YEUCAUTHUEs.Add(newYeuCauThue);
             db.SaveChanges();

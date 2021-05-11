@@ -12,16 +12,14 @@ namespace HeThongThueXe.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PHANHOI
+    public partial class THUECT
     {
-        public int IDPhanHoi { get; set; }
-        public Nullable<System.DateTime> ThoiGianPhanHoi { get; set; }
-        public string TenKhach { get; set; }
-        public string SDT { get; set; }
-        public string DiaChi { get; set; }
-        public string Email { get; set; }
-        public string TieuDe { get; set; }
-        public string NoiDung { get; set; }
-        public Nullable<bool> DaXuLy { get; set; }
+        public int IDThueCT { get; set; }
+        public Nullable<int> IDThue { get; set; }
+        public Nullable<int> IDXe { get; set; }
+        public Nullable<decimal> Gia { get; set; }
+    
+        public virtual SOTHUEXE SOTHUEXE { get; set; }
+        public virtual XE XE { get; set; }
     }
 }

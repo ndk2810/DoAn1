@@ -25,6 +25,7 @@ namespace HeThongThueXe.Models
         public string TenHieuXe { get; set; }
         public string TomTat { get; set; }
         public string ChiTiet { get; set; }
+        public Nullable<int> SoLuotThue { get; set; }
         public byte[] HinhAnh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

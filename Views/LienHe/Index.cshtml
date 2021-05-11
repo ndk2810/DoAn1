@@ -1,4 +1,4 @@
-﻿
+﻿@model HeThongThueXe.Models.PHANHOI
 @{
     ViewBag.Title = "Index";
 }
@@ -23,57 +23,61 @@
                 <div class="main__content--content---lienhe">
                     <div class="row">
                         <div class="col-lg-6 lienhe-left">
-                            <form>
+                            @using (Html.BeginForm("ThemLienHe", "LienHe", FormMethod.Post))
+                            {
                                 <div class="mb-3 form-group row">
                                     <label class="form-label col-sm-3">Họ tên</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder="Họ tên">
+                                        @Html.TextBoxFor(m => m.TenKhach, new { @class = "form-control" })
                                     </div>
                                 </div>
                                 <div class="mb-3 form-group row">
                                     <label class="form-label col-sm-3">Đia chỉ</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder="Địa chỉ">
+                                        @Html.TextBoxFor(m => m.DiaChi, new { @class = "form-control" })
                                     </div>
                                 </div>
                                 <div class="mb-3 form-group row">
                                     <label class="form-label col-sm-3">Email</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder="Email">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                     </div>
                                 </div>
                                 <div class="mb-3 form-group row">
                                     <label class="form-label col-sm-3">Điện thoại</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder="Điện thoại">
+                                        @Html.TextBoxFor(m => m.SDT, new { @class = "form-control" })
                                     </div>
                                 </div>
                                 <div class="mb-3 form-group row">
                                     <label class="form-label col-sm-3">Tiêu đề</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder="Tiêu đề">
+                                        @Html.TextBoxFor(m => m.TieuDe, new { @class = "form-control" })
                                     </div>
                                 </div>
                                 <div class="mb-3 form-group row">
                                     <label class="form-label col-sm-3">Nội dung</label>
                                     <div class="col-sm-9">
-                                        <textarea class="form-control" rows="5" id="comment" placeholder="Nội dung"></textarea>
+                                        @Html.TextAreaFor(m => m.NoiDung, new { @class = "form-control" })
                                     </div>
                                 </div>
                                 <div class="mb-3 form-group row">
-                                    <div class="col-sm-9 col-sm-offset-3">
-                                        <button type="submit" style="padding:8px 16px" class="btn btn-success">
-                                            <i class="fa fa-envelope"></i>
-                                            Gửi
-                                        </button>
-                                        <button type="reset" style="padding:8px 16px" class="btn btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                            Hủy
-                                        </button>
-                                    </div>
+                                    @*<div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" style="padding:8px 16px" class="btn btn-success">
+                            <i class="fa fa-envelope"></i>
+                            Gửi
+                        </button>
+                        <button type="reset" style="padding:8px 16px" class="btn btn-danger">
+                            <i class="fa fa-trash"></i>
+                            Hủy
+                        </button>
+                        </div>*@
+                                    <input type="submit" value="Submit" />
                                 </div>
+                            }
 
-                            </form>
+
+
                         </div>
                         <div class="col-lg-6 lienhe-right">
                             <p>Dịch vụ thuê xe HUFLIT</p>

@@ -17,20 +17,19 @@ namespace HeThongThueXe.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHACH()
         {
-            this.PHANHOIs = new HashSet<PHANHOI>();
-            this.THUEs = new HashSet<THUE>();
+            this.HOADONs = new HashSet<HOADON>();
+            this.SOTHUEXEs = new HashSet<SOTHUEXE>();
         }
     
         public int IDKhach { get; set; }
         public string TenKhach { get; set; }
         public string SDT { get; set; }
         public string DiaChi { get; set; }
-        public string CMND { get; set; }
         public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHANHOI> PHANHOIs { get; set; }
+        public virtual ICollection<HOADON> HOADONs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THUE> THUEs { get; set; }
+        public virtual ICollection<SOTHUEXE> SOTHUEXEs { get; set; }
     }
 }

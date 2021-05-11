@@ -25,14 +25,16 @@ namespace HeThongThueXe.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BANGBAOGIA> BANGBAOGIAs { get; set; }
         public virtual DbSet<HIEUXE> HIEUXEs { get; set; }
+        public virtual DbSet<HOADON> HOADONs { get; set; }
+        public virtual DbSet<HOADONCT> HOADONCTs { get; set; }
         public virtual DbSet<KHACH> KHACHes { get; set; }
         public virtual DbSet<LOAIXE> LOAIXEs { get; set; }
         public virtual DbSet<PHANHOI> PHANHOIs { get; set; }
+        public virtual DbSet<SOTHUEXE> SOTHUEXEs { get; set; }
+        public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
         public virtual DbSet<THONGKE> THONGKEs { get; set; }
-        public virtual DbSet<THUE> THUEs { get; set; }
-        public virtual DbSet<TINTUC> TINTUCs { get; set; }
+        public virtual DbSet<THUECT> THUECTs { get; set; }
         public virtual DbSet<XE> XEs { get; set; }
         public virtual DbSet<YEUCAUTHUE> YEUCAUTHUEs { get; set; }
     }

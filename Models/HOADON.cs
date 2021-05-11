@@ -12,26 +12,28 @@ namespace HeThongThueXe.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class XE
+    public partial class HOADON
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public XE()
+        public HOADON()
         {
             this.HOADONCTs = new HashSet<HOADONCT>();
-            this.THUECTs = new HashSet<THUECT>();
         }
     
-        public int IDXe { get; set; }
-        public Nullable<int> IDLoaiXe { get; set; }
-        public Nullable<int> IDHieuXe { get; set; }
-        public string TenXe { get; set; }
-        public string BienSoXe { get; set; }
+        public int IDHoaDon { get; set; }
+        public Nullable<int> IDKhach { get; set; }
+        public Nullable<int> IDThue { get; set; }
+        public Nullable<System.DateTime> NgayTao { get; set; }
+        public Nullable<System.DateTime> ThoiGianThue { get; set; }
+        public Nullable<System.DateTime> ThoiGianTra { get; set; }
+        public Nullable<decimal> TongTien { get; set; }
+        public Nullable<decimal> TongGiam { get; set; }
+        public string GhiChu { get; set; }
+        public string TinhTrangThue { get; set; }
     
-        public virtual HIEUXE HIEUXE { get; set; }
+        public virtual KHACH KHACH { get; set; }
+        public virtual SOTHUEXE SOTHUEXE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADONCT> HOADONCTs { get; set; }
-        public virtual LOAIXE LOAIXE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THUECT> THUECTs { get; set; }
     }
 }

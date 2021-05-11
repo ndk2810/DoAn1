@@ -19,13 +19,13 @@ namespace HeThongThueXe.Models
         public Nullable<int> IDLoaiXe { get; set; }
         public Nullable<System.DateTime> NgayTao { get; set; }
         public string TenKhach { get; set; }
-        public string DiaChi { get; set; }
         public string SDT { get; set; }
+        public string DiaChi { get; set; }
         public string Email { get; set; }
         public Nullable<System.DateTime> ThoiGianThue { get; set; }
         public Nullable<System.DateTime> ThoiGianTra { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
         public string YeuCauKhac { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
     
         public virtual HIEUXE HIEUXE { get; set; }
         public virtual LOAIXE LOAIXE { get; set; }

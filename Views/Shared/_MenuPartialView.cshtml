@@ -146,11 +146,13 @@
                         </tr>
                         <tr class="sidebar__datxeInput--table--row">
                             <td class="sidebar__datxeInput--table--row---col1">Ngày đi<span>(*)</span></td>
-                            <td><input class="form-control" asp-for="ThoiGianThue" name="thoiGianThue" type="text" placeholder="Ngày đi" /></td>
+                        <td>@Html.TextBoxFor(m => m.ThoiGianThue, "{0:yyyy-MM-dd}", new { @class = "form-control", placeholder = "Ngày đi", type = "date" })</td>
+
+
                         </tr>
                         <tr class="sidebar__datxeInput--table--row">
                             <td class="sidebar__datxeInput--table--row---col1">Ngày về<span>(*)</span></td>
-                            <td><input class="form-control" asp-for="ThoiGianTra" name="thoiGianTra" type="text" placeholder="Ngày về" /></td>
+                            <td>@Html.TextBoxFor(m => m.ThoiGianTra, "{0:yyyy-MM-dd}", new { @class = "form-control", placeholder = "Ngày về", type = "date" })</td>
                         </tr>
                         <tr class="sidebar__datxeInput--table--row">
                             <td colspan="2" class="sidebar__datxeInput--table--row---col1">

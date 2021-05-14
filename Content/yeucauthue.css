@@ -1,0 +1,17 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.title{
+    font-size: 1.4rem;
+    font-weight:bolder;
+}
+.cot-btn{
+    width:140px;
+}
+.cot-btn a {
+    text-decoration:none;
+    color:white;
+}

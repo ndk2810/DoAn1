@@ -1,0 +1,166 @@
+﻿@model HeThongThueXe.Models.YeuCauThueCLASS
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/ThueXe.css" />
+    <title>Thuê xe 4 chỗ</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container main__content">
+            <div class="main__content--content">
+                <h3 class="main__content--content---title">
+                    <span>Cho thuê @ViewBag.LoaiXe.TenLoaiXe giá rẻ tại TPHCM</span>
+                </h3>
+                <div class="main__content--content---chitiet">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <img src="data:image;base64,@System.Convert.ToBase64String(ViewBag.LoaiXe.HinhAnh)" />
+                        </div>
+                        <div class="col-lg-6">
+                            <table class="table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="#">Cho thuê xe du lịch</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>@ViewBag.LoaiXe.TomTat</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            @using (Html.BeginForm("ThemYeuCau", "ChiTietThueXe", FormMethod.Post))
+                                            {
+                                                <div class="box--datxe">
+                                                    <table class="table sidebar__datxeInput--table">
+                                                        <tbody>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td class="sidebar__datxeInput--table--row---col1">Họ tên<span>(*)</span></td>
+                                                                <td>@Html.TextBoxFor(m => m.TenKhach, new { @class = "form-control" })</td>
+                                                            </tr>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td class="sidebar__datxeInput--table--row---col1">Địa chỉ<span>(*)</span></td>
+                                                                <td>@Html.TextBoxFor(m => m.DiaChi, new { @class = "form-control" })</td>
+                                                            </tr>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td class="sidebar__datxeInput--table--row---col1">Điện thoại<span>(*)</span></td>
+                                                                <td>@Html.TextBoxFor(m => m.DienThoai, new { @class = "form-control" })</td>
+                                                            </tr>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td class="sidebar__datxeInput--table--row---col1">Email<span>(*)</span></td>
+                                                                <td>@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })</td>
+                                                            </tr>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td class="sidebar__datxeInput--table--row---col1">Hãng xe<span>(*)</span></td>
+                                                                <td>
+                                                                    @Html.DropDownListFor(m => m.IDHieuXe,
+                                                                    new SelectList(
+                                                                    new List<SelectListItem>
+                                                                    {
+                                                                        new SelectListItem { Text = "Toyota", Value = 1.ToString()},
+                                                                        new SelectListItem { Text = "Hyundai", Value = 2.ToString()},
+                                                                        new SelectListItem { Text = "Honda", Value = 3.ToString()},
+                                                                        new SelectListItem { Text = "Isuzu", Value = 4.ToString()},
+                                                                        new SelectListItem { Text = "Ford", Value = 5.ToString()},
+                                                                        new SelectListItem { Text = "Mercedes", Value = 6.ToString()},
+                                                                    }, "Value", "Text"), new { @class = "form-control" })
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td class="sidebar__datxeInput--table--row---col1">Loại xe<span>(*)</span></td>
+                                                                <td>
+                                                                    @Html.DropDownListFor(m => m.IDLoaiXe,
+                                                                    new SelectList(
+                                                                    new List<SelectListItem>
+                                                                    {
+                                                                        new SelectListItem { Text = "4-5 chỗ", Value = 1.ToString()},
+                                                                        new SelectListItem { Text = "7-8 chỗ", Value = 2.ToString()},
+                                                                        new SelectListItem { Text = "16 chỗ", Value = 3.ToString()},
+                                                                        new SelectListItem { Text = "29 chỗ", Value = 4.ToString()},
+                                                                        new SelectListItem { Text = "45 chỗ", Value = 7.ToString()},
+                                                                    }, "Value", "Text"), new { @class = "form-control" })
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td class="sidebar__datxeInput--table--row---col1">Ngày đi<span>(*)</span></td>
+                                                                <td>@Html.TextBoxFor(m => m.ThoiGianThue, "{0:yyyy-MM-dd}", new { @class = "form-control", placeholder = "Ngày đi", type = "date" })</td>
+
+
+                                                            </tr>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td class="sidebar__datxeInput--table--row---col1">Ngày về<span>(*)</span></td>
+                                                                <td>@Html.TextBoxFor(m => m.ThoiGianTra, "{0:yyyy-MM-dd}", new { @class = "form-control", placeholder = "Ngày về", type = "date" })</td>
+                                                            </tr>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td colspan="2" class="sidebar__datxeInput--table--row---col1">
+                                                                    <label class="yeucaukhac">Yêu cầu khác</label>
+                                                                    @Html.TextAreaFor(m => m.YeuCauKhac, new { @class = "form-control" })
+                                                                </td>
+                                                            </tr>
+                                                    </table>
+                                                    <input class="button__submit" type="submit" value="Submit" />
+                                                </div>
+                                            }
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-12 main__content--content---chitiet-details">
+                            <div class="details-title">
+                                <h4>
+                                    <span>Chi tiết</span>
+                                </h4>
+                            </div>
+                            @Html.Raw(ViewBag.LoaiXe.ChiTiet)
+                            @*<div class="details-noidung">
+                                    <p class="details-noidung--title">
+                                        <strong>
+                                            CHO THUÊ XE DU LỊCH Ô TÔ 4 CHỖ GIÁ RẺ TPHCM
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        <span>
+                                            <strong>Thuê xe ô tô 4 chỗ</strong>
+                                        </span>
+                                        đang là nhu cầu phổ biến hiện nay. Với sức chứa vừa đủ cùng mức giá phải chăng,
+                                        <span style="font-style:italic">
+                                            <strong> thuê xe 4 chỗ</strong>
+                                        </span>
+                                        đang ngày càng được ưa chuộng tại TPHCM nói riêng và trên khắp cả nước nói chung. Vậy hiện nay, địa chỉ cho thuê xe nào đang được nhiều người tin tưởng và lựa chọn nhất? Hãy cùng tìm hiểu câu trả lời qua bài viết dưới đây.
+                                    </p>
+                                    <div class="details-noidung-mota">
+                                        <h3 style="font-weight:600">1. Bảng giá thuê xe ô tô 4 chỗ</h3>
+                                        <h4 style="margin-bottom:20px;margin-top:20px">1.1 Giá cho thuê xe 4 chỗ - có tài xế</h4>
+                                        <p>Bảng giá thuê xe 4 chỗ đang là vấn đề được nhiều người quan tâm. Cũng giống như những loại xe khác, giá thuê xe 7 chỗ sẽ được tính theo giờ thuê hoặc theo số km. Hiện nay, giá thuê 1 chiếc xe 7 chỗ cho 8 tiếng đang vào khoảng 1 triệu – 1 triệu 4. Mức giá đi trong nội thành TPHCM sẽ rẻ hơn so với mức giá đi ngoại thành và đi các tỉnh. Ngoài ra, giá thuê ban ngày và ban đêm cũng sẽ có sự chênh lệch. </p>
+                                        <p>Nếu bạn thuê theo km, một chiếc xe 4 chỗ cho 100km sẽ có mức giá từ 1.100.000 – 1.500.000 tùy dòng xe và độ mới của xe. Mức giá này có thể tăng khi độ dài quãng đường tăng</p>
+                                        <p>1.2 Bảng giá cho thuê xe du lịch 4 chỗ trong 1 ngày</p>
+                                        <p>Thay vì <strong>Thuê xe 4 chỗ</strong> theo km, thuê theo giờ cũng là lựa chọn của nhiều người hiện nay. Tương tự với thuê xe theo km, thuê theo giờ cũng tỉ lệ thuận với mức giá của xe. Cụ thể, thời gian thuê càng dài thì mức giá sẽ càng cao và ngược lại.</p>
+                                        <p>Hiện nay, tại thị trường TPHCM, mức giá đang rơi vào khoảng 1 triệu – 1 triệu 3 cho 8h thuê xe. Thời gian này sẽ được tính là từ 9h sáng tới 5h chiều. Thời gian buổi tối và buổi đêm mức giá có thể sẽ cao hơn một chút.</p>
+                                        <p>Tuy nhiên, nếu bạn thuê xe 24h thì mức giá sẽ rẻ hơn so với thuê 8 tiếng. Tùy loại xe mà mức giá sẽ dao động khác nhau. Hiện mức giá đang rơi vào khoảng 1 triệu 4 – 1 triệu 6 cho ngày thuê xe.</p>
+                                        <p style="text-align:center">
+                                            <img src="https://dulichtritai.vn/images/cho-thue-xe-du-lich-4-cho.png" />
+                                        </p>
+                                    </div>
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("_MenuPartialView")
+        </div>
+    </div>
+
+</body>
+</html>

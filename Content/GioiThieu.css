@@ -1,0 +1,96 @@
+﻿.main {
+    margin-top: 10px !important;
+}
+
+.main__content {
+    padding: 10px;
+    background: #fff;
+}
+
+.main__content--content {
+    display: block;
+    float: left;
+    min-height: 1px;
+    padding-left: 0;
+    position: relative;
+    width: 76.5%;
+}
+.main__content--content---title {
+    border-bottom: 1px solid #e3b83d;
+    overflow: hidden;
+    padding: 7px 0;
+}
+.main__content--content---title span {
+    background: #e3b83d;
+    padding: 10px;
+    color: #000;
+    font-weight: 750;
+    font-size: 2rem;
+}
+.main__content--content---date {
+    border-bottom: 1px solid rgba(202,195,195,.35);
+    margin-top: 10px !important;
+}
+.main__content--content---date-item {
+    font-size: 1rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+.main__content--content---gioithieu, main__content--content---linhvuc {
+    margin-top: 10px;
+    text-align: justify;
+    margin: 0in 0in 0.0001pt;
+    margin-top: 10px;
+}
+.main__content--content---gioithieu span {
+    display: block;
+    font-size: 1.45rem;
+    color:#555555;
+}
+.main__content--content---gioithieu strong {
+    font-size: 1.8rem;
+}
+.main__content--content---linhvuc p{
+    text-decoration:underline;
+    font-size:1.4rem;
+
+}
+.main__content--content---linhvuc img {
+    width: 640px;
+    height: 356px;
+    margin-top: 15px;
+    margin-bottom:15px;
+}
+.hinh-linhvuc{
+    text-align:center;
+}
+.main__content--content---linhvuc span {
+    display: block;
+    font-size: 1.45rem;
+    color: #555555;
+}
+.main__content--content---icon{
+    margin-top:10px;
+}
+.main__content--content---icon{
+    font-size:2.5rem;
+}
+.main__content--content---icon a{
+    text-decoration:none;
+    
+}
+.main__content--content---icon a:hover{
+    color:#555555;
+}
+.icon--fb {
+    color: #2d4373;
+}
+.icon--google{
+    color:red;
+}
+.icon--twitter {
+    color: #1DA1F2;
+}
+.icon--email {
+    color: #BD081C;
+}

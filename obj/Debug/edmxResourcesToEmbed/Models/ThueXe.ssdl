@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="THUEXEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="HIEUXE">
+    <Key>
+      <PropertyRef Name="IDHieuXe" />
+    </Key>
+    <Property Name="IDHieuXe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenHieuXe" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TomTat" Type="nvarchar(max)" />
+    <Property Name="ChiTiet" Type="nvarchar(max)" />
+    <Property Name="SoLuotThue" Type="int" />
+    <Property Name="HinhAnh" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="IDHoaDon" />
+    </Key>
+    <Property Name="IDHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDKhach" Type="int" />
+    <Property Name="IDThue" Type="int" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="ThoiGianThue" Type="datetime" />
+    <Property Name="ThoiGianTra" Type="datetime" />
+    <Property Name="TongTien" Type="money" />
+    <Property Name="TongGiam" Type="money" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="128" />
+    <Property Name="TinhTrangThue" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HOADONCT">
+    <Key>
+      <PropertyRef Name="IDHDCT" />
+    </Key>
+    <Property Name="IDHDCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDHoaDon" Type="int" />
+    <Property Name="IDXe" Type="int" />
+    <Property Name="Gia" Type="money" />
+  </EntityType>
+  <EntityType Name="KHACH">
+    <Key>
+      <PropertyRef Name="IDKhach" />
+    </Key>
+    <Property Name="IDKhach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenKhach" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDT" Type="varchar" MaxLength="12" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LOAIXE">
+    <Key>
+      <PropertyRef Name="IDLoaiXe" />
+    </Key>
+    <Property Name="IDLoaiXe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiXe" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TomTat" Type="nvarchar(max)" />
+    <Property Name="ChiTiet" Type="nvarchar(max)" />
+    <Property Name="GiaTheoGio" Type="money" />
+    <Property Name="GiaTheoNgay" Type="money" />
+    <Property Name="SoLuotThue" Type="int" />
+    <Property Name="HinhAnh" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="PHANHOI">
+    <Key>
+      <PropertyRef Name="IDPhanHoi" />
+    </Key>
+    <Property Name="IDPhanHoi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ThoiGianPhanHoi" Type="datetime" />
+    <Property Name="TenKhach" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDT" Type="varchar" MaxLength="12" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NoiDung" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DaXuLy" Type="bit" />
+  </EntityType>
+  <EntityType Name="SOTHUEXE">
+    <Key>
+      <PropertyRef Name="IDThue" />
+    </Key>
+    <Property Name="IDThue" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDKhach" Type="int" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="ThoiGianThue" Type="datetime" />
+    <Property Name="ThoiGianTra" Type="datetime" />
+    <Property Name="TongTien" Type="money" />
+    <Property Name="TongGiam" Type="money" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="128" />
+    <Property Name="TinhTrangThue" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="IDTaiKhoan" />
+    </Key>
+    <Property Name="IDTaiKhoan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="30" />
+    <Property Name="Password" Type="varchar" MaxLength="30" />
+    <Property Name="ThoiGianDangNhap" Type="datetime" />
+  </EntityType>
+  <EntityType Name="THONGKE">
+    <Key>
+      <PropertyRef Name="IDThongKe" />
+    </Key>
+    <Property Name="IDThongKe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Thang" Type="int" Nullable="false" />
+    <Property Name="Nam" Type="int" Nullable="false" />
+    <Property Name="TongDoanhThu" Type="money" />
+    <Property Name="TongSoLuotThue" Type="int" />
+  </EntityType>
+  <EntityType Name="THUECT">
+    <Key>
+      <PropertyRef Name="IDThueCT" />
+    </Key>
+    <Property Name="IDThueCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDThue" Type="int" />
+    <Property Name="IDXe" Type="int" />
+    <Property Name="Gia" Type="money" />
+  </EntityType>
+  <EntityType Name="XE">
+    <Key>
+      <PropertyRef Name="IDXe" />
+    </Key>
+    <Property Name="IDXe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDLoaiXe" Type="int" />
+    <Property Name="IDHieuXe" Type="int" />
+    <Property Name="TenXe" Type="varchar" MaxLength="50" />
+    <Property Name="BienSoXe" Type="char" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="YEUCAUTHUE">
+    <Key>
+      <PropertyRef Name="IDYeuCau" />
+    </Key>
+    <Property Name="IDYeuCau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDHieuXe" Type="int" />
+    <Property Name="IDLoaiXe" Type="int" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="TenKhach" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDT" Type="varchar" MaxLength="12" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="ThoiGianThue" Type="datetime" />
+    <Property Name="ThoiGianTra" Type="datetime" />
+    <Property Name="YeuCauKhac" Type="nvarchar" MaxLength="128" />
+    <Property Name="TrangThai" Type="bit" />
+  </EntityType>
+  <Association Name="FK__HOADON__IDKhach__3E52440B">
+    <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH">
+        <PropertyRef Name="IDKhach" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="IDKhach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOADON__IDThue__3F466844">
+    <End Role="SOTHUEXE" Type="Self.SOTHUEXE" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOTHUEXE">
+        <PropertyRef Name="IDThue" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="IDThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOADONCT__IDHoaD__4222D4EF">
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="0..1" />
+    <End Role="HOADONCT" Type="Self.HOADONCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOADON">
+        <PropertyRef Name="IDHoaDon" />
+      </Principal>
+      <Dependent Role="HOADONCT">
+        <PropertyRef Name="IDHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOADONCT__IDXe__4316F928">
+    <End Role="XE" Type="Self.XE" Multiplicity="0..1" />
+    <End Role="HOADONCT" Type="Self.HOADONCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="IDXe" />
+      </Principal>
+      <Dependent Role="HOADONCT">
+        <PropertyRef Name="IDXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SOTHUEXE__IDKhac__2E1BDC42">
+    <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
+    <End Role="SOTHUEXE" Type="Self.SOTHUEXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH">
+        <PropertyRef Name="IDKhach" />
+      </Principal>
+      <Dependent Role="SOTHUEXE">
+        <PropertyRef Name="IDKhach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THUECT__IDThue__30F848ED">
+    <End Role="SOTHUEXE" Type="Self.SOTHUEXE" Multiplicity="0..1" />
+    <End Role="THUECT" Type="Self.THUECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOTHUEXE">
+        <PropertyRef Name="IDThue" />
+      </Principal>
+      <Dependent Role="THUECT">
+        <PropertyRef Name="IDThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__THUECT__IDXe__31EC6D26">
+    <End Role="XE" Type="Self.XE" Multiplicity="0..1" />
+    <End Role="THUECT" Type="Self.THUECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XE">
+        <PropertyRef Name="IDXe" />
+      </Principal>
+      <Dependent Role="THUECT">
+        <PropertyRef Name="IDXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__XE__IDHieuXe__29572725">
+    <End Role="HIEUXE" Type="Self.HIEUXE" Multiplicity="0..1" />
+    <End Role="XE" Type="Self.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HIEUXE">
+        <PropertyRef Name="IDHieuXe" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="IDHieuXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__XE__IDLoaiXe__286302EC">
+    <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
+    <End Role="XE" Type="Self.XE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="IDLoaiXe" />
+      </Principal>
+      <Dependent Role="XE">
+        <PropertyRef Name="IDLoaiXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YEUCAUTHU__IDHie__34C8D9D1">
+    <End Role="HIEUXE" Type="Self.HIEUXE" Multiplicity="0..1" />
+    <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HIEUXE">
+        <PropertyRef Name="IDHieuXe" />
+      </Principal>
+      <Dependent Role="YEUCAUTHUE">
+        <PropertyRef Name="IDHieuXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__YEUCAUTHU__IDLoa__35BCFE0A">
+    <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
+    <End Role="YEUCAUTHUE" Type="Self.YEUCAUTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="IDLoaiXe" />
+      </Principal>
+      <Dependent Role="YEUCAUTHUE">
+        <PropertyRef Name="IDLoaiXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="THUEXEModelStoreContainer">
+    <EntitySet Name="HIEUXE" EntityType="Self.HIEUXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADONCT" EntityType="Self.HOADONCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACH" EntityType="Self.KHACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIXE" EntityType="Self.LOAIXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHANHOI" EntityType="Self.PHANHOI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOTHUEXE" EntityType="Self.SOTHUEXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THONGKE" EntityType="Self.THONGKE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THUECT" EntityType="Self.THUECT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XE" EntityType="Self.XE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YEUCAUTHUE" EntityType="Self.YEUCAUTHUE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__HOADON__IDKhach__3E52440B" Association="Self.FK__HOADON__IDKhach__3E52440B">
+      <End Role="KHACH" EntitySet="KHACH" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOADON__IDThue__3F466844" Association="Self.FK__HOADON__IDThue__3F466844">
+      <End Role="SOTHUEXE" EntitySet="SOTHUEXE" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOADONCT__IDHoaD__4222D4EF" Association="Self.FK__HOADONCT__IDHoaD__4222D4EF">
+      <End Role="HOADON" EntitySet="HOADON" />
+      <End Role="HOADONCT" EntitySet="HOADONCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOADONCT__IDXe__4316F928" Association="Self.FK__HOADONCT__IDXe__4316F928">
+      <End Role="XE" EntitySet="XE" />
+      <End Role="HOADONCT" EntitySet="HOADONCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SOTHUEXE__IDKhac__2E1BDC42" Association="Self.FK__SOTHUEXE__IDKhac__2E1BDC42">
+      <End Role="KHACH" EntitySet="KHACH" />
+      <End Role="SOTHUEXE" EntitySet="SOTHUEXE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THUECT__IDThue__30F848ED" Association="Self.FK__THUECT__IDThue__30F848ED">
+      <End Role="SOTHUEXE" EntitySet="SOTHUEXE" />
+      <End Role="THUECT" EntitySet="THUECT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__THUECT__IDXe__31EC6D26" Association="Self.FK__THUECT__IDXe__31EC6D26">
+      <End Role="XE" EntitySet="XE" />
+      <End Role="THUECT" EntitySet="THUECT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__XE__IDHieuXe__29572725" Association="Self.FK__XE__IDHieuXe__29572725">
+      <End Role="HIEUXE" EntitySet="HIEUXE" />
+      <End Role="XE" EntitySet="XE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__XE__IDLoaiXe__286302EC" Association="Self.FK__XE__IDLoaiXe__286302EC">
+      <End Role="LOAIXE" EntitySet="LOAIXE" />
+      <End Role="XE" EntitySet="XE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YEUCAUTHU__IDHie__34C8D9D1" Association="Self.FK__YEUCAUTHU__IDHie__34C8D9D1">
+      <End Role="HIEUXE" EntitySet="HIEUXE" />
+      <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__YEUCAUTHU__IDLoa__35BCFE0A" Association="Self.FK__YEUCAUTHU__IDLoa__35BCFE0A">
+      <End Role="LOAIXE" EntitySet="LOAIXE" />
+      <End Role="YEUCAUTHUE" EntitySet="YEUCAUTHUE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

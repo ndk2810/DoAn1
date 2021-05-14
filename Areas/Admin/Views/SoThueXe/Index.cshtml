@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/yeucauthue.css" />
+    <title>Yêu cầu thuê</title>
+</head>
+<body>
+    <div class="b-content">
+        <p class="title">
+            <span>
+                SỔ THUÊ XE
+            </span>
+        </p>
+        <div class="bang">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã yêu cầu</th>
+                        <th>Khách hàng</th>
+                        <th>Hiệu xe</th>
+                        <th>Loại xe</th>
+                        <th>Thời gian gửi</th>
+                        <th>Trạng thái</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">1</td>
+                        <td>Khang</td>
+                        <td>Toyota</td>
+                        <td>7 chỗ</td>
+                        <td>18:45</td>
+                        <td>Chưa xác nhận</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                @Html.ActionLink("Xem chi tiết", "chitietsothuexe", "sothuexe")
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td>Phát</td>
+                        <td>Innova</td>
+                        <td>16 chỗ</td>
+                        <td>6:00</td>
+                        <td>Chưa xác nhận</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                @Html.ActionLink("Xem chi tiết", "chitietsothuexe", "sothuexe")
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">3</td>
+                        <td>Maria</td>
+                        <td>Mercedes</td>
+                        <td>4 chỗ</td>
+                        <td>12:00</td>
+                        <td>Chưa xác nhận</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                @Html.ActionLink("Xem chi tiết", "chitietsothuexe", "sothuexe")
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">4</td>
+                        <td>Khang</td>
+                        <td>Toyota</td>
+                        <td>7 chỗ</td>
+                        <td>18:45</td>
+                        <td>Chưa xác nhận</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                @Html.ActionLink("Xem chi tiết", "chitietsothuexe", "sothuexe")
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+</body>
+</html>
+
+

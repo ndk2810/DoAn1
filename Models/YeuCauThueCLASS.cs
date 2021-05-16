@@ -16,6 +16,9 @@ namespace HeThongThueXe.Models
         public int IDHieuXe { get; set; }
         public int IDLoaiXe { get; set; }
         public System.DateTime NgayTao { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime ThoiGianThue { get; set; }
         public System.DateTime ThoiGianTra { get; set; }
         public decimal TongTien { get; set; }

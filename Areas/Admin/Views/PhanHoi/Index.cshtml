@@ -25,57 +25,27 @@
                 <thead>
                     <tr>
                         <th>Mã yêu cầu</th>
-                        <th>Khách hàng</th>
+                        <th>Tên Khách hàng</th>
                         <th>Thông tin phản hồi</th>
                         <th>Thời gian gửi</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach (var phanHoi in ViewBag.dsPhanHoi)
+                    {
                     <tr>
-                        <td scope="row">1</td>
-                        <td>Khang</td>
-                        <td>web gì kì cục quớ</td>
-                        <td>18:45</td>
+                        <td scope="row">@phanHoi.IDPhanHoi</td>
+                        <td>@phanHoi.TenKhach</td>
+                        <td>@phanHoi.TieuDe</td>
+                        <td>@phanHoi.ThoiGianPhanHoi</td>
                         <td class="cot-btn">
                             <button class="btn btn-secondary">
                                 @Html.ActionLink("Xem chi tiết", "ChiTietPhanHoi", "PhanHoi")
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>Khang</td>
-                        <td>web gì kì cục quớ</td>
-                        <td>18:45</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietPhanHoi", "PhanHoi")
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">3</td>
-                        <td>Khang</td>
-                        <td>web gì kì cục quớ</td>
-                        <td>18:45</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietPhanHoi", "PhanHoi")
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">4</td>
-                        <td>Khang</td>
-                        <td>web gì kì cục quớ</td>
-                        <td>18:45</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietPhanHoi", "PhanHoi")
-                            </button>
-                        </td>
-                    </tr>
+                    }
                 </tbody>
             </table>
 

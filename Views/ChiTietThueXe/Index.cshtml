@@ -1,5 +1,4 @@
 ﻿@model HeThongThueXe.Models.YeuCauThueCLASS
-@using HeThongThueXe.Models; 
 
 @{
     ViewBag.Title = "Index";
@@ -14,7 +13,7 @@
     <link rel="stylesheet" href="~/Content/ThueXe.css" />
     <title>Thuê xe 4 chỗ</title>
 </head>
-<body onload="setDate()">
+<body>
     <div class="main">
         <div class="container main__content">
             <div class="main__content--content">
@@ -141,7 +140,6 @@
 </html>
 
 <script>
-    const setDate = () => {
         var today = new Date();
 
         var dd = today.getDate();
@@ -161,7 +159,6 @@
 
         document.getElementById("ngayVe").setAttribute("min", document.getElementById("ngayDi").value);
         document.getElementById("ngayVe").setAttribute("value", document.getElementById("ngayDi").value);
-    }
 
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

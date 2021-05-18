@@ -36,16 +36,23 @@
                 <tbody>
                     @foreach (var yeuCau in ViewBag.dsYeuCauThue)
                     {
-                        <tr>
+                        var trangThai = "Chưa đọc";
+                        var style = "font-weight: bold; color: red;";
+                        if (yeuCau.TrangThai == true)
+                        {
+                            trangThai = "Đã đọc";
+                            style = "font-weight: 200; color: #858796;";
+                        }
+                        <tr style="@style">
                             <td scope="row">@yeuCau.IDYeuCau</td>
                             <td>@yeuCau.TenKhach</td>
                             <td>@yeuCau.IDHieuXe</td>
                             <td>@yeuCau.IDLoaiXe</td>
                             <td>@yeuCau.NgayTao</td>
-                            <td>@yeuCau.TrangThai</td>
+                            <td>@trangThai</td>
                             <td class="cot-btn">
                                 <button class="btn btn-secondary">
-                                    @Html.ActionLink("Xem chi tiết", "ChiTietYeuCauThue", "YeuCauThue")
+                                    @Html.ActionLink("Xem chi tiết", "ChiTietYeuCauThue", "YeuCauThue", new { idYeuCauThue = yeuCau.IDYeuCau }, null)
                                 </button>
                             </td>
                         </tr>

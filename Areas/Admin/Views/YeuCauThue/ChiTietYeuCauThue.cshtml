@@ -1,6 +1,10 @@
 ﻿
+
 @{
     ViewBag.Title = "ChiTietYeuCauThue";
+    var yeuCauThue = ViewBag.yeuCauThue;
+    var yeuCauThueLoaiXe = ViewBag.yeuCauThueLoaiXe;
+    var yeuCauThueHieuXe = ViewBag.yeuCauThueHieuXe;
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -26,25 +30,25 @@
                 <form>
                     <div class="form-group f-group">
                         <label for="">Mã yêu cầu</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@yeuCauThue.IDYeuCau" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Ngày tạo</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@yeuCauThue.NgayTao" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Hiệu xe</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@yeuCauThueHieuXe.TenHieuXe" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Loại xe</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@yeuCauThueLoaiXe.TenLoaiXe" readonly />
                     </div>
                     <div class="form-group f-group">
                         <label for="">Thời gian thuê</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" placeholder="" value="@yeuCauThue.ThoiGianThue" readonly>
                         <label style="margin-left:15%" for="">Thời gian trả</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" placeholder="" value="@yeuCauThue.ThoiGianTra" readonly>
                     </div>
 
                 </form>
@@ -62,28 +66,31 @@
                 <form>
                     <div class="form-group f-group">
                         <label for="">Tên khách</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@yeuCauThue.TenKhach" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Địa chỉ</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@yeuCauThue.DiaChi" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Điện thoại</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@yeuCauThue.SDT" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Email</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@yeuCauThue.Email" readonly>
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Yêu cầu khác</label>
+                        <textarea type="text" name="" id="" class="form-control" rows="5" readonly>@yeuCauThue.YeuCauKhac</textarea>
                     </div>
                 </form>
             </div>
 
         </div>
         <div class="area-button">
-            <button class="btn btn-success xacnhan" type="submit">Xác nhận yêu cầu thuê</button>
-            <button class="btn btn-danger huybo" type="submit">Hủy yêu cầu thuê</button>
-
+            <button class="btn btn-success xacnhan">Xác nhận yêu cầu thuê</button>
+            <button class="btn btn-danger huybo" onclick="xoaYeuCauThue(@yeuCauThue.IDYeuCau)">Hủy yêu cầu thuê</button>
         </div>
 
 
@@ -91,4 +98,14 @@
 </body>
 </html>
 
-
+<script>
+    const xoaYeuCauThue = (IDYeuCau) => {
+        if (confirm('Xoá yêu cầu thuê ?')) {
+            var url = "/Admin/YeuCauThue/XoaYeuCauThue";
+            $.get(url, { idYeuCauThue: IDYeuCau }, function (data) {
+                alert(data);
+                window.location.replace("/Admin/YeuCauThue/");
+            });
+        }
+    }
+</script>

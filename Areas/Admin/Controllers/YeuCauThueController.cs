@@ -17,9 +17,25 @@ namespace HeThongThueXe.Areas.Admin.Controllers
             ViewBag.dsYeuCauThue = dsYeuCauThue;
             return View();
         }
-        public ActionResult ChiTietYeuCauThue()
+        public ActionResult ChiTietYeuCauThue(int idYeuCauThue)
         {
+            YEUCAUTHUE yeuCauThue = db.YEUCAUTHUEs.Find(idYeuCauThue);
+            yeuCauThue.TrangThai = true;
+            ViewBag.yeuCauThueLoaiXe = db.LOAIXEs.Find(yeuCauThue.IDHieuXe);
+            ViewBag.yeuCauThueHieuXe = db.HIEUXEs.Find(yeuCauThue.IDLoaiXe);
+            ViewBag.yeuCauThue = yeuCauThue;
+
+            db.SaveChanges();
             return View();
+        }
+        public string XoaYeuCauThue(int idYeuCauThue)
+        {
+            YEUCAUTHUE yeuCauThue = db.YEUCAUTHUEs.Find(idYeuCauThue);
+            db.YEUCAUTHUEs.Remove(yeuCauThue);
+
+            db.SaveChanges();
+
+            return "Xoá yêu cầu thuê thành công";
         }
     }
 }

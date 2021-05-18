@@ -41,7 +41,7 @@
                         <td>@phanHoi.ThoiGianPhanHoi</td>
                         <td class="cot-btn">
                             <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietPhanHoi", "PhanHoi")
+                                @Html.ActionLink("Xem chi tiết", "ChiTietPhanHoi", "PhanHoi", new { idPhanHoi = phanHoi.IDPhanHoi }, null)
                             </button>
                         </td>
                     </tr>

@@ -17,8 +17,10 @@ namespace HeThongThueXe.Areas.Admin.Controllers
             ViewBag.dsThue = dsThue;
             return View();
         }
-        public ActionResult ChiTietSoThueXe()
+        public ActionResult ChiTietSoThueXe(int idThue)
         {
+            SOTHUEXE thue = db.SOTHUEXEs.Find(idThue);
+            ViewBag.thue = thue;
             return View();
         }
     }

@@ -34,64 +34,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td>Khang</td>
-                        <td>Toyota</td>
-                        <td>7 chỗ</td>
-                        <td>18:45</td>
-                        <td>Chưa xác nhận</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietYeuCauThue", "YeuCauThue")
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>Phát</td>
-                        <td>Innova</td>
-                        <td>16 chỗ</td>
-                        <td>6:00</td>
-                        <td>Chưa xác nhận</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietYeuCauThue", "YeuCauThue")
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">3</td>
-                        <td>Maria</td>
-                        <td>Mercedes</td>
-                        <td>4 chỗ</td>
-                        <td>12:00</td>
-                        <td>Chưa xác nhận</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietYeuCauThue", "YeuCauThue")
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">4</td>
-                        <td>Khang</td>
-                        <td>Toyota</td>
-                        <td>7 chỗ</td>
-                        <td>18:45</td>
-                        <td>Chưa xác nhận</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietYeuCauThue", "YeuCauThue")
-                            </button>
-                        </td>
-                    </tr>
+                    @foreach (var yeuCau in ViewBag.dsYeuCauThue)
+                    {
+                        var trangThai = "Chưa đọc";
+                        var style = "font-weight: bold; color: red;";
+                        if (yeuCau.TrangThai == true)
+                        {
+                            trangThai = "Đã đọc";
+                            style = "font-weight: 200; color: #858796;";
+                        }
+                        <tr style="@style">
+                            <td scope="row">@yeuCau.IDYeuCau</td>
+                            <td>@yeuCau.TenKhach</td>
+                            <td>@yeuCau.IDHieuXe</td>
+                            <td>@yeuCau.IDLoaiXe</td>
+                            <td>@yeuCau.NgayTao</td>
+                            <td>@trangThai</td>
+                            <td class="cot-btn">
+                                <button class="btn btn-secondary">
+                                    @Html.ActionLink("Xem chi tiết", "ChiTietYeuCauThue", "YeuCauThue", new { idYeuCauThue = yeuCau.IDYeuCau }, null)
+                                </button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
-
         </div>
-
-
     </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 ﻿
 @{
+    var thue = ViewBag.thue;
     ViewBag.Title = "ChiTietSoThueXe";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
@@ -26,11 +27,11 @@
                 <form>
                     <div class="form-group f-group">
                         <label for="">Mã yêu cầu</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@thue.IDThue" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Ngày tạo</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@thue.NgayTao" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Hiệu xe</label>
@@ -42,21 +43,21 @@
                     </div>
                     <div class="form-group f-group">
                         <label for="">Thời gian thuê</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@thue.ThoiGianThue">
                         <label style="margin-left:15%" for="">Thời gian trả</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="@thue.ThoiGianTra">
                     </div>
                     <div class="form-group f-group">
                         <label for="">Ghi chú</label>
-                        <textarea type="text" name="" id="" class="form-control" placeholder="" rows="3"></textarea>
+                        <textarea type="text" name="" id="" class="form-control" value="@thue.GhiChu" rows="3"></textarea>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Tổng tiền</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="number" name="" class="form-control" value="@thue.TongTien" readonly id="tongTien">
                         <label style="text-align:center" for="">Đặt cọc</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="number" name="" class="form-control" onchange="tinhTienConLai()" id="datCoc">
                         <label style="text-align:center" for="">Còn lại</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="number" name="" class="form-control" placeholder="" id="conLai" readonly>
                     </div>
 
                 </form>
@@ -74,19 +75,19 @@
                 <form>
                     <div class="form-group f-group">
                         <label for="">Tên khách</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Địa chỉ</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Điện thoại</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Email</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
+                        <input type="text" name="" id="" class="form-control" value="" readonly>
                     </div>
                 </form>
             </div>
@@ -95,12 +96,13 @@
         <div class="area-button">
             <button class="btn btn-success xacnhan" type="submit">Lưu thay đổi</button>
             <button class="btn btn-danger huybo" type="submit">Thanh toán</button>
-
         </div>
-
-
     </div>
 </body>
 </html>
 
-
+<script>
+    const tinhTienConLai = () => {
+        document.getElementById('conLai').value = parseInt(document.getElementById('tongTien').value) - parseInt(document.getElementById('datCoc').value);
+    }
+</script>

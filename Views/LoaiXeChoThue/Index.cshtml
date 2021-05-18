@@ -1,4 +1,4 @@
-﻿
+﻿@model HeThongThueXe.Models.YeuCauThueCLASS
 @{
     ViewBag.Title = "Index";
 }
@@ -39,90 +39,82 @@
                                     </tr>
                                     <tr>
                                         <td colspan="2">
-                                            <form>
-                                                <div class="box--datxe" style="width:70%">
+                                            @using (Html.BeginForm("ThemYeuCau", "ChiTietThueXe", FormMethod.Post))
+                                            {
+                                                <div class="box--datxe">
                                                     <table class="table sidebar__datxeInput--table">
                                                         <tbody>
                                                             <tr class="sidebar__datxeInput--table--row">
                                                                 <td class="sidebar__datxeInput--table--row---col1">Họ tên<span>(*)</span></td>
-                                                                <td><input class="form-control" type="text" placeholder="Họ tên" /></td>
+                                                                <td>@Html.TextBoxFor(m => m.TenKhach, new { @class = "form-control" })</td>
                                                             </tr>
                                                             <tr class="sidebar__datxeInput--table--row">
                                                                 <td class="sidebar__datxeInput--table--row---col1">Địa chỉ<span>(*)</span></td>
-                                                                <td><input class="form-control" type="text" placeholder="Địa chỉ" /></td>
+                                                                <td>@Html.TextBoxFor(m => m.DiaChi, new { @class = "form-control" })</td>
                                                             </tr>
                                                             <tr class="sidebar__datxeInput--table--row">
                                                                 <td class="sidebar__datxeInput--table--row---col1">Điện thoại<span>(*)</span></td>
-                                                                <td><input class="form-control" type="text" placeholder="Điện thoại" /></td>
+                                                                <td>@Html.TextBoxFor(m => m.DienThoai, new { @class = "form-control" })</td>
                                                             </tr>
                                                             <tr class="sidebar__datxeInput--table--row">
                                                                 <td class="sidebar__datxeInput--table--row---col1">Email<span>(*)</span></td>
-                                                                <td><input class="form-control" type="text" placeholder="Email" /></td>
+                                                                <td>@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })</td>
                                                             </tr>
                                                             <tr class="sidebar__datxeInput--table--row">
                                                                 <td class="sidebar__datxeInput--table--row---col1">Hãng xe<span>(*)</span></td>
                                                                 <td>
-                                                                    <select class="form-control" name="hangxe" id="hangxe">
-                                                                        <option value="0">Chọn hãng xe</option>
-                                                                        <option value="Toyota">Toyota</option>
-                                                                        <option value="Huyndai">Huyndai</option>
-                                                                        <option value="Honda">Honda</option>
-                                                                        <option value="Isuzu">Isuzu</option>
-                                                                        <option value="Ford">Ford</option>
-                                                                        <option value="Mercedes">Mercedes</option>
-
-                                                                    </select>
+                                                                    @Html.DropDownListFor(m => m.IDHieuXe,
+                                                                    new SelectList(
+                                                                    new List<SelectListItem>
+                                                                    {
+                                                                        new SelectListItem { Text = "Toyota", Value = 1.ToString()},
+                                                                        new SelectListItem { Text = "Hyundai", Value = 2.ToString()},
+                                                                        new SelectListItem { Text = "Honda", Value = 3.ToString()},
+                                                                        new SelectListItem { Text = "Isuzu", Value = 4.ToString()},
+                                                                        new SelectListItem { Text = "Ford", Value = 5.ToString()},
+                                                                        new SelectListItem { Text = "Mercedes", Value = 6.ToString()},
+                                                                    }, "Value", "Text"), new { @class = "form-control" })
                                                                 </td>
                                                             </tr>
                                                             <tr class="sidebar__datxeInput--table--row">
                                                                 <td class="sidebar__datxeInput--table--row---col1">Loại xe<span>(*)</span></td>
                                                                 <td>
-                                                                    <select class="form-control" name="loaixe" id="loaixe">
-                                                                        <option value="0">Chọn loại xe</option>
-                                                                        <option value="4-5 chỗ">4-5 chỗ</option>
-                                                                        <option value="7-8 chỗ">7-8 chỗ</option>
-                                                                        <option value="15 chỗ">15 chỗ</option>
-                                                                        <option value="16 chỗ">16 chỗ</option>
-                                                                        <option value="29 chỗ">29 chỗ</option>
-                                                                        <option value="34 chỗ">34 chỗ</option>
-                                                                        <option value="47 chỗ">47 chỗ</option>
-                                                                        <option value="50 chỗ">50 chỗ</option>
-                                                                    </select>
+                                                                    @Html.DropDownListFor(m => m.IDLoaiXe,
+                                                                    new SelectList(
+                                                                    new List<SelectListItem>
+                                                                    {
+                                                                        new SelectListItem { Text = "4 chỗ", Value = 1.ToString()},
+                                                                        new SelectListItem { Text = "7 chỗ", Value = 2.ToString()},
+                                                                        new SelectListItem { Text = "16 chỗ", Value = 3.ToString()},
+                                                                        new SelectListItem { Text = "29 chỗ", Value = 4.ToString()},
+                                                                        new SelectListItem { Text = "45 chỗ", Value = 7.ToString()},
+                                                                    }, "Value", "Text"), new { @class = "form-control", id = "dropdown_loaiXe", onChange = "tinhGia()" })
                                                                 </td>
                                                             </tr>
                                                             <tr class="sidebar__datxeInput--table--row">
-                                                                <td class="sidebar__datxeInput--table--row---col1">Đi từ<span>(*)</span></td>
-                                                                <td><input class="form-control" type="text" placeholder="Đi từ" /></td>
-                                                            </tr>
-                                                            <tr class="sidebar__datxeInput--table--row">
-                                                                <td class="sidebar__datxeInput--table--row---col1">Đến<span>(*)</span></td>
-                                                                <td><input class="form-control" type="text" placeholder="Đến" /></td>
-                                                            </tr>
-                                                            <tr class="sidebar__datxeInput--table--row">
                                                                 <td class="sidebar__datxeInput--table--row---col1">Ngày đi<span>(*)</span></td>
-                                                                <td><input class="form-control" type="text" placeholder="Ngày đi" /></td>
+                                                                <td>@Html.TextBoxFor(m => m.ThoiGianThue, null, new { @class = "form-control", type = "date", id = "ngayDi", onChange = "tinhGia()" })</td>
+
+
                                                             </tr>
                                                             <tr class="sidebar__datxeInput--table--row">
                                                                 <td class="sidebar__datxeInput--table--row---col1">Ngày về<span>(*)</span></td>
-                                                                <td><input class="form-control" type="text" placeholder="Ngày về" /></td>
+                                                                <td>@Html.TextBoxFor(m => m.ThoiGianTra, null, new { @class = "form-control", type = "date", id = "ngayVe", onChange = "tinhGia()" })</td>
+                                                            </tr>
+                                                            <tr class="sidebar__datxeInput--table--row">
+                                                                <td class="sidebar__datxeInput--table--row---col1">Gía</td>
+                                                                <td><input class="form-control" type="text" readonly id="gia" /></td>
                                                             </tr>
                                                             <tr class="sidebar__datxeInput--table--row">
                                                                 <td colspan="2" class="sidebar__datxeInput--table--row---col1">
                                                                     <label class="yeucaukhac">Yêu cầu khác</label>
-                                                                    <textarea class="form-control" placeholder="Yêu cầu khác" rows="4" id="yeucaukhac"></textarea>
+                                                                    @Html.TextAreaFor(m => m.YeuCauKhac, new { @class = "form-control" })
                                                                 </td>
                                                             </tr>
                                                     </table>
-                                                    <div class="button__submit" style="text-align:center; padding:5px">
-                                                        <button class="btn btn-danger button__submit--guidi">
-                                                            <i class="fa fa-envelope"></i>
-                                                            Gửi ngay
-                                                        </button>
-                                                    </div>
-
+                                                    <input class="button__submit" type="submit" value="Submit" />
                                                 </div>
-
-                                            </form>
+                                            }
                                         </td>
                                     </tr>
                                 </tbody>
@@ -205,3 +197,53 @@
 </body>
 </html>
 
+<script>
+        var today = new Date();
+
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+
+        document.getElementById("ngayDi").setAttribute("min", today);
+        document.getElementById("ngayDi").setAttribute("value", today);
+
+        document.getElementById("ngayVe").setAttribute("min", document.getElementById("ngayDi").value);
+        document.getElementById("ngayVe").setAttribute("value", document.getElementById("ngayDi").value);
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    const tinhGia = () => {
+        document.getElementById("ngayVe").setAttribute("min", document.getElementById("ngayDi").value);
+
+        if (document.getElementById("ngayVe").value < document.getElementById("ngayDi").value) {
+            document.getElementById("ngayVe").setAttribute("value", document.getElementById("ngayDi").value);
+        }
+
+
+        var ngayVe = new Date(document.getElementById("ngayVe").value);
+        var ngayDi = new Date(document.getElementById("ngayDi").value);
+
+        // To calculate the time difference of two dates
+        var Difference_In_Time = ngayVe.getTime() - ngayDi.getTime();
+
+        // To calculate the no. of days between two dates
+        var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+        const loaiXeKhachChon = document.getElementById("dropdown_loaiXe").value;
+
+        var url = "/ChiTietThueXe/getGiaXe";
+        $.get(url, { idLoaiXe: loaiXeKhachChon }, function (data) {
+            document.getElementById("gia").setAttribute("value", numberWithCommas(parseInt(data * Difference_In_Days)) + " VNĐ");
+        });
+    }
+</script>

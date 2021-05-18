@@ -16,6 +16,7 @@ namespace HeThongThueXe.Models
         public int IDHieuXe { get; set; }
         public int IDLoaiXe { get; set; }
         public System.DateTime NgayTao { get; set; }
+
         public System.DateTime ThoiGianThue { get; set; }
         public System.DateTime ThoiGianTra { get; set; }
         public decimal TongTien { get; set; }

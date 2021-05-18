@@ -20,6 +20,11 @@ namespace HeThongThueXe.Controllers
             return View();
         }
 
+        public decimal? getGiaXe(string idLoaiXe)
+        {
+            LOAIXE LoaiXe = db.LOAIXEs.Find(int.Parse(idLoaiXe));
+            return LoaiXe.GiaTheoNgay;
+        }
         [HttpPost]
         public ActionResult ThemYeuCau(YeuCauThueCLASS yeuCauThue)
         {

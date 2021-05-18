@@ -51,49 +51,34 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                @Html.ActionLink("YÊU CẦU THUÊ XE", "Index", "YeuCauThue", new { @class = "nav-link collapsed" })
+                @Html.ActionLink("YÊU CẦU THUÊ XE", "Index", "YeuCauThue", null, new { @class = "nav-link collapsed" })
+                
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                @Html.ActionLink("SỔ THUÊ XE","Index","SoThueXe", new {@class = "nav-link collapsed" })
-                @*<a class="nav-link collapsed" href="/Admin/SoThueXe/Index.cshtml" data-toggle="collapse" data-target="#collapseUtilities"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-
-                    <span>SỔ THUÊ XE</span>
-                </a>*@
+                @Html.ActionLink("SỔ THUÊ XE","Index","SoThueXe", null, new {@class = "nav-link collapsed" })
+                
 
             </li>
             <!-- QUẢN LÝ XE -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-
-                    <span>QUẢN LÝ XE</span>
-                </a>
+                @Html.ActionLink("QUẢN LÝ XE", "Index", "QuanLyXe", null, new { @class = "nav-link collapsed" })
 
             </li>
             <!-- QUẢN LÝ LOẠI XE -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-
-                    <span>QUẢN LÝ LOẠI XE</span>
-                </a>
+                @Html.ActionLink("QUẢN LÝ LOẠI XE", "Index", "QuanLyLoaiXe", null, new { @class = "nav-link collapsed" })
 
             </li>
             <!-- QUẢN LÝ HIỆU XE -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-
-                    <span>QUẢN LÝ HIỆU XE</span>
-                </a>
+                @Html.ActionLink("QUẢN LÝ HIỆU XE", "Index", "QuanLyHieuXe", null, new { @class = "nav-link collapsed" })
 
             </li>
             <!-- LIÊN HỆ -->
             <li class="nav-item">
-                @Html.ActionLink("PHẢN HỒI", "Index", "PhanHoi", new { @class = "nav-link collapsed" })
+                @Html.ActionLink("PHẢN HỒI", "Index", "PhanHoi", null, new { @class = "nav-link collapsed" })
 
             </li>
             <!-- QUẢN LÝ TÀI KHOẢN -->
@@ -279,13 +264,7 @@
     <script src="~/Assets/js/sb-admin-2.min.js"></script>
 
 
-    <!-- Page level plugins -->
-    <script src="~/Assets/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="~/Assets/js/demo/chart-area-demo.js"></script>
-
-    <script src="~/Assets/js/demo/chart-pie-demo.js"></script>
+    
 
 
 </body>

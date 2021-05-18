@@ -131,6 +131,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanHoiController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyLoaiXeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyXeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SoThueXeController.cs" />
     <Compile Include="Areas\Admin\Controllers\YeuCauThueController.cs" />
     <Compile Include="Controllers\BangGiaController.cs" />
@@ -210,10 +212,6 @@
     <Content Include="Assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Assets\vendor\bootstrap\js\bootstrap.js" />
     <Content Include="Assets\vendor\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Assets\vendor\chart.js\Chart.bundle.js" />
-    <Content Include="Assets\vendor\chart.js\Chart.bundle.min.js" />
-    <Content Include="Assets\vendor\chart.js\Chart.js" />
-    <Content Include="Assets\vendor\chart.js\Chart.min.js" />
     <Content Include="Assets\vendor\datatables\dataTables.bootstrap4.css" />
     <Content Include="Assets\vendor\datatables\dataTables.bootstrap4.js" />
     <Content Include="Assets\vendor\datatables\dataTables.bootstrap4.min.css" />
@@ -2077,6 +2075,10 @@
     <Content Include="Assets\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Assets\vendor\jquery\jquery.min.map" />
     <Content Include="Assets\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Areas\Admin\Views\QuanLyXe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyXe\ChiTietXe.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLoaiXe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLoaiXe\ChiTietLoaiXe.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

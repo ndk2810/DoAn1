@@ -173,10 +173,13 @@ footer p{
     text-decoration: none;
     outline: none;
 }
-.sidebar--list--item:hover{
-    color:#e87d16;
-    text-decoration:none;
-    outline:none;
+.sidebar--list--link a{
+    color: #444;
+}
+.sidebar--list--link a:hover{
+    color: #e87d16;
+    text-decoration: none;
+    outline: none;
 }
 .sidebar--list--item {
     margin: 0;

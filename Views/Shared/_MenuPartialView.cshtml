@@ -1,0 +1,210 @@
+﻿@model HeThongThueXe.Models.YeuCauThueCLASS
+
+<div class="sidebar">
+    <ul class="sidebar__sidebar">
+        <li class="sidebar--strong">
+            <p>
+                CHO THUÊ XE DU LỊCH
+            </p>
+        </li>
+        <div class="sidebar--list">
+            <li class="sidebar--list--link">
+                @Html.ActionLink("Cho thuê xe 4 chỗ", "Index", "ChiTietThueXe", new { @class = "sidebar--list--item", idLoaiXe = 1 }, null)
+            </li>
+
+
+
+            <li class="sidebar--list--link">
+                @Html.ActionLink("Cho thuê xe 7 chỗ", "Index", "ChiTietThueXe", new { @class = "sidebar--list--item", idLoaiXe = 2 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("Cho thuê xe 16 chỗ", "Index", "ChiTietThueXe", new { @class = "sidebar--list--item", idLoaiXe = 3 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("Cho thuê xe 29 chỗ", "Index", "ChiTietThueXe", new { @class = "sidebar--list--item", idLoaiXe = 4 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("Cho thuê xe 45 chỗ", "Index", "ChiTietThueXe", new { @class = "sidebar--list--item", idLoaiXe = 7 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("Cho thuê xe cưới hỏi", "Index", "ChiTietThueXe", new { @class = "sidebar--list--item", idLoaiXe = 8 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("Cho thuê xe hợp đồng", "Index", "ChiTietThueXe", new { @class = "sidebar--list--item", idLoaiXe = 9 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("Cho thuê xe tháng", "Index", "ChiTietThueXe", new { @class = "sidebar--list--item", idLoaiXe = 10 }, null)
+            </li>
+            
+        </div>
+        <li class="sidebar--strong">
+            <p>
+                CÁC LOẠI XE CHO THUÊ
+            </p>
+        </li>
+        <div class="sidebar--list">
+            <li class="sidebar--list--link">
+                @Html.ActionLink("KIA K3", "Index", "LoaiXeChoThue", new { @class = "sidebar--list--item", idHieuXe = 1 }, null)
+            </li>
+            
+            <li class="sidebar--list--link">
+                @Html.ActionLink("HONDA CITY", "Index", "LoaiXeChoThue", new { @class = "sidebar--list--item", idHieuXe = 2 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("MAZDA", "Index", "LoaiXeChoThue", new { @class = "sidebar--list--item", idHieuXe = 3 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("TOYOTA VIOS", "Index", "LoaiXeChoThue", new { @class = "sidebar--list--item", idHieuXe = 8 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("FORTUNER", "Index", "LoaiXeChoThue", new { @class = "sidebar--list--item", idHieuXe = 4 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("HYUNDAI", "Index", "LoaiXeChoThue", new { @class = "sidebar--list--item", idHieuXe = 5 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("SAMCO", "Index", "LoaiXeChoThue", new { @class = "sidebar--list--item", idHieuXe = 9 }, null)
+            </li>
+            <li class="sidebar--list--link">
+                @Html.ActionLink("INNOVA", "Index", "LoaiXeChoThue", new { @class = "sidebar--list--item", idHieuXe = 6 }, null)
+            </li>
+        </div>
+
+    </ul>
+    <div class="sidebar__datxeInput">
+        <div class="sidebar__datxeInput--head">
+            <p class="sidebar__datxeInput--strong">ĐẶT XE TẠI ĐÂY</p>
+        </div>
+
+        @using (Html.BeginForm("ThemYeuCau", "ChiTietThueXe", FormMethod.Post))
+        {
+            <div class="box--datxe">
+                <table class="table sidebar__datxeInput--table">
+                    <tbody>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Họ tên<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.TenKhach, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Địa chỉ<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.DiaChi, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Điện thoại<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.DienThoai, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Email<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Hãng xe<span>(*)</span></td>
+                            <td>
+                                @Html.DropDownListFor(m => m.IDHieuXe,
+                                new SelectList(
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "Toyota", Value = 1.ToString()},
+                                    new SelectListItem { Text = "Hyundai", Value = 2.ToString()},
+                                    new SelectListItem { Text = "Honda", Value = 3.ToString()},
+                                    new SelectListItem { Text = "Isuzu", Value = 4.ToString()},
+                                    new SelectListItem { Text = "Ford", Value = 5.ToString()},
+                                    new SelectListItem { Text = "Mercedes", Value = 6.ToString()},
+                                }, "Value", "Text"), new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Loại xe<span>(*)</span></td>
+                            <td>
+                                @Html.DropDownListFor(m => m.IDLoaiXe,
+                                new SelectList(
+                                new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "4 chỗ", Value = 1.ToString()},
+                                    new SelectListItem { Text = "7 chỗ", Value = 2.ToString()},
+                                    new SelectListItem { Text = "16 chỗ", Value = 3.ToString()},
+                                    new SelectListItem { Text = "29 chỗ", Value = 4.ToString()},
+                                    new SelectListItem { Text = "45 chỗ", Value = 7.ToString()},
+                                }, "Value", "Text"), new { @class = "form-control", id = "dropdown_loaiXe", onChange = "tinhGia()" })
+                            </td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Ngày đi<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.ThoiGianThue, null, new { @class = "form-control", type = "date", id = "ngayDi", onChange = "tinhGia()" })</td>
+
+
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Ngày về<span>(*)</span></td>
+                            <td>@Html.TextBoxFor(m => m.ThoiGianTra, null, new { @class = "form-control", type = "date", id = "ngayVe", onChange = "tinhGia()" })</td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td class="sidebar__datxeInput--table--row---col1">Gía</td>
+                            <td><input class="form-control" type="text" readonly id="gia" /></td>
+                        </tr>
+                        <tr class="sidebar__datxeInput--table--row">
+                            <td colspan="2" class="sidebar__datxeInput--table--row---col1">
+                                <label class="yeucaukhac">Yêu cầu khác</label>
+                                @Html.TextAreaFor(m => m.YeuCauKhac, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                </table>
+                <input class="button__submit" type="submit" value="Submit" />
+            </div>
+        }
+
+    </div>
+
+</div>
+<img style="width:2515px" />
+
+<script>
+        var today = new Date();
+
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+
+        document.getElementById("ngayDi").setAttribute("min", today);
+        document.getElementById("ngayDi").setAttribute("value", today);
+
+        document.getElementById("ngayVe").setAttribute("min", document.getElementById("ngayDi").value);
+        document.getElementById("ngayVe").setAttribute("value", document.getElementById("ngayDi").value);
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    const tinhGia = () => {
+        document.getElementById("ngayVe").setAttribute("min", document.getElementById("ngayDi").value);
+
+        if (document.getElementById("ngayVe").value < document.getElementById("ngayDi").value) {
+            document.getElementById("ngayVe").setAttribute("value", document.getElementById("ngayDi").value);
+        }
+
+
+        var ngayVe = new Date(document.getElementById("ngayVe").value);
+        var ngayDi = new Date(document.getElementById("ngayDi").value);
+
+        // To calculate the time difference of two dates
+        var Difference_In_Time = ngayVe.getTime() - ngayDi.getTime();
+
+        // To calculate the no. of days between two dates
+        var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+        const loaiXeKhachChon = document.getElementById("dropdown_loaiXe").value;
+
+        var url = "/ChiTietThueXe/getGiaXe";
+        $.get(url, { idLoaiXe: loaiXeKhachChon }, function (data) {
+            document.getElementById("gia").setAttribute("value", numberWithCommas(parseInt(data * Difference_In_Days)) + " VNĐ");
+        });
+    }
+</script>

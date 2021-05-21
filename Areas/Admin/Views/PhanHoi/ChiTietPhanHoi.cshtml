@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietPhanHoi";
+    var phanHoi = ViewBag.phanHoi;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Chitietyeucauthue.css" />
+    <title>ChiTietLienHe</title>
+</head>
+<body>
+    <div class="b-content">
+        <div class="thongtinyeucauthue">
+            <p class="title">
+                <span>
+                    CHI TIẾT LIÊN HỆ
+                </span>
+            </p>
+            <div class="content__form">
+                <form>
+                    <div class="form-group f-group">
+                        <label for="">Tên khách</label>
+                        <input type="text" name="" id="" class="form-control" value="@phanHoi.TenKhach">
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Địa chỉ</label>
+                        <input type="text" name="" id="" class="form-control" value="@phanHoi.DiaChi">
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Điện thoại</label>
+                        <input type="text" name="" id="" class="form-control" value="@phanHoi.SDT">
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Email</label>
+                        <input type="text" name="" id="" class="form-control" value="@phanHoi.Email">
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Tiêu đề</label>
+                        <input type="text" name="" id="" class="form-control" value="@phanHoi.TieuDe">
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Nội dung</label>
+                        <textarea type="text" name="" id="" class="form-control" value="@phanHoi.NoiDung" rows="5"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr />
+        <div class="area-button">
+            <button class="btn btn-success xacnhan" type="submit">Đánh dấu đã đọc</button>
+            <button class="btn btn-danger huybo" type="submit">Xóa phản hồi</button>
+        </div>
+    </div>
+</body>
+</html>
+
+

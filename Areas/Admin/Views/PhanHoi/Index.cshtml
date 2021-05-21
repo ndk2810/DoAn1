@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/yeucauthue.css" />
+    <title>Phản hồi</title>
+</head>
+<body>
+    <div class="b-content">
+        <p class="title">
+            <span>
+                PHẢN HỒI
+            </span>
+        </p>
+        <div class="bang">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã yêu cầu</th>
+                        <th>Tên Khách hàng</th>
+                        <th>Thông tin phản hồi</th>
+                        <th>Thời gian gửi</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var phanHoi in ViewBag.dsPhanHoi)
+                    {
+                    <tr>
+                        <td scope="row">@phanHoi.IDPhanHoi</td>
+                        <td>@phanHoi.TenKhach</td>
+                        <td>@phanHoi.TieuDe</td>
+                        <td>@phanHoi.ThoiGianPhanHoi</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                @Html.ActionLink("Xem chi tiết", "ChiTietPhanHoi", "PhanHoi", new { idPhanHoi = phanHoi.IDPhanHoi }, null)
+                            </button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+</body>
+</html>
+
+

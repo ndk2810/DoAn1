@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/yeucauthue.css" />
+    <title>Quản lý xe</title>
+</head>
+<body>
+    <div class="b-content">
+        <p class="title">
+            <span>
+                QUẢN LÝ XE
+            </span>
+            <button class="btn btn-secondary">Thêm xe</button>
+        </p>
+        <div class="bang">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã xe</th>
+                        <th>Tên xe</th>
+                        <th>Biển số xe</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Mã xe</td>
+                        <td>Toyota</td>
+                        <td>59M1-12315</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                @Html.ActionLink("Xem chi tiết", "ChiTietXe", "QuanLyXe")
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Mã xe</td>
+                        <td>Toyota</td>
+                        <td>59M1-12315</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                @Html.ActionLink("Xem chi tiết", "ChiTietXe", "QuanLyXe")
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Mã xe</td>
+                        <td>Toyota</td>
+                        <td>59M1-12315</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                @Html.ActionLink("Xem chi tiết", "ChiTietXe", "QuanLyXe")
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Mã xe</td>
+                        <td>Toyota</td>
+                        <td>59M1-12315</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                @Html.ActionLink("Xem chi tiết", "ChiTietXe", "QuanLyXe")
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+</body>
+</html>
+
+
+
+

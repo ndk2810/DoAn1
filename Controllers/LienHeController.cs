@@ -21,9 +21,11 @@ namespace HeThongThueXe.Controllers
         {
             phanHoi.DaXuLy = false;
             phanHoi.ThoiGianPhanHoi = DateTime.Now;
+
             db.PHANHOIs.Add(phanHoi);
             db.SaveChanges();
-            return View(phanHoi);
+
+            return View();
         }
     }
 }

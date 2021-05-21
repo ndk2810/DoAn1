@@ -19,6 +19,7 @@
             <span>
                 QUẢN LÝ LOẠI XE
             </span>
+            @Html.ActionLink("Thêm loại xe", "ThemLoaiXe", "QuanLyLoaiXe", null, new { @class = "btn btn-secondary" })
         </p>
         <div class="bang">
             <table class="table">
@@ -30,42 +31,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="row">Mã loại xe</td>
-                        <td>Loại xe</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietLoaiXe", "QuanLyLoaiXe")
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Mã loại xe</td>
-                        <td>Loại xe</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietLoaiXe", "QuanLyLoaiXe")
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Mã loại xe</td>
-                        <td>Loại xe</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietLoaiXe", "QuanLyLoaiXe")
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Mã loại xe</td>
-                        <td>Loại xe</td>
-                        <td class="cot-btn">
-                            <button class="btn btn-secondary">
-                                @Html.ActionLink("Xem chi tiết", "ChiTietLoaiXe", "QuanLyLoaiXe")
-                            </button>
-                        </td>
-                    </tr>
+                    @foreach (var loaiXe in ViewBag.dsLoaiXe)
+                    {
+                        <tr>
+                            <td scope="row">@loaiXe.IDLoaiXe</td>
+                            <td>@loaiXe.TenLoaiXe</td>
+                            <td class="cot-btn">
+                                <button class="btn btn-secondary">
+                                    @Html.ActionLink("Xem chi tiết", "ChiTietLoaiXe", "QuanLyLoaiXe", new { idLoaiXe = loaiXe.IDLoaiXe }, null)
+                                </button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
 

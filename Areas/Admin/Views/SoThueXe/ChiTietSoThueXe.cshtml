@@ -59,6 +59,9 @@
                         <label style="text-align:center" for="">Còn lại</label>
                         <input type="number" name="" class="form-control" placeholder="" id="conLai" readonly>
                     </div>
+                    <div class="form-group f-group">
+                        @Html.ActionLink("Thêm xe", "ThueChiTiet", "SoThueXe", new { idThue = thue.IDThue }, null)
+                    </div>
 
                 </form>
 

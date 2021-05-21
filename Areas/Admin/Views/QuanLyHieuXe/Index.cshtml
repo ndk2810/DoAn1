@@ -1,9 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Hiệu xe";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 
 
 <!DOCTYPE html>
@@ -12,36 +11,34 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/yeucauthue.css" />
-    <title>Quản lý xe</title>
+    <title>Quản lý loại xe</title>
 </head>
 <body>
     <div class="b-content">
         <p class="title">
             <span>
-                QUẢN LÝ XE
+                QUẢN LÝ HIỆU XE
             </span>
-            @Html.ActionLink("Thêm xe", "ThemXe", "QuanLyXe", null, new { @class = "btn btn-secondary" })
+            @Html.ActionLink("Thêm hiệu xe", "ThemHieuXe", "QuanLyHieuXe", null, new { @class = "btn btn-secondary" })
         </p>
         <div class="bang">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Mã xe</th>
-                        <th>Tên xe</th>
-                        <th>Biển số xe</th>
+                        <th>Mã hiệu xe</th>
+                        <th>Hiệu xe</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var xe in ViewBag.dsXe)
+                    @foreach (var hieuXe in ViewBag.dsHieuXe)
                     {
                         <tr>
-                            <td scope="row">@xe.IDXe</td>
-                            <td>@xe.TenXe</td>
-                            <td>@xe.BienSoXe</td>
+                            <td scope="row">@hieuXe.IDHieuXe</td>
+                            <td>@hieuXe.TenHieuXe</td>
                             <td class="cot-btn">
                                 <button class="btn btn-secondary">
-                                    @Html.ActionLink("Xem chi tiết", "ChiTietXe", "QuanLyXe", new { idXe = xe.IDXe }, null)
+                                    @Html.ActionLink("Xem chi tiết", "ChiTietHieuXe", "QuanLyHieuXe", new { idHieuXe = hieuXe.IDHieuXe }, null)
                                 </button>
                             </td>
                         </tr>
@@ -55,7 +52,5 @@
     </div>
 </body>
 </html>
-
-
 
 

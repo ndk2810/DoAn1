@@ -21,8 +21,8 @@ namespace HeThongThueXe.Areas.Admin.Controllers
         {
             YEUCAUTHUE yeuCauThue = db.YEUCAUTHUEs.Find(idYeuCauThue);
             yeuCauThue.TrangThai = true;
-            ViewBag.yeuCauThueLoaiXe = db.LOAIXEs.Find(yeuCauThue.IDHieuXe);
-            ViewBag.yeuCauThueHieuXe = db.HIEUXEs.Find(yeuCauThue.IDLoaiXe);
+            ViewBag.yeuCauThueLoaiXe = db.LOAIXEs.Find(yeuCauThue.IDLoaiXe);
+            ViewBag.yeuCauThueHieuXe = db.HIEUXEs.Find(yeuCauThue.IDHieuXe);
             ViewBag.yeuCauThue = yeuCauThue;
 
             db.SaveChanges();
@@ -36,6 +36,33 @@ namespace HeThongThueXe.Areas.Admin.Controllers
             db.SaveChanges();
 
             return "Xoá yêu cầu thuê thành công";
+        }
+        [HttpPost]
+        public ActionResult ThemVaoSoThue(YEUCAUTHUE yeuCauThue)
+        {
+            KHACH khach = new KHACH();
+            khach.TenKhach = yeuCauThue.TenKhach;
+            khach.SDT = yeuCauThue.SDT;
+            khach.DiaChi = yeuCauThue.DiaChi;
+            khach.Email = yeuCauThue.Email;
+
+            db.KHACHes.Add(khach);
+            db.SaveChanges();
+
+            KHACH getKhach = db.KHACHes.Where(m => m.SDT == yeuCauThue.SDT).FirstOrDefault();
+
+            SOTHUEXE thue = new SOTHUEXE();
+            thue.IDKhach = getKhach.IDKhach;
+            thue.NgayTao = yeuCauThue.NgayTao;
+            thue.ThoiGianThue = yeuCauThue.ThoiGianThue;
+            thue.ThoiGianTra = yeuCauThue.ThoiGianTra;
+            thue.GhiChu = yeuCauThue.YeuCauKhac;
+            thue.TinhTrangThue = "Chưa TT";
+
+            db.SOTHUEXEs.Add(thue);
+            db.SaveChanges();
+
+            return View();
         }
     }
 }

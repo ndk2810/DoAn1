@@ -131,6 +131,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhanHoiController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyHieuXeController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyLoaiXeController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyXeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SoThueXeController.cs" />
@@ -2079,6 +2080,13 @@
     <Content Include="Areas\Admin\Views\QuanLyXe\ChiTietXe.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyLoaiXe\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyLoaiXe\ChiTietLoaiXe.cshtml" />
+    <Content Include="Areas\Admin\Views\YeuCauThue\ThemVaoSoThue.cshtml" />
+    <Content Include="Areas\Admin\Views\SoThueXe\ThueChiTiet.cshtml" />
+    <Content Include="Areas\Admin\Views\SoThueXe\ThemXeVaoHD.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyXe\ThemXe.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLoaiXe\ThemLoaiXe.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyHieuXe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyHieuXe\ChiTietHieuXe.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

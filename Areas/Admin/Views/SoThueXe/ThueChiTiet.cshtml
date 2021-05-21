@@ -1,0 +1,95 @@
+﻿@model HeThongThueXe.Models.THUECT
+
+@{
+    ViewBag.Title = "ThueChiTiet";
+
+    List<SelectListItem> listXe = new List<SelectListItem>();
+    foreach (var temp in ViewBag.dsXe)
+    {
+        listXe.Add(new SelectListItem() { Text = temp.TenXe + " - " + temp.BienSoXe, Value = temp.IDXe.ToString() });
+    }
+
+    List<SelectListItem> listLoaiXe = new List<SelectListItem>();
+    foreach (var temp in ViewBag.dsLoaiXe)
+    {
+        listLoaiXe.Add(new SelectListItem() { Text = temp.TenLoaiXe, Value = temp.IDLoaiXe.ToString() });
+    }
+
+    List<SelectListItem> listHieuXe = new List<SelectListItem>();
+    foreach (var temp in ViewBag.dsHieuXe)
+    {
+        listHieuXe.Add(new SelectListItem() { Text = temp.TenHieuXe , Value = temp.IDHieuXe.ToString() });
+    }
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Chitietyeucauthue.css" />
+    <title>ChiTietSoThue</title>
+</head>
+<body>
+    <div class="b-content">
+        <div class="thongtinyeucauthue">
+            <p class="title">
+                <span>
+                    THÊM XE
+                </span>
+            </p>
+            <div class="content__form">
+                @using (Html.BeginForm("ThemXeVaoHD", "SoThueXe", FormMethod.Post))
+                {
+                    <label for="">Loại xe</label>
+                    @Html.DropDownList("Loại xe", listLoaiXe, new { @class = "form-control", id = "select-loaiXe", onchange = "loadXe()" })
+                    <label for="">Hiệu xe</label>
+                    @Html.DropDownList("Hiệu xe", listHieuXe, new { @class = "form-control", id = "select-hieuXe", onchange = "loadXe()" })
+                    <label for="">Tên xe</label>
+                    @Html.DropDownListFor(m => m.IDXe, listXe, new { @class = "form-control", id = "select-Xe" })
+
+                    @Html.TextBoxFor(m => m.IDThue, new { @class = "form-control", id = "IDThue", @Value = ViewBag.idThue, style = "visibility: hidden;" })
+
+                    <input type="submit" class="btn btn-success xacnhan" value="Thêm xe" />
+                }
+            </div>
+        </div>
+        <hr />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Xe</th>
+                    <th>Gía</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var thueCT in ViewBag.thueCT)
+                {
+                    <tr>
+                        <td>@thueCT.IDXe</td>
+                        <td>@thueCT.Gia</td>
+                        <td class="cot-btn">
+                            <button class="btn btn-secondary">
+                                Xoá
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+<script>
+    const loadXe = () => {
+        const hieuXe = document.getElementById('select-hieuXe').value;
+        const loaiXe = document.getElementById('select-loaiXe').value;
+        //const IDThue = document.getElementById('IDThue').value;
+
+        //alert(IDThue);
+    }
+</script>

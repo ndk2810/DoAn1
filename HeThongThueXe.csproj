@@ -148,6 +148,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Gmail.cs" />
     <Compile Include="Models\HIEUXE.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
@@ -2087,6 +2088,7 @@
     <Content Include="Areas\Admin\Views\QuanLyLoaiXe\ThemLoaiXe.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyHieuXe\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyHieuXe\ChiTietHieuXe.cshtml" />
+    <Content Include="Areas\Admin\Views\PhanHoi\TraLoiPhanHoi.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

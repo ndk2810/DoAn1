@@ -54,7 +54,7 @@
         </div>
         <hr />
         <div class="area-button">
-            <button class="btn btn-success xacnhan" type="submit">Đánh dấu đã đọc</button>
+            @Html.ActionLink("Phản hồi lại khách", "TraLoiPhanHoi", "PhanHoi", new { idPhanHoi = phanHoi.IDPhanHoi }, new { @class = "btn btn-success xacnhan" })
             <button class="btn btn-danger huybo" type="submit">Xóa phản hồi</button>
         </div>
     </div>

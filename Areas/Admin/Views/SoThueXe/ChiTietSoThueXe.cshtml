@@ -1,11 +1,10 @@
 ﻿
 @{
     var thue = ViewBag.thue;
+    var khach = ViewBag.khach;
     ViewBag.Title = "ChiTietSoThueXe";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-
 
 <!DOCTYPE html>
 
@@ -34,35 +33,25 @@
                         <input type="text" name="" id="" class="form-control" value="@thue.NgayTao" readonly>
                     </div>
                     <div class="form-group f-group">
-                        <label for="">Hiệu xe</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="">
-                    </div>
-                    <div class="form-group f-group">
-                        <label for="">Loại xe</label>
-                        <input type="text" name="" id="" class="form-control" placeholder="" ">
-                    </div>
-                    <div class="form-group f-group">
                         <label for="">Thời gian thuê</label>
-                        <input type="text" name="" id="" class="form-control" value="@thue.ThoiGianThue">
                         <label style="margin-left:15%" for="">Thời gian trả</label>
-                        <input type="text" name="" id="" class="form-control" value="@thue.ThoiGianTra">
+                        <input type="date" name="" id="thoiGianTra" class="form-control" value="@thue.ThoiGianTra.ToShortDateString()">
                     </div>
                     <div class="form-group f-group">
                         <label for="">Ghi chú</label>
-                        <textarea type="text" name="" id="" class="form-control" value="@thue.GhiChu" rows="3"></textarea>
+                        <textarea type="text" name="" id="" class="form-control" value="@thue.GhiChu" rows="3" readonly></textarea>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Tổng tiền</label>
-                        <input type="number" name="" class="form-control" value="@thue.TongTien" readonly id="tongTien">
-                        <label style="text-align:center" for="">Đặt cọc</label>
+                        <input type="number" name="" class="form-control" value="@Math.Ceiling(thue.TongTien)" readonly id="tongTien">
+                        @*<label style="text-align:center" for="">Đặt cọc</label>
                         <input type="number" name="" class="form-control" onchange="tinhTienConLai()" id="datCoc">
                         <label style="text-align:center" for="">Còn lại</label>
-                        <input type="number" name="" class="form-control" placeholder="" id="conLai" readonly>
+                        <input type="number" name="" class="form-control" placeholder="" id="conLai" readonly>*@
                     </div>
                     <div class="form-group f-group">
-                        @Html.ActionLink("Thêm xe", "ThueChiTiet", "SoThueXe", new { idThue = thue.IDThue }, null)
+                        @Html.ActionLink("Thêm xe", "ThueChiTiet", "SoThueXe", new { idThue = thue.IDThue }, new { @class = "btn btn-secondary" })
                     </div>
-
                 </form>
 
             </div>
@@ -78,19 +67,19 @@
                 <form>
                     <div class="form-group f-group">
                         <label for="">Tên khách</label>
-                        <input type="text" name="" id="" class="form-control" value="" readonly>
+                        <input type="text" name="" id="" class="form-control" value="@khach.TenKhach" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Địa chỉ</label>
-                        <input type="text" name="" id="" class="form-control" value="" readonly>
+                        <input type="text" name="" id="" class="form-control" value="@khach.DiaChi" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Điện thoại</label>
-                        <input type="text" name="" id="" class="form-control" value="" readonly>
+                        <input type="text" name="" id="" class="form-control" value="@khach.SDT" readonly>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Email</label>
-                        <input type="text" name="" id="" class="form-control" value="" readonly>
+                        <input type="text" name="" id="" class="form-control" value="@khach.Email" readonly>
                     </div>
                 </form>
             </div>
@@ -99,13 +88,25 @@
         <div class="area-button">
             <button class="btn btn-success xacnhan" type="submit">Lưu thay đổi</button>
             <button class="btn btn-danger huybo" type="submit">Thanh toán</button>
+            <button class="btn btn-danger huybo" type="submit" style="background-color: orangered" onclick="xoaThue(@thue.IDThue)">Xoá thuê</button>
         </div>
     </div>
 </body>
 </html>
 
 <script>
+    document.getElementById('thoiGianThue').value = @thue.ThoiGianThue.ToShortDateString();
+    document.getElementById('thoiGianTra').value = @thue.ThoiGianThue.ToShortDateString();
+
     const tinhTienConLai = () => {
         document.getElementById('conLai').value = parseInt(document.getElementById('tongTien').value) - parseInt(document.getElementById('datCoc').value);
+    }
+    const xoaThue = (idThue) => {
+        if (confirm('Xoá hoá đơn thuê này ?')) {
+            var url = "/Admin/SoThueXe/XoaThue";
+            $.get(url, { idThue: idThue }, function (data) {
+                window.location.replace("/Admin/SoThueXe/Index");
+            });
+        }
     }
 </script>

@@ -72,7 +72,7 @@
                         <td>@thueCT.IDXe</td>
                         <td>@thueCT.Gia</td>
                         <td class="cot-btn">
-                            <button class="btn btn-secondary">
+                            <button class="btn btn-secondary" onclick="xoaXe(@thueCT.IDThue, @thueCT.IDThueCT)">
                                 Xoá
                             </button>
                         </td>
@@ -91,5 +91,13 @@
         //const IDThue = document.getElementById('IDThue').value;
 
         //alert(IDThue);
+    }
+    const xoaXe = (idThue, idThueCT) => {
+        if (confirm('Xoá xe này khỏi hoá đơn ?')) {
+            var url = "/Admin/SoThueXe/XoaXeKhoiHD";
+            $.get(url, { idThue: idThue, idThueCT: idThueCT }, function (data) {
+                window.location.replace("/Admin/SoThueXe/ThueChiTiet?idThue=" + idThue);
+            });
+        }
     }
 </script>

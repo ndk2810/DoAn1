@@ -22,8 +22,25 @@ namespace HeThongThueXe.Areas.Admin.Controllers
         public ActionResult ChiTietSoThueXe(int idThue)
         {
             SOTHUEXE thue = db.SOTHUEXEs.Find(idThue);
+
             ViewBag.thue = thue;
+            ViewBag.khach = db.KHACHes.Find(thue.IDKhach);
             return View();
+        }
+        public ActionResult XoaThue(int idThue)
+        {
+            var lstDeleteThueCT = from thueCT in db.THUECTs where thueCT.IDThue == idThue select thueCT;
+
+            foreach(var thueCT in lstDeleteThueCT)
+            {
+                db.THUECTs.Remove(thueCT);
+            }
+            db.SaveChanges();
+
+            db.SOTHUEXEs.Remove(db.SOTHUEXEs.Find(idThue));
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
         public ActionResult ThueChiTiet(int idThue)
         {
@@ -35,6 +52,11 @@ namespace HeThongThueXe.Areas.Admin.Controllers
             ViewBag.dsHieuXe = db.HIEUXEs.ToList();
 
             return View();
+        }
+        public void XoaXeKhoiHD(int idThue, int idThueCT)
+        {
+            db.THUECTs.Remove(db.THUECTs.Find(idThueCT));
+            db.SaveChanges();
         }
         [HttpPost]
         public ActionResult ThemXeVaoHD(THUECT thueCT)
@@ -52,11 +74,13 @@ namespace HeThongThueXe.Areas.Admin.Controllers
             db.SaveChanges();
 
             string queryUpdateTongTien = "UPDATE SOTHUEXE SET TongTien = (SELECT SUM(Gia) as TongHoaDon FROM THUECT WHERE IDThue = " + thueCT.IDThue + ") WHERE IDThue = " + thueCT.IDThue + ";";
-            string queryUpdateLuotThue = "UPDATE LOAIXE SET SoLuotThue = " + soLuotThue + " WHERE IDLoaiXe = " + xe.IDLoaiXe + ";";
+            string queryUpdateLuotThueLoaiXe = "UPDATE LOAIXE SET SoLuotThue = " + soLuotThue + " WHERE IDLoaiXe = " + xe.IDLoaiXe + ";";
+            string queryUpdateLuotThueHieuXe = "UPDATE HIEUXE SET SoLuotThue = " + soLuotThue + " WHERE IDHieuXe = " + xe.IDHieuXe + ";";
             ExecuteQuery(queryUpdateTongTien);
-            ExecuteQuery(queryUpdateLuotThue);
+            ExecuteQuery(queryUpdateLuotThueLoaiXe);
+            ExecuteQuery(queryUpdateLuotThueHieuXe);
 
-            return View();
+            return RedirectToAction("Index");
         }
         public static void ExecuteQuery(string queryString)
         {

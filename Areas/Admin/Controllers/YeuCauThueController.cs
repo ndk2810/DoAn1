@@ -28,14 +28,14 @@ namespace HeThongThueXe.Areas.Admin.Controllers
             db.SaveChanges();
             return View();
         }
-        public string XoaYeuCauThue(int idYeuCauThue)
+        public ActionResult XoaYeuCauThue(int idYeuCauThue)
         {
             YEUCAUTHUE yeuCauThue = db.YEUCAUTHUEs.Find(idYeuCauThue);
             db.YEUCAUTHUEs.Remove(yeuCauThue);
 
             db.SaveChanges();
 
-            return "Xoá yêu cầu thuê thành công";
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult ThemVaoSoThue(YEUCAUTHUE yeuCauThue)
@@ -62,7 +62,7 @@ namespace HeThongThueXe.Areas.Admin.Controllers
             db.SOTHUEXEs.Add(thue);
             db.SaveChanges();
 
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

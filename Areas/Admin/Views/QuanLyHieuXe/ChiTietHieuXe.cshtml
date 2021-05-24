@@ -1,0 +1,55 @@
+﻿@model HeThongThueXe.Models.HIEUXE
+
+@{
+    ViewBag.Title = "Chi tiết hiệu xe";
+    var hieuXe = ViewBag.hieuXe;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Chitietyeucauthue.css" />
+    <title>ChiTietLoaiXe</title>
+</head>
+<body>
+    @using (Html.BeginForm("SuaHieuXe", "QuanLyHieuXe", FormMethod.Post))
+    {
+        <div class="b-content">
+            <div class="thongtinyeucauthue">
+                <p class="title">
+                    <span>
+                        THÔNG TIN HIỆU XE
+                    </span>
+                </p>
+                <div class="content__form">
+                    <div class="form-group f-group">
+                        <label for="">Mã hiệu xe</label>
+                        @Html.TextBoxFor(m => m.IDHieuXe, new { @class = "form-control", @Value = hieuXe.IDHieuXe, @readonly = "true" })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Loại xe</label>
+                        @Html.TextBoxFor(m => m.TenHieuXe, new { @class = "form-control", @Value = hieuXe.TenHieuXe })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Tóm tắt</label>
+                        @Html.TextBoxFor(m => m.TomTat, new { @class = "form-control", @Value = hieuXe.TomTat })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Chi tiết</label>
+                        @Html.TextBoxFor(m => m.ChiTiet, new { @class = "form-control", @Value = hieuXe.ChiTiet })
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="area-button">
+            <input class="btn btn-success xacnhan" type="submit" value="Lưu thay đổi" />
+        </div>
+    }
+</body>
+</html>
+

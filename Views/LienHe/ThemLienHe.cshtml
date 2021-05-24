@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "ThemLienHe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    <title>Thành công</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container main__content">
+            <div class="main__content--content success-msg" style="background-color:white">
+                <h1>GỬI PHẢN HỒI THÀNH CÔNG</h1>
+                <h3>Chúng tôi sẽ trả lời lại bạn trong thời gian sớm nhất</h3>
+                <img src="~/Content/img/checkmark.png" alt="check" />
+                @Html.ActionLink("Quay lại trang chủ", "Index", "Home")
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .success-msg, .success-msg a {
+        text-align: center;
+        display: block;
+        font-weight: bold;
+    }
+
+    img {
+        width: 10%;
+        margin-bottom: 2%;
+    }
+
+    .success-msg h1 {
+        padding-top: 2%;
+    }
+
+    .success-msg a {
+        font-size: 2.5rem;
+        padding-bottom: 3%;
+    }
+</style>
+

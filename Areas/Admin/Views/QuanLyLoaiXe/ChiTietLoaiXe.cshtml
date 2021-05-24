@@ -1,0 +1,55 @@
+﻿@model HeThongThueXe.Models.LOAIXE
+@{
+    ViewBag.Title = "ChiTietLoaiXe";
+    var loaiXe = ViewBag.loaiXe;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Chitietyeucauthue.css" />
+    <title>ChiTietLoaiXe</title>
+</head>
+<body>
+    @using (Html.BeginForm("SuaLoaiXe", "QuanLyLoaiXe", FormMethod.Post))
+    {
+        <div class="b-content">
+            <div class="thongtinyeucauthue">
+                <p class="title">
+                    <span>
+                        THÔNG TIN LOẠI XE
+                    </span>
+                </p>
+                <div class="content__form">
+                    <div class="form-group f-group">
+                        <label for="">Mã loại xe</label>
+                        @Html.TextBoxFor(m => m.IDLoaiXe, new { @class = "form-control", @Value = loaiXe.IDLoaiXe, @readonly = "true" })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Loại xe</label>
+                        @Html.TextBoxFor(m => m.TenLoaiXe, new { @class = "form-control", @Value = loaiXe.TenLoaiXe })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Tóm tắt</label>
+                        @Html.TextAreaFor(m => m.TomTat, new { @class = "form-control", @Value = loaiXe.TomTat })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Gía theo ngày</label>
+                        @Html.TextBoxFor(m => m.GiaTheoNgay, new { @class = "form-control", @Value = loaiXe.GiaTheoNgay, @type = "number" })
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="area-button">
+            <input class="btn btn-success xacnhan" type="submit" value="Lưu thay đổi" />
+        </div>
+    }
+    </body>
+</html>
+

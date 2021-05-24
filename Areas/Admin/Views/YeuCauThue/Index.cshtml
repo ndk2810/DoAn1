@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/yeucauthue.css" />
+    <title>Yêu cầu thuê</title>
+</head>
+<body>
+    <div class="b-content">
+        <p class="title">
+            <span>
+                CÁC YÊU CẦU THUÊ XE
+            </span>
+        </p>
+        <div class="bang">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã yêu cầu</th>
+                        <th>Khách hàng</th>
+                        <th>Hiệu xe</th>
+                        <th>Loại xe</th>
+                        <th>Thời gian gửi</th>
+                        <th>Trạng thái</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var yeuCau in ViewBag.dsYeuCauThue)
+                    {
+                        var trangThai = "Chưa đọc";
+                        var style = "font-weight: bold; color: red;";
+                        if (yeuCau.TrangThai == true)
+                        {
+                            trangThai = "Đã đọc";
+                            style = "font-weight: 200; color: #858796;";
+                        }
+                        <tr style="@style">
+                            <td scope="row">@yeuCau.IDYeuCau</td>
+                            <td>@yeuCau.TenKhach</td>
+                            <td>@yeuCau.IDHieuXe</td>
+                            <td>@yeuCau.IDLoaiXe</td>
+                            <td>@yeuCau.NgayTao</td>
+                            <td>@trangThai</td>
+                            <td class="cot-btn">
+                                <button class="btn btn-secondary">
+                                    @Html.ActionLink("Xem chi tiết", "ChiTietYeuCauThue", "YeuCauThue", new { idYeuCauThue = yeuCau.IDYeuCau }, null)
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+

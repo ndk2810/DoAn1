@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9a1a4278fcdc4233919fa7b08a8e9bc6" Name="Diagram1">
+        <EntityTypeShape EntityType="THUEXEModel.HIEUXE" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.HOADON" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.HOADONCT" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.KHACH" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.LOAIXE" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.PHANHOI" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.SOTHUEXE" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.sysdiagram" Width="1.5" PointX="2.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.TAIKHOAN" Width="1.5" PointX="8.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.THONGKE" Width="1.5" PointX="10.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.THUECT" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.User" Width="1.5" PointX="10.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.XE" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.YEUCAUTHUE" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="THUEXEModel.FK__XE__IDHieuXe__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__YEUCAUTHU__IDHie__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__HOADON__IDKhach__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__HOADON__IDThue__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__HOADONCT__IDHoaD__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__HOADONCT__IDXe__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__SOTHUEXE__IDKhac__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__XE__IDLoaiXe__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__YEUCAUTHU__IDLoa__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__THUECT__IDThue__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.FK__THUECT__IDXe__31EC6D26" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

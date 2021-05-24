@@ -1,0 +1,112 @@
+﻿@model HeThongThueXe.Models.YEUCAUTHUE
+
+@{
+    ViewBag.Title = "ChiTietYeuCauThue";
+    var yeuCauThue = ViewBag.yeuCauThue;
+    var yeuCauThueLoaiXe = ViewBag.yeuCauThueLoaiXe;
+    var yeuCauThueHieuXe = ViewBag.yeuCauThueHieuXe;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Chitietyeucauthue.css" />
+    <title>ChiTietYeuCauThue</title>
+</head>
+<body>
+
+    @using (Html.BeginForm("ThemVaoSoThue", "YeuCauThue", FormMethod.Post))
+    {
+        <div class="b-content">
+            <div class="thongtinyeucauthue">
+                <p class="title">
+                    <span>
+                        THÔNG TIN YÊU CẦU THUÊ
+                    </span>
+                </p>
+                <div class="content__form">
+                    <div class="form-group f-group">
+                        <label for="">Mã yêu cầu</label>
+                        @Html.TextBoxFor(m => m.IDYeuCau, new { @class = "form-control", @Value = yeuCauThue.IDYeuCau, @readonly = true })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Ngày tạo</label>
+                        @Html.TextBoxFor(m => m.NgayTao, new { @class = "form-control", @Value = yeuCauThue.NgayTao, @readonly = true })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Hiệu xe</label>
+                        <input type="text" value="@yeuCauThueHieuXe.TenHieuXe" class="form-control" readonly />
+                        @*@Html.TextBoxFor(m => m.IDHieuXe, new { @class = "form-control", @Value = yeuCauThueHieuXe.TenHieuXe, @readonly = true })*@
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Loại xe</label>
+                        <input type="text" value="@yeuCauThueLoaiXe.TenLoaiXe" class="form-control" readonly />
+                        @*@Html.TextBoxFor(m => m.IDLoaiXe, new { @class = "form-control", @Value = yeuCauThueLoaiXe.TenLoaiXe, @readonly = true })*@
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Thời gian thuê</label>
+                        @Html.TextBoxFor(m => m.ThoiGianThue, new { @class = "form-control", @Value = yeuCauThue.ThoiGianThue, @readonly = true })
+                        <label style="margin-left:15%" for="">Thời gian trả</label>
+                        @Html.TextBoxFor(m => m.ThoiGianTra, new { @class = "form-control", @Value = yeuCauThue.ThoiGianTra, @readonly = true })
+                    </div>
+                    }
+                </div>
+            </div>
+            <hr />
+            <div class="thongtinkhachthue">
+                <p class="title" style="margin-top:25px">
+                    <span>
+                        THÔNG TIN KHÁCH THUÊ
+                    </span>
+                </p>
+                <div class="content__form">
+                    <div class="form-group f-group">
+                        <label for="">Tên khách</label>
+                        @Html.TextBoxFor(m => m.TenKhach, new { @class = "form-control", @Value = yeuCauThue.TenKhach, @readonly = true })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Địa chỉ</label>
+                        @Html.TextBoxFor(m => m.DiaChi, new { @class = "form-control", @Value = yeuCauThue.DiaChi, @readonly = true })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Điện thoại</label>
+                        @Html.TextBoxFor(m => m.SDT, new { @class = "form-control", @Value = yeuCauThue.SDT, @readonly = true })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Email</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Value = yeuCauThue.Email, @readonly = true })
+                    </div>
+                    <div class="form-group f-group">
+                        <label for="">Yêu cầu khác</label>
+                        @Html.TextAreaFor(m => m.YeuCauKhac, new { @class = "form-control", @Value = yeuCauThue.YeuCauKhac, @readonly = true })
+                    </div>
+                </div>
+
+            </div>
+            <div class="area-button">
+                <input type="submit" class="btn btn-success xacnhan" value="Xác nhận yêu cầu thuê" />
+                <button class="btn btn-danger huybo" onclick="xoaYeuCauThue(@yeuCauThue.IDYeuCau)">Xoá yêu cầu thuê</button>
+            </div>
+
+
+        </div>
+    }
+    </body>
+</html>
+
+<script>
+    const xoaYeuCauThue = (IDYeuCau) => {
+        if (confirm('Xoá yêu cầu thuê ?')) {
+            var url = "/Admin/YeuCauThue/XoaYeuCauThue";
+            $.get(url, { idYeuCauThue: IDYeuCau }, function (data) {
+                alert(data);
+                window.location.replace("/Admin/YeuCauThue/");
+            });
+        }
+    }
+</script>

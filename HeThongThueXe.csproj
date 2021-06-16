@@ -135,6 +135,7 @@
     <Compile Include="Areas\Admin\Controllers\QuanLyLoaiXeController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyXeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SoThueXeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\Admin\Controllers\YeuCauThueController.cs" />
     <Compile Include="Controllers\BangGiaController.cs" />
     <Compile Include="Controllers\ChinhSachDoiTraController.cs" />
@@ -148,7 +149,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Gmail.cs" />
+    <Compile Include="Models\GetThongKe.cs" />
+    <Compile Include="Models\gmail.cs" />
     <Compile Include="Models\HIEUXE.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
@@ -168,6 +170,9 @@
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SOTHUEXE.cs">
+      <DependentUpon>ThueXe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TAIKHOAN.cs">
@@ -193,6 +198,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ThueXe.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>ThueXe.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\XE.cs">
       <DependentUpon>ThueXe.tt</DependentUpon>
@@ -1911,13 +1919,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\ThueXe.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ThueXe.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ThueXe.edmx.diagram">
-      <DependentUpon>ThueXe.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
@@ -2089,6 +2090,16 @@
     <Content Include="Areas\Admin\Views\QuanLyHieuXe\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyHieuXe\ChiTietHieuXe.cshtml" />
     <Content Include="Areas\Admin\Views\PhanHoi\TraLoiPhanHoi.cshtml" />
+    <Content Include="Areas\Admin\Views\SoThueXe\FormThanhToan.cshtml" />
+    <EntityDeploy Include="Models\ThueXe.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ThueXe.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ThueXe.edmx.diagram">
+      <DependentUpon>ThueXe.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\ThongKe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SoThueXe\HopDong.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

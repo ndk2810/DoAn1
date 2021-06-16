@@ -45,6 +45,7 @@ namespace HeThongThueXe.Areas.Admin.Controllers
         public ActionResult ThueChiTiet(int idThue)
         {
             ViewBag.thueCT = db.THUECTs.Where(m => m.IDThue == idThue);
+            SOTHUEXE thue = db.SOTHUEXEs.Find(idThue);
 
             ViewBag.idThue = idThue;
             ViewBag.dsXe = db.XEs.ToList();
@@ -53,10 +54,69 @@ namespace HeThongThueXe.Areas.Admin.Controllers
 
             return View();
         }
+        public ActionResult FormThanhToan(int idThue)
+        {
+            SOTHUEXE thue = db.SOTHUEXEs.Find(idThue);
+
+            ViewBag.khach = db.KHACHes.Find(thue.IDKhach);
+            ViewBag.thue = thue;
+            return View();
+        }
+        public ActionResult HopDong(int idThue)
+        {
+            SOTHUEXE thue = db.SOTHUEXEs.Find(idThue);
+
+            ViewBag.khach = db.KHACHes.Find(thue.IDKhach);
+            ViewBag.thueCT = db.THUECTs.Where(m => m.IDThue == idThue);
+            ViewBag.thue = thue;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ThanhToan(SOTHUEXE thue)
+        {
+            HOADON hoaDon = new HOADON();
+
+            hoaDon.IDThue = thue.IDThue;
+            hoaDon.IDKhach = thue.IDKhach;
+            hoaDon.NgayTao = thue.NgayTao;
+            hoaDon.ThoiGianThue = thue.ThoiGianThue;
+            hoaDon.ThoiGianTra = thue.ThoiGianTra;
+            hoaDon.TongTien = thue.TongTien;
+            hoaDon.TongGiam = thue.TongGiam;
+            hoaDon.GhiChu = thue.GhiChu;
+
+            db.HOADONs.Add(hoaDon);
+            db.SaveChanges();
+
+            var lstDeleteThueCT = from thueCT in db.THUECTs where thueCT.IDThue == thue.IDThue select thueCT;
+
+            foreach (var thueCT in lstDeleteThueCT)
+            {
+                HOADONCT hdCT = new HOADONCT();
+
+                hdCT.IDHoaDon = hoaDon.IDHoaDon;
+                hdCT.IDXe = thueCT.IDXe;
+                hdCT.Gia = thueCT.Gia;
+                db.HOADONCTs.Add(hdCT);
+
+                db.THUECTs.Remove(thueCT);
+            }
+            db.SaveChanges();
+
+            db.SOTHUEXEs.Remove(db.SOTHUEXEs.Find(thue.IDThue));
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         public void XoaXeKhoiHD(int idThue, int idThueCT)
         {
             db.THUECTs.Remove(db.THUECTs.Find(idThueCT));
             db.SaveChanges();
+        }
+        public List<XE> ReloadListXe(int idLoaiXe, int idHieuXe)
+        {
+            List<XE> lstXE = db.XEs.ToList();
+
+            return lstXE;
         }
         [HttpPost]
         public ActionResult ThemXeVaoHD(THUECT thueCT)

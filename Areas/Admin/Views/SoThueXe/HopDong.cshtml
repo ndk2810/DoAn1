@@ -1,0 +1,186 @@
+﻿@using HeThongThueXe.Models;
+@{
+
+    KHACH khach = ViewBag.khach;
+    SOTHUEXE thue = ViewBag.thue;
+    ViewBag.Title = "Index";
+    Layout = null;
+    decimal? result = thue.TongTien.HasValue ? (decimal?)Math.Round(thue.TongTien.Value) : null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hợp đồng</title>
+</head>
+<body>
+    <div class="table-bordered" style="background-color:white; font-weight:bold; height:3000px; font-family: 'Times New Roman'">
+        <div style="text-align:center; padding:20px">
+            <p style=" font-size: 1.6rem">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</p>
+            <span style="font-size:1.3rem">Độc lập - Tự do - Hạnh phúc</span>
+        </div>
+        <div>
+
+            <hr style="width:60%; text-align:center" />
+        </div>
+        <div class="hopdong">
+            <p style="font-size:1.6rem; font-weight:bold; text-align:center;color:black">HỢP ĐỒNG THUÊ XE</p>
+            <p style="text-align:center; color:black">
+                Số : @thue.IDThue /HĐTX
+            </p>
+            <div class="hopdong__dieule" style="font-style:italic;font-weight:500; padding: 10px 70px">
+                <p>- Căn cứ Bộ Luật Dân sự số 33/2005/QH 11 đã được Quốc Hội nước Cộng Hòa Xã Hội Chủ Nghĩa Việt Nam khóa XI, kỳ họp thứ 7  thông qua ngày 14/06/2005.</p>
+                <p>- Căn cứ Bộ Luật thương mại số 36/2005/QH 11 đã được Quốc Hội nước Cộng Hòa Xã Hội Chủ Nghĩa Việt Nam khóa XI, kỳ họp thứ 7  thông qua ngày 14/06/2005.</p>
+                <p>- Căn cứ vào nhu cầu và khả năng cung ứng của các bên dưới đây:</p>
+
+            </div>
+            <p style="font-weight:600; padding: 0px 70px">Hôm nay: ngày @thue.NgayTao.Value.Day tháng @thue.NgayTao.Value.Month năm @thue.NgayTao.Value.Year , chúng tôi gồm: </p>
+            <div class="" style="padding:10px 70px; color:black">
+                <h4 style="font-weight:bold;font-weight:500">
+                    <span style="text-decoration:underline">
+                        BÊN A
+                    </span>
+                    : @khach.TenKhach ( bên thuê )
+
+                </h4>
+                <p style="padding:10px 70px;">
+                    - Địa chỉ: @khach.DiaChi
+                </p>
+                <p style="padding:10px 70px;">
+                    - Số điện thoại: @khach.SDT
+                </p>
+                <p style="padding:10px 70px;">
+                    - Số CMND: 0284563256
+                </p>
+
+            </div>
+            <div class="" style="padding:10px 70px; color:black">
+                <h4 style="font-weight:bold;font-weight:500">
+                    <span style="text-decoration:underline">
+                        BÊN B
+                    </span>
+                    : CÔNG TY: CÔNG TY THUÊ XE HUFLIT ( bên cho thuê )
+
+                </h4>
+                <p style="padding:10px 70px;">
+                    - Địa chỉ: 828 Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh
+                </p>
+                <p style="padding:10px 70px;">
+                    - Đại diện: Ông Nguyễn Minh Phát
+                </p>
+                <p style="padding:10px 70px;">
+                    - Mã số thuế: 069420
+                </p>
+
+            </div>
+            <p style="padding:10px 70px;">Sau khi bàn bạc, thỏa thuận, hai bên thống nhất ký kết Hợp đồng thuê xe với các điều khoản như sau:</p>
+            <div class="" style="padding:10px 70px; color:black">
+                <h4>
+                    <span style="text-decoration:underline">
+                        ĐIỀU 1: NỘI DUNG HỢP ĐỒNG
+                    </span>
+
+
+                </h4>
+                <p style="padding:10px 70px;">
+                    - Bên A đồng ý thuê của bên B xe
+                </p>
+                @foreach (var thueCT in ViewBag.thueCT)
+                {
+                    THUEXEEntities db = new THUEXEEntities();
+                    XE xe = db.XEs.Find(thueCT.IDXe);
+
+                    <p style="padding:0 70px;">
+                        + Xe @xe.TenXe , biển kiểm soát @xe.BienSoXe
+                    </p>
+                }
+
+
+            </div>
+            <div class="" style="padding:10px 70px; color:black">
+                <h4>
+                    <span style="text-decoration:underline">
+                        ĐIỀU 2: GIÁ TRỊ HỢP ĐỒNG, PHƯƠNG THỨC THANH TOÁN:
+                    </span>
+                </h4>
+                <p style="padding:10px 70px 0 70px;">
+                    - Giá thuê xe là: @String.Format("{0:n0}", result) đồng
+                <p style="padding:0px 75px;">( Giá trên đã bao gồm thuế GTVT )</p>
+                <p style="padding:10px 70px;">
+                    - Bên A sẽ thanh toán cho bên B theo hình thức tiền mặt
+                </p>
+            </div>
+            <div class="" style="padding:10px 70px; color:black">
+                <h4>
+                    <span style="text-decoration:underline">
+                        ĐIỀU 3 : TRÁCH NHIỆM CỦA CÁC BÊN
+                    </span>
+                </h4>
+                <p style="font-size:1.2rem">3.1. Trách nhiệm của bên B:</p>
+                <p style="padding:10px 70px;">
+                    - Giao xe và toàn bộ giấy tờ liên quan đến xe ngay sau khi Hợp đồng có hiệu lực và Bên A đã thanh toán tiền thuê xe 01 tháng đầu tiên. Giấy tờ liên quan đến xe gồm: Giấy đăng ký xe, giấy kiểm định, giấy bảo hiểm xe.
+                </p>
+                <p style="padding:10px 70px;">
+                    - Chịu trách nhiệm pháp lý về nguồn gốc và quyền sở hữu của xe.
+                </p>
+                <p style="font-size:1.2rem">3.2. Trách nhiệm của bên A:</p>
+                <p style="padding:10px 70px;">
+                    - Thanh toán tiền thuê xe cho Bên B đúng hạn.
+                </p>
+                <p style="padding:10px 70px;">
+                    - Chịu toàn bộ chi phí xăng dầu khi sử dụng xe.
+                </p>
+
+
+            </div>
+            <div class="" style="padding:10px 70px; color:black">
+                <h4>
+                    <span style="text-decoration:underline">
+                        ĐIỀU 4: HIỆU LỰC HỢP ĐỒNG
+                    </span>
+                </h4>
+                <p style="padding:10px 70px;">
+                    - Hợp đồng có giá trị kể từ ngày @thue.NgayTao đến hết ngày @thue.ThoiGianTra
+
+                <p style="padding:10px 70px;">
+                    - Nếu một trong hai Bên, bên nào muốn chấm dứt Hợp đồng trước thời hạn thì phải thông báo cho Bên kia trươc ít nhất 01 tháng.
+                </p>
+
+
+            </div>
+            <div class="" style="padding:10px 70px; color:black">
+                <h4>
+                    <span style="text-decoration:underline">
+                        ĐIỀU 5 : ĐIỀU KHOẢN CHUNG
+                    </span>
+                </h4>
+                <p style="padding:10px 70px;">
+                    - Trong quá trình thực hiện hợp đồng, nếu có đề nghị điều chỉnh thì phải thông báo cho nhau bằng văn bản để cùng bàn bạc giải quyết.
+
+                <p style="padding:10px 70px;">
+                    - Hai bên cam kết thi hành đúng các điều khoản của hợp đồng, không bên nào tự ý đơn phương sửa đổi, đình chỉ hoặc hủy bỏ hợp đồng. Mọi sự vi phạm phải được xử lý theo pháp luật.
+                </p>
+                <p style="padding:10px 70px;">
+                    - Hợp đồng này có hiệu lực từ ngày ký và coi như được thanh lý sau khi hai bên thực hiện xong nghĩa vụ của mình và không còn bất kỳ khiếu nại nào.
+                </p>
+                <p style="padding:10px 70px;">
+                    Hợp đồng được lập thành 02 (bốn) bản có giá trị pháp lý như nhau, Bên A giữ 01 bản. Bên B giữ 01 bản.
+                </p>
+            </div>
+            <div class="chuky" style="display:flex; justify-content:space-around">
+                <h4 style="padding:10px 120px; color:black">ĐẠI DIỆN BÊN A</h4>
+                <h4 style="padding:10px 120px; color:black">ĐẠI DIỆN BÊN B</h4>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+

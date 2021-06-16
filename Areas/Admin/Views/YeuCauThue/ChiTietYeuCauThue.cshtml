@@ -5,6 +5,12 @@
     var yeuCauThue = ViewBag.yeuCauThue;
     var yeuCauThueLoaiXe = ViewBag.yeuCauThueLoaiXe;
     var yeuCauThueHieuXe = ViewBag.yeuCauThueHieuXe;
+    var xacNhanEmail = "Chưa xác nhận";
+
+    if (yeuCauThue.XacNhanEmail)
+    {
+        xacNhanEmail = "Đã xác nhận !";
+    };
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -49,6 +55,11 @@
                         @*@Html.TextBoxFor(m => m.IDLoaiXe, new { @class = "form-control", @Value = yeuCauThueLoaiXe.TenLoaiXe, @readonly = true })*@
                     </div>
                     <div class="form-group f-group">
+                        <label for="">Đã xác nhận email: </label>
+                        <span style="padding-top: 6px" id="xacNhanEmail">@xacNhanEmail</span>
+                        @*@Html.TextBoxFor(m => m.IDLoaiXe, new { @class = "form-control", @Value = yeuCauThueLoaiXe.TenLoaiXe, @readonly = true })*@
+                    </div>
+                    <div class="form-group f-group">
                         <label for="">Thời gian thuê</label>
                         @Html.TextBoxFor(m => m.ThoiGianThue, new { @class = "form-control", @Value = yeuCauThue.ThoiGianThue, @readonly = true })
                         <label style="margin-left:15%" for="">Thời gian trả</label>
@@ -79,7 +90,7 @@
                     </div>
                     <div class="form-group f-group">
                         <label for="">Email</label>
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Value = yeuCauThue.Email, @readonly = true })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Value = yeuCauThue.Email, @readonly = true, @id = "emailKhach" })
                     </div>
                     <div class="form-group f-group">
                         <label for="">Yêu cầu khác</label>
@@ -89,11 +100,10 @@
 
             </div>
             <div class="area-button">
-                <input type="submit" class="btn btn-success xacnhan" value="Xác nhận yêu cầu thuê" />
+                <button class="btn btn-danger huybo" onclick="guiEmailXacNhan()" style="margin-right: 5%">Gửi email xác nhận</button>
+                <input type="submit" class="btn btn-success xacnhan" onclick="kiemTraXacNhan()" value="Xác nhận yêu cầu thuê" />
                 <button class="btn btn-danger huybo" onclick="xoaYeuCauThue(@yeuCauThue.IDYeuCau)">Xoá yêu cầu thuê</button>
             </div>
-
-
         </div>
     }
     </body>
@@ -106,6 +116,28 @@
             $.get(url, { idYeuCauThue: IDYeuCau }, function (data) {
                 alert(data);
                 window.location.replace("/Admin/YeuCauThue/");
+            });
+        }
+    }
+
+    const kiemTraXacNhan = () => {
+        if (document.getElementById("xacNhanEmail").value === "Chưa xác nhận") {
+            if (confirm('Khách chưa xác nhận email, tiếp tục ?')) {
+                console.log("tt");
+            }
+            else {
+                return;
+            }
+        }
+    }
+
+    const guiEmailXacNhan = () => {
+        if (confirm('Gửi email xác nhận cho khách ?')) {
+            var url = "/Admin/YeuCauThue/XacNhanEmail";
+            const emailKhach = document.getElementById('emailKhach').value;
+            $.get(url, { emailKhach: emailKhach }, function (data) {
+                window.location.reload();
+                alert("Gửi thành công !");
             });
         }
     }

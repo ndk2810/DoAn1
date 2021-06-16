@@ -32,9 +32,11 @@ namespace HeThongThueXe.Models
         public virtual DbSet<LOAIXE> LOAIXEs { get; set; }
         public virtual DbSet<PHANHOI> PHANHOIs { get; set; }
         public virtual DbSet<SOTHUEXE> SOTHUEXEs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
         public virtual DbSet<THONGKE> THONGKEs { get; set; }
         public virtual DbSet<THUECT> THUECTs { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<XE> XEs { get; set; }
         public virtual DbSet<YEUCAUTHUE> YEUCAUTHUEs { get; set; }
     }

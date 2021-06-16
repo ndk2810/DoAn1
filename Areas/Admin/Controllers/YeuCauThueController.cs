@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
+using System.Net.Mail;
 using HeThongThueXe.Models;
 
 namespace HeThongThueXe.Areas.Admin.Controllers
@@ -56,11 +58,34 @@ namespace HeThongThueXe.Areas.Admin.Controllers
             thue.NgayTao = yeuCauThue.NgayTao;
             thue.ThoiGianThue = yeuCauThue.ThoiGianThue;
             thue.ThoiGianTra = yeuCauThue.ThoiGianTra;
+            thue.TongTien = 0;
             thue.GhiChu = yeuCauThue.YeuCauKhac;
             thue.TinhTrangThue = "Chưa TT";
+            thue.IDLoaiXe = yeuCauThue.IDLoaiXe;
+            thue.IDHieuXe = yeuCauThue.IDHieuXe;
 
             db.SOTHUEXEs.Add(thue);
+            db.YEUCAUTHUEs.Remove(db.YEUCAUTHUEs.Find(yeuCauThue.IDYeuCau));
             db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult XacNhanEmail(string emailKhach)
+        {
+            MailMessage mm = new MailMessage("huy98796543@gmail.com", emailKhach);
+            mm.Subject = "Xác nhận yêu cầu thuê xe";
+            mm.Body = "Vui lòng click vào đường link này để xác nhận yêu cầu thuê của bạn: ";
+            mm.IsBodyHtml = false;
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            NetworkCredential nc = new NetworkCredential("tai98796543@gmail.com	", "nguyentai4$");
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = nc;
+            smtp.Send(mm);
+            ViewBag.Message = "Gửi mail thành công";
 
             return RedirectToAction("Index");
         }

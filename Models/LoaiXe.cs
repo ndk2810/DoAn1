@@ -19,6 +19,7 @@ namespace HeThongThueXe.Models
         {
             this.XEs = new HashSet<XE>();
             this.YEUCAUTHUEs = new HashSet<YEUCAUTHUE>();
+            this.SOTHUEXEs = new HashSet<SOTHUEXE>();
         }
     
         public int IDLoaiXe { get; set; }
@@ -28,11 +29,13 @@ namespace HeThongThueXe.Models
         public Nullable<decimal> GiaTheoGio { get; set; }
         public Nullable<decimal> GiaTheoNgay { get; set; }
         public Nullable<int> SoLuotThue { get; set; }
-        public byte[] HinhAnh { get; set; }
+        public string HinhAnh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<XE> XEs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YEUCAUTHUE> YEUCAUTHUEs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SOTHUEXE> SOTHUEXEs { get; set; }
     }
 }

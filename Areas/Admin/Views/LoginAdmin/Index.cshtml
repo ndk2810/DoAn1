@@ -1,4 +1,4 @@
-﻿
+﻿@model HeThongThueXe.Models.User
 @{
     Layout = null;
 }
@@ -17,25 +17,28 @@
             <p class="main__box--title">
                 <span>ADMIN WEB</span>
             </p>
-            <form class="main__box--form">
+            @using (Html.BeginForm("Index", "LoginAdmin", FormMethod.Post, new { @class = "main__box--form" }))
+            {
+                @Html.AntiForgeryToken()
+
                 <div class="form-group">
-
-                    <input type="email" class="form-control" placeholder="Tài khoản">
-
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Username)
                 </div>
                 <div class="form-group">
-
-                    <input type="password" class="form-control" placeholder="Mật khẩu">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <div class="form-group">
+                    <div class="field-validation-error">
+                        @Html.DisplayFor(m => m.LoginMessageError)
+                    </div>
                 </div>
                 <div class="main__box--click">
-
-                    <button type="submit" class="btn">@Html.ActionLink("ĐĂNG NHẬP", "Index", "YeuCauThue")</button>
-
+                    <input class="main__box--click submit" type="submit" value="ĐĂNG NHẬP" />
                 </div>
-            </form>
-
+            }
         </div>
-
     </div>
 </body>
 </html>

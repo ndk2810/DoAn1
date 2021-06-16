@@ -12223,10 +12223,10 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 /**TỰ SỬA*/
-a.nav-link.collapsed::after{
-    content:"" !important;
+a.nav-link.collapsed::after {
+    content: "" !important;
 }
+
 a.nav-link.collapsed:focus {
     color: #feee62 !important;
 }
-

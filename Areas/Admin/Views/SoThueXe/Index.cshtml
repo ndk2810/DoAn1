@@ -1,5 +1,7 @@
-﻿
+﻿@using HeThongThueXe.Models;
+
 @{
+    THUEXEEntities db = new THUEXEEntities();
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
@@ -34,9 +36,11 @@
                 <tbody>
                     @foreach (var thue in ViewBag.dsThue)
                     {
+                        var Khach = db.KHACHes.Find(thue.IDKhach);
+                        var tenKhach = Khach.TenKhach;
                         <tr>
                             <td scope="row">@thue.IDThue</td>
-                            <td>@thue.IDKhach</td>
+                            <td>@tenKhach</td>
                             <td>@thue.NgayTao</td>
                             <td>@thue.TinhTrangThue</td>
                             <td class="cot-btn">

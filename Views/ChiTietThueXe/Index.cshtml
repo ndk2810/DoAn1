@@ -22,8 +22,15 @@
                 </h3>
                 <div class="main__content--content---chitiet">
                     <div class="row">
+                        @{ 
+                            var srcHinhAnhLoaiXe = "https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/5/6/2/3/223265-6-eng-GB/Lessonia2_news_large.jpg";
+                            if (ViewBag.LoaiXe.HinhAnh != null)
+                            {
+                                srcHinhAnhLoaiXe = ViewBag.LoaiXe.HinhAnh;
+                            }
+                        }
                         <div class="col-lg-6">
-                            <img src="data:image;base64,@System.Convert.ToBase64String(ViewBag.LoaiXe.HinhAnh)" />
+                            <img src= "@srcHinhAnhLoaiXe" />
                         </div>
                         <div class="col-lg-6">
                             <table class="table-striped">

@@ -30,11 +30,15 @@ namespace HeThongThueXe.Models
         public Nullable<decimal> TongGiam { get; set; }
         public string GhiChu { get; set; }
         public string TinhTrangThue { get; set; }
+        public Nullable<int> IDLoaiXe { get; set; }
+        public Nullable<int> IDHieuXe { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual KHACH KHACH { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THUECT> THUECTs { get; set; }
+        public virtual HIEUXE HIEUXE { get; set; }
+        public virtual LOAIXE LOAIXE { get; set; }
     }
 }

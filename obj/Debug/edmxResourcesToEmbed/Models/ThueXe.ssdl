@@ -56,7 +56,7 @@
     <Property Name="GiaTheoGio" Type="money" />
     <Property Name="GiaTheoNgay" Type="money" />
     <Property Name="SoLuotThue" Type="int" />
-    <Property Name="HinhAnh" Type="varbinary(max)" />
+    <Property Name="HinhAnh" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="PHANHOI">
     <Key>
@@ -85,6 +85,18 @@
     <Property Name="TongGiam" Type="money" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="128" />
     <Property Name="TinhTrangThue" Type="nvarchar" MaxLength="10" />
+    <Property Name="IDLoaiXe" Type="int" />
+    <Property Name="IDHieuXe" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="TAIKHOAN">
     <Key>
@@ -114,6 +126,14 @@
     <Property Name="IDXe" Type="int" />
     <Property Name="Gia" Type="money" />
   </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Username" Type="nchar" MaxLength="50" />
+    <Property Name="Password" Type="nchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="XE">
     <Key>
       <PropertyRef Name="IDXe" />
@@ -140,6 +160,7 @@
     <Property Name="ThoiGianTra" Type="datetime" />
     <Property Name="YeuCauKhac" Type="nvarchar" MaxLength="128" />
     <Property Name="TrangThai" Type="bit" />
+    <Property Name="XacNhanEmail" Type="bit" />
   </EntityType>
   <Association Name="FK__HOADON__IDKhach__3E52440B">
     <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
@@ -189,6 +210,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__SOTHUEXE__IDHieu__6FE99F9F">
+    <End Role="HIEUXE" Type="Self.HIEUXE" Multiplicity="0..1" />
+    <End Role="SOTHUEXE" Type="Self.SOTHUEXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HIEUXE">
+        <PropertyRef Name="IDHieuXe" />
+      </Principal>
+      <Dependent Role="SOTHUEXE">
+        <PropertyRef Name="IDHieuXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__SOTHUEXE__IDKhac__2E1BDC42">
     <End Role="KHACH" Type="Self.KHACH" Multiplicity="0..1" />
     <End Role="SOTHUEXE" Type="Self.SOTHUEXE" Multiplicity="*" />
@@ -198,6 +231,18 @@
       </Principal>
       <Dependent Role="SOTHUEXE">
         <PropertyRef Name="IDKhach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SOTHUEXE__IDLoai__6EF57B66">
+    <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
+    <End Role="SOTHUEXE" Type="Self.SOTHUEXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="IDLoaiXe" />
+      </Principal>
+      <Dependent Role="SOTHUEXE">
+        <PropertyRef Name="IDLoaiXe" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -281,9 +326,11 @@
     <EntitySet Name="LOAIXE" EntityType="Self.LOAIXE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHANHOI" EntityType="Self.PHANHOI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SOTHUEXE" EntityType="Self.SOTHUEXE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THONGKE" EntityType="Self.THONGKE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THUECT" EntityType="Self.THUECT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="XE" EntityType="Self.XE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="YEUCAUTHUE" EntityType="Self.YEUCAUTHUE" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__HOADON__IDKhach__3E52440B" Association="Self.FK__HOADON__IDKhach__3E52440B">
@@ -302,8 +349,16 @@
       <End Role="XE" EntitySet="XE" />
       <End Role="HOADONCT" EntitySet="HOADONCT" />
     </AssociationSet>
+    <AssociationSet Name="FK__SOTHUEXE__IDHieu__6FE99F9F" Association="Self.FK__SOTHUEXE__IDHieu__6FE99F9F">
+      <End Role="HIEUXE" EntitySet="HIEUXE" />
+      <End Role="SOTHUEXE" EntitySet="SOTHUEXE" />
+    </AssociationSet>
     <AssociationSet Name="FK__SOTHUEXE__IDKhac__2E1BDC42" Association="Self.FK__SOTHUEXE__IDKhac__2E1BDC42">
       <End Role="KHACH" EntitySet="KHACH" />
+      <End Role="SOTHUEXE" EntitySet="SOTHUEXE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SOTHUEXE__IDLoai__6EF57B66" Association="Self.FK__SOTHUEXE__IDLoai__6EF57B66">
+      <End Role="LOAIXE" EntitySet="LOAIXE" />
       <End Role="SOTHUEXE" EntitySet="SOTHUEXE" />
     </AssociationSet>
     <AssociationSet Name="FK__THUECT__IDThue__30F848ED" Association="Self.FK__THUECT__IDThue__30F848ED">

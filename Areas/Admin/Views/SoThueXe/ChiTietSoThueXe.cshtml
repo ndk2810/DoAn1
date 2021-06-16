@@ -34,12 +34,13 @@
                     </div>
                     <div class="form-group f-group">
                         <label for="">Thời gian thuê</label>
+                        <input type="date" name="" id="thoiGianTra" class="form-control" min="@thue.ThoiGianThue.ToString("yyyy-MM-dd")" value="@thue.ThoiGianThue.ToString("yyyy-MM-dd")">
                         <label style="margin-left:15%" for="">Thời gian trả</label>
-                        <input type="date" name="" id="thoiGianTra" class="form-control" value="@thue.ThoiGianTra.ToShortDateString()">
+                        <input type="date" name="" id="thoiGianTra" class="form-control" min="@thue.ThoiGianTra.ToString("yyyy-MM-dd")" value="@thue.ThoiGianTra.ToString("yyyy-MM-dd")">
                     </div>
                     <div class="form-group f-group">
                         <label for="">Ghi chú</label>
-                        <textarea type="text" name="" id="" class="form-control" value="@thue.GhiChu" rows="3" readonly></textarea>
+                        <textarea type="text" name="" id="" class="form-control" rows="3">@thue.GhiChu</textarea>
                     </div>
                     <div class="form-group f-group">
                         <label for="">Tổng tiền</label>
@@ -87,7 +88,8 @@
         </div>
         <div class="area-button">
             <button class="btn btn-success xacnhan" type="submit">Lưu thay đổi</button>
-            <button class="btn btn-danger huybo" type="submit">Thanh toán</button>
+            @Html.ActionLink("Thanh toán", "FormThanhToan", "SoThueXe", new { idThue = thue.IDThue }, new { @class = "btn btn-danger huybo" })
+            @Html.ActionLink("Hợp đồng", "HopDong", "SoThueXe", new { idThue = thue.IDThue }, new { @class = "btn btn-danger huybo" })
             <button class="btn btn-danger huybo" type="submit" style="background-color: orangered" onclick="xoaThue(@thue.IDThue)">Xoá thuê</button>
         </div>
     </div>
@@ -95,12 +97,10 @@
 </html>
 
 <script>
-    document.getElementById('thoiGianThue').value = @thue.ThoiGianThue.ToShortDateString();
-    document.getElementById('thoiGianTra').value = @thue.ThoiGianThue.ToShortDateString();
-
     const tinhTienConLai = () => {
         document.getElementById('conLai').value = parseInt(document.getElementById('tongTien').value) - parseInt(document.getElementById('datCoc').value);
     }
+
     const xoaThue = (idThue) => {
         if (confirm('Xoá hoá đơn thuê này ?')) {
             var url = "/Admin/SoThueXe/XoaThue";

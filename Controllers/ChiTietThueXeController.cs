@@ -41,6 +41,7 @@ namespace HeThongThueXe.Controllers
             newYeuCauThue.ThoiGianTra = yeuCauThue.ThoiGianTra;
             newYeuCauThue.YeuCauKhac = yeuCauThue.YeuCauKhac;
             newYeuCauThue.TrangThai = false;
+            newYeuCauThue.XacNhanEmail = false;
 
             db.YEUCAUTHUEs.Add(newYeuCauThue);
             db.SaveChanges();

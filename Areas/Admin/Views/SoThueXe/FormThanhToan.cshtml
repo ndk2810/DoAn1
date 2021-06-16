@@ -1,0 +1,116 @@
+﻿@model HeThongThueXe.Models.SOTHUEXE
+ 
+@{
+    ViewBag.Title = "ThanhToan";
+    var thue = ViewBag.thue;
+    var khach = ViewBag.khach;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THANH TOÁN HOÁ ĐƠN</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Chitietyeucauthue.css" />
+    <title>ChiTietSoThue</title>
+</head>
+<body>
+    @using (Html.BeginForm("ThanhToan", "SoThueXe", FormMethod.Post))
+    {
+        <div class="b-content">
+            <div class="thongtinyeucauthue">
+                <p class="title">
+                    <span>
+                        THÔNG TIN THUÊ
+                    </span>
+                </p>
+                <div class="content__form">
+                    <form>
+                        <div class="form-group f-group">
+                            <label for="">Mã thuê</label>
+                            @Html.TextBoxFor(m => m.IDThue, new { @class = "form-control", @Value = thue.IDThue, @readonly = "true" })
+                            @*<input type="text" name="" id="" class="form-control" value="@thue.IDThue" readonly>*@
+                        </div>
+                        <div class="form-group f-group">
+                            <label for="">Ngày tạo</label>
+                            @Html.TextBoxFor(m => m.NgayTao, new { @class = "form-control", @Value = thue.NgayTao, @readonly = "true" })
+                        </div>
+                        <div class="form-group f-group">
+                            <label for="">Thời gian thuê</label>
+                            @Html.TextBoxFor(m => m.ThoiGianThue, new { @class = "form-control", @Value = thue.ThoiGianThue, @readonly = "true" })
+                            <label style="margin-left:15%" for="">Thời gian trả</label>
+                            @Html.TextBoxFor(m => m.ThoiGianTra, new { @class = "form-control", @Value = thue.ThoiGianTra, @readonly = "true" })
+                        </div>
+                        <div class="form-group f-group">
+                            <label for="">Ghi chú</label>
+                            @Html.TextBoxFor(m => m.GhiChu, new { @class = "form-control", @Value = thue.GhiChu, @readonly = "true" })
+                        </div>
+                        <div class="form-group f-group">
+                            <label for="">Tổng tiền</label>
+                            @Html.TextBoxFor(m => m.TongTien, new { @class = "form-control", @Value = Math.Ceiling(thue.TongTien), @readonly = "true", id = "tongTien" })
+                            <label style="text-align:center" for="">Gỉam</label>
+                            <input type="number" class="form-control" onchange="tinhTienConLai()" id="datCoc" value="0" min="0">
+                            <label style="text-align:center" for="">Còn lại</label>
+                            @Html.TextBoxFor(m => m.TongGiam, new { @class = "form-control", @readonly = "true", id = "conLai" })
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <hr />
+            <div class="thongtinkhachthue">
+                <p class="title" style="margin-top:25px">
+                    <span>
+                        THÔNG TIN KHÁCH THUÊ
+                    </span>
+                </p>
+                <div class="content__form">
+                    <form>
+                        <div class="form-group f-group">
+                            <label for="">Mã khách</label>
+                            @Html.TextBoxFor(m => m.IDKhach, new { @class = "form-control", @Value = thue.IDKhach, @readonly = "true" })
+                        </div>
+                        <div class="form-group f-group">
+                            <label for="">Tên khách</label>
+                            <input type="text" name="" id="" class="form-control" value="@khach.TenKhach" readonly>
+                        </div>
+                        <div class="form-group f-group">
+                            <label for="">Địa chỉ</label>
+                            <input type="text" name="" id="" class="form-control" value="@khach.DiaChi" readonly>
+                        </div>
+                        <div class="form-group f-group">
+                            <label for="">Điện thoại</label>
+                            <input type="text" name="" id="" class="form-control" value="@khach.SDT" readonly>
+                        </div>
+                        <div class="form-group f-group">
+                            <label for="">Email</label>
+                            <input type="text" name="" id="" class="form-control" value="@khach.Email" readonly>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="area-button">
+                <input class="btn btn-success xacnhan" type="submit" value="Xác nhận thanh toán" />
+            </div>
+        </div>
+    }
+    </body>
+</html>
+<script>
+    document.getElementById('conLai').value = parseInt(document.getElementById('tongTien').value) - parseInt(document.getElementById('datCoc').value); 
+
+    const tinhTienConLai = () => {
+        const tienConLai = parseInt(document.getElementById('tongTien').value) - parseInt(document.getElementById('datCoc').value);
+        if (tienConLai < 0) {
+            alert('Số tiền giảm không được lớn hơn tổng tiền !')
+            document.getElementById('datCoc').value = 0;
+        }
+        else {
+            document.getElementById('conLai').value = tienConLai;
+        }
+    }
+</script>

@@ -48,7 +48,8 @@ namespace HeThongThueXe.Areas.Admin.Controllers
             smtp.Credentials = nc;
             smtp.Send(mm);
             ViewBag.Message = "Gửi mail thành công";
-            return View();
+
+            return RedirectToAction("Index");
         }
     }
 }

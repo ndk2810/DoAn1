@@ -26,6 +26,7 @@ namespace HeThongThueXe.Models
         public Nullable<System.DateTime> ThoiGianTra { get; set; }
         public string YeuCauKhac { get; set; }
         public Nullable<bool> TrangThai { get; set; }
+        public Nullable<bool> XacNhanEmail { get; set; }
     
         public virtual HIEUXE HIEUXE { get; set; }
         public virtual LOAIXE LOAIXE { get; set; }

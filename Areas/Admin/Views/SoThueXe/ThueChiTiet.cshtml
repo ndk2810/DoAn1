@@ -1,7 +1,10 @@
 ﻿@model HeThongThueXe.Models.THUECT
+@using HeThongThueXe.Models;
 
 @{
     ViewBag.Title = "ThueChiTiet";
+
+    THUEXEEntities db = new THUEXEEntities();
 
     List<SelectListItem> listXe = new List<SelectListItem>();
     foreach (var temp in ViewBag.dsXe)
@@ -41,12 +44,9 @@
                 </span>
             </p>
             <div class="content__form">
+
                 @using (Html.BeginForm("ThemXeVaoHD", "SoThueXe", FormMethod.Post))
                 {
-                    <label for="">Loại xe</label>
-                    @Html.DropDownList("Loại xe", listLoaiXe, new { @class = "form-control", id = "select-loaiXe", onchange = "loadXe()" })
-                    <label for="">Hiệu xe</label>
-                    @Html.DropDownList("Hiệu xe", listHieuXe, new { @class = "form-control", id = "select-hieuXe", onchange = "loadXe()" })
                     <label for="">Tên xe</label>
                     @Html.DropDownListFor(m => m.IDXe, listXe, new { @class = "form-control", id = "select-Xe" })
 
@@ -68,8 +68,9 @@
             <tbody>
                 @foreach (var thueCT in ViewBag.thueCT)
                 {
+                    var tenXe = (db.XEs.Find(thueCT.IDXe)).TenXe;
                     <tr>
-                        <td>@thueCT.IDXe</td>
+                        <td>@tenXe</td>
                         <td>@thueCT.Gia</td>
                         <td class="cot-btn">
                             <button class="btn btn-secondary" onclick="xoaXe(@thueCT.IDThue, @thueCT.IDThueCT)">
@@ -85,13 +86,6 @@
 </html>
 
 <script>
-    const loadXe = () => {
-        const hieuXe = document.getElementById('select-hieuXe').value;
-        const loaiXe = document.getElementById('select-loaiXe').value;
-        //const IDThue = document.getElementById('IDThue').value;
-
-        //alert(IDThue);
-    }
     const xoaXe = (idThue, idThueCT) => {
         if (confirm('Xoá xe này khỏi hoá đơn ?')) {
             var url = "/Admin/SoThueXe/XoaXeKhoiHD";
